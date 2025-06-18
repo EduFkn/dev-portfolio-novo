@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Navbar } from './navbar';
 import { Footer } from './footer';
@@ -8,42 +8,37 @@ import { Footer } from './footer';
 export function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const mainContentRef = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(false);
 
   useEffect(() => {
-    if (mainContentRef.current) {
-      // Start with opacity 0 for fade-in effect
-      mainContentRef.current.classList.add('opacity-0', 'animate-fade-in');
-      mainContentRef.current.classList.remove('animate-fade-out');
+    // Delay content visibility to allow preloader to show
+    const contentTimer = setTimeout(() => {
+      setIsContentVisible(true);
+    }, 2500); // Should match preloader duration or slightly after
 
+    return () => clearTimeout(contentTimer);
+  }, []);
 
-      // Remove animation classes after completion to prevent re-triggering on other state changes
+  useEffect(() => {
+    if (isContentVisible && mainContentRef.current) {
+      mainContentRef.current.classList.remove('opacity-0', 'animate-fade-out');
+      mainContentRef.current.classList.add('opacity-100', 'animate-fade-in');
+      
       const animationEndHandler = () => {
         mainContentRef.current?.classList.remove('animate-fade-in');
       };
       mainContentRef.current.addEventListener('animationend', animationEndHandler);
-
-      // Force reflow / restart animation by removing and adding class
-      // This can be tricky, ensure it works as expected or simplify
-      // For simplicity, a direct class add might be enough if initial state is opacity-0
-      // via CSS for elements that need to fade in.
-      // Let's ensure the initial state opacity-0 is applied before animation.
-      requestAnimationFrame(() => {
-        if (mainContentRef.current) {
-           mainContentRef.current.classList.remove('opacity-0'); // remove this if animation handles it
-           mainContentRef.current.classList.add('opacity-100');
-        }
-      });
       
       return () => {
         mainContentRef.current?.removeEventListener('animationend', animationEndHandler);
       };
     }
-  }, [pathname]);
+  }, [pathname, isContentVisible]);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
+    <div className={`flex flex-col min-h-screen bg-background text-foreground transition-opacity duration-500 ease-in-out ${isContentVisible ? 'opacity-100' : 'opacity-0'}`}>
       <Navbar />
-      <main ref={mainContentRef} className="flex-grow pt-16 md:pt-20"> {/* Adjust pt based on Navbar height */}
+      <main ref={mainContentRef} className="flex-grow pt-16 md:pt-20 opacity-0"> {/* Initial opacity-0 for fade-in */}
         {children}
       </main>
       <Footer />

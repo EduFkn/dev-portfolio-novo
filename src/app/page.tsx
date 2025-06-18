@@ -1,16 +1,21 @@
 import { HeroSection } from '@/components/sections/hero-section';
+import { AboutSection } from '@/components/sections/about-section';
 import { SkillsSection } from '@/components/sections/skills-section';
 import { ExperienceSection } from '@/components/sections/experience-section';
-import { ProjectsShowcase } from '@/components/sections/projects-showcase'; // Import ProjectShowcase to show projects on home
+import { EducationSection } from '@/components/sections/education-section';
+import { ProjectsShowcase } from '@/components/sections/projects-showcase';
 import { TestimonialsSection } from '@/components/sections/testimonials-section';
+
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
       <SkillsSection />
-      <ProjectsShowcase /> {/* Add ProjectsShowcase here */}
+      <ProjectsShowcase />
       <ExperienceSection />
+      <EducationSection />
       <TestimonialsSection />
     </>
   );

@@ -1,10 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowDownToLine, Github, Linkedin, Mail } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
-import { ContactDialog } from '@/components/contact-dialog'; // Import the dialog
+import { ContactDialog } from '@/components/contact-dialog';
 
 export function HeroSection() {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ export function HeroSection() {
     const handleScroll = () => {
       if (bgRef.current) {
         const scrollY = window.scrollY;
-        bgRef.current.style.backgroundPositionY = `${scrollY * 0.3}px`;
+        bgRef.current.style.backgroundPositionY = `${scrollY * 0.2}px`; // Reduced parallax effect
       }
     };
 
@@ -25,42 +25,42 @@ export function HeroSection() {
   }, []);
   
   return (
-    <section id="home" className="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center text-center overflow-hidden py-10 md:py-0">
       <div 
         ref={bgRef}
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('https://placehold.co/1920x1080/1A1D21/A06CD5.png?text=.')", // Darker placeholder
+          backgroundImage: "url('https://placehold.co/1920x1080/0F1014/A06CD5.png?text=.')", // Darker placeholder
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          opacity: 0.08, // Even more subtle
+          opacity: 0.06, // Even more subtle
         }}
-        data-ai-hint="abstract tech galaxy"
+        data-ai-hint="abstract space coding"
       ></div>
       
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-3xl mx-auto">
-          <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-full overflow-hidden shadow-custom-dark border-4 border-primary transform transition-all duration-500 hover:scale-110">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="relative w-28 h-28 md:w-36 md:h-36 mx-auto mb-6 rounded-full overflow-hidden shadow-custom-dark border-4 border-primary transform transition-all duration-500 hover:scale-110">
             <Image
-              src="https://placehold.co/200x200/D8B4F1/1A1D21.png?text=EA"
+              src="https://placehold.co/200x200/D8B4F1/0F1014.png?text=EA"
               alt="Eduardo Almeida Portrait"
               layout="fill"
               objectFit="cover"
-              data-ai-hint="developer portrait man"
+              data-ai-hint="man avatar white character dark straight hair"
             />
           </div>
-          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+          <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
             <span className="block">Olá, eu sou </span>
             <span className="text-primary">Eduardo Almeida</span>
           </h1>
-          <p className="font-headline text-xl sm:text-2xl text-accent mb-6">
-            Desenvolvedor Full Stack Criando Experiências Digitais Inovadoras.
+          <p className="font-headline text-lg sm:text-xl text-accent mb-5">
+            Desenvolvedor Full Stack | Transformando Ideias em Soluções Digitais.
           </p>
-          <p className="text-lg text-foreground/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Sou um apaixonado por tecnologia e desenvolvimento de software, com foco em construir aplicações web modernas, responsivas e centradas no usuário. Transformo ideias complexas em soluções digitais elegantes e eficientes, utilizando as mais recentes tecnologias do mercado para entregar resultados de alta performance.
+          <p className="text-sm sm:text-base text-foreground/80 mb-8 max-w-xl mx-auto leading-relaxed">
+            Especialista em criar aplicações web modernas, responsivas e de alta performance. Com paixão por tecnologia e um olhar atento aos detalhes, desenvolvo desde interfaces intuitivas até sistemas backend robustos, sempre focado na melhor experiência do usuário e na entrega de valor.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-custom-dark hover:shadow-custom-hover-dark transition-all duration-300 transform hover:scale-105">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-custom-dark hover:shadow-custom-hover-dark transition-all duration-300 transform hover:scale-105 text-sm px-6 py-2.5">
               <Link href="/projects">
                 Meus Projetos
               </Link>
@@ -69,22 +69,17 @@ export function HeroSection() {
               variant="outline" 
               size="lg" 
               onClick={() => setIsContactDialogOpen(true)}
-              className="border-primary text-primary hover:bg-primary/10 hover:text-primary shadow-custom-dark hover:shadow-custom-hover-dark transition-all duration-300 transform hover:scale-105"
+              className="border-primary text-primary hover:bg-primary/10 hover:text-primary shadow-custom-dark hover:shadow-custom-hover-dark transition-all duration-300 transform hover:scale-105 text-sm px-6 py-2.5"
             >
-              Entre em Contato <Mail className="ml-2 h-5 w-5" />
+              Entre em Contato <Mail className="ml-1.5 h-4 w-4" />
             </Button>
-            {/* <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 hover:text-primary shadow-custom-dark hover:shadow-custom-hover-dark transition-all duration-300 transform hover:scale-105">
-              <a href="/resume-eduardo-almeida.pdf" download> 
-                Download CV <ArrowDownToLine className="ml-2 h-5 w-5" />
-              </a>
-            </Button> */}
           </div>
-          <div className="mt-12 flex justify-center space-x-6">
+          <div className="mt-10 flex justify-center space-x-5">
             <Link href="https://github.com/edualmeida1260" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-              <Github className="h-8 w-8 text-foreground/70 hover:text-primary transition-colors duration-300 transform hover:scale-110" />
+              <Github className="h-6 w-6 text-foreground/70 hover:text-primary transition-colors duration-300 transform hover:scale-110" />
             </Link>
             <Link href="https://linkedin.com/in/edualmeida1260" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-              <Linkedin className="h-8 w-8 text-foreground/70 hover:text-primary transition-colors duration-300 transform hover:scale-110" />
+              <Linkedin className="h-6 w-6 text-foreground/70 hover:text-primary transition-colors duration-300 transform hover:scale-110" />
             </Link>
           </div>
         </div>

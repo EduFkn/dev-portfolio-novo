@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -26,15 +27,9 @@ export function ContactDialog({ isOpen, onOpenChange, recipientEmail }: ContactD
     e.preventDefault();
     setIsSending(true);
 
-    // Simulate sending email - In a real app, this would be an API call to a serverless function or backend
-    // For now, we'll just use a mailto link as a fallback or display a success message.
-    // You would typically not handle email sending directly from the client-side for security and reliability.
-
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      // Option 1: Show success and clear form (if you had a backend)
       toast({
         title: "Mensagem Enviada!",
         description: "Obrigado por entrar em contato. Responderei em breve.",
@@ -44,11 +39,6 @@ export function ContactDialog({ isOpen, onOpenChange, recipientEmail }: ContactD
       setEmail('');
       setMessage('');
       onOpenChange(false);
-
-      // Option 2: Open mailto link as a fallback if no backend
-      // const mailtoLink = `mailto:${recipientEmail}?subject=Contato Portfolio: ${name}&body=${encodeURIComponent(message + "\n\nFrom: " + email)}`;
-      // window.open(mailtoLink, '_blank');
-      // onOpenChange(false);
 
     } catch (error) {
       toast({
@@ -63,19 +53,19 @@ export function ContactDialog({ isOpen, onOpenChange, recipientEmail }: ContactD
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[480px] bg-card border-border shadow-xl">
+      <DialogContent className="sm:max-w-[460px] bg-card border-border shadow-xl text-sm">
         <DialogHeader>
-          <DialogTitle className="flex items-center text-2xl font-headline text-primary">
-            <Mail className="mr-2 h-6 w-6" /> Entre em Contato
+          <DialogTitle className="flex items-center text-xl font-headline text-primary">
+            <Mail className="mr-2 h-5 w-5" /> Entre em Contato
           </DialogTitle>
-          <DialogDescription className="text-foreground/80">
+          <DialogDescription className="text-foreground/80 text-xs">
             Envie uma mensagem diretamente para {recipientEmail}. Responderei o mais rápido possível.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-6 py-4">
-          <div className="space-y-2">
-            <Label htmlFor="name" className="text-foreground/90 flex items-center">
-              <User className="mr-2 h-4 w-4 text-primary" />Seu Nome
+        <form onSubmit={handleSubmit} className="space-y-4 py-3">
+          <div className="space-y-1.5">
+            <Label htmlFor="name" className="text-foreground/90 flex items-center text-xs">
+              <User className="mr-1.5 h-3.5 w-3.5 text-primary" />Seu Nome
             </Label>
             <Input 
               id="name" 
@@ -84,12 +74,12 @@ export function ContactDialog({ isOpen, onOpenChange, recipientEmail }: ContactD
               value={name} 
               onChange={(e) => setName(e.target.value)} 
               required 
-              className="bg-input border-border focus:ring-primary"
+              className="bg-input border-border focus:ring-primary text-sm h-9"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-foreground/90 flex items-center">
-              <Mail className="mr-2 h-4 w-4 text-primary" />Seu Email
+          <div className="space-y-1.5">
+            <Label htmlFor="email" className="text-foreground/90 flex items-center text-xs">
+              <Mail className="mr-1.5 h-3.5 w-3.5 text-primary" />Seu Email
             </Label>
             <Input 
               id="email" 
@@ -98,12 +88,12 @@ export function ContactDialog({ isOpen, onOpenChange, recipientEmail }: ContactD
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 
               required 
-              className="bg-input border-border focus:ring-primary"
+              className="bg-input border-border focus:ring-primary text-sm h-9"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="message" className="text-foreground/90 flex items-center">
-               <MessageSquare className="mr-2 h-4 w-4 text-primary" />Sua Mensagem
+          <div className="space-y-1.5">
+            <Label htmlFor="message" className="text-foreground/90 flex items-center text-xs">
+               <MessageSquare className="mr-1.5 h-3.5 w-3.5 text-primary" />Sua Mensagem
             </Label>
             <Textarea 
               id="message" 
@@ -111,17 +101,17 @@ export function ContactDialog({ isOpen, onOpenChange, recipientEmail }: ContactD
               value={message} 
               onChange={(e) => setMessage(e.target.value)} 
               required 
-              rows={5}
-              className="bg-input border-border focus:ring-primary min-h-[120px]"
+              rows={4}
+              className="bg-input border-border focus:ring-primary min-h-[100px] text-sm"
             />
           </div>
-          <DialogFooter>
-            <Button type="button" variant="outline" onClick={() => onOpenChange(false)} className="text-foreground/80 hover:bg-muted">
+          <DialogFooter className="pt-2">
+            <Button type="button" variant="outline" size="sm" onClick={() => onOpenChange(false)} className="text-foreground/80 hover:bg-muted text-xs">
               Cancelar
             </Button>
-            <Button type="submit" disabled={isSending} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button type="submit" disabled={isSending} size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs">
               {isSending ? "Enviando..." : "Enviar Mensagem"}
-              {!isSending && <Send className="ml-2 h-4 w-4" />}
+              {!isSending && <Send className="ml-1.5 h-3.5 w-3.5" />}
             </Button>
           </DialogFooter>
         </form>

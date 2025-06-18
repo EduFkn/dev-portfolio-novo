@@ -8,33 +8,33 @@ body {
 
 @layer base {
   :root {
-    --background: 220 10% 10%; /* Darker Gray */
+    --background: 220 10% 6%; /* Even Darker Gray for a more "cyber" feel if preloader is added */
     --foreground: 0 0% 98%; /* Light text */
 
-    --card: 220 10% 15%; /* Slightly lighter than new background */
+    --card: 220 10% 12%; /* Slightly lighter than new background */
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 10% 12%; /* Similar to card or slightly darker */
+    --popover: 220 10% 10%; /* Similar to card or slightly darker */
     --popover-foreground: 0 0% 98%;
 
-    --primary: 276 58% 63%; /* Purple */
+    --primary: 276 65% 65%; /* Adjusted Purple for better contrast on darker bg */
     --primary-foreground: 0 0% 98%; /* White text on purple */
 
-    --secondary: 220 10% 22%; /* A bit lighter gray for secondary elements */
+    --secondary: 220 10% 20%; /* A bit lighter gray for secondary elements */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 10% 18%;
+    --muted: 220 10% 15%;
     --muted-foreground: 0 0% 65%; /* Softer text */
 
-    --accent: 275 70% 82%; /* Lavender */
+    --accent: 275 70% 78%; /* Lavender - slightly brighter for accent */
     --accent-foreground: 220 10% 10%; /* Dark text on lavender */
 
     --destructive: 0 72% 51%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 25%; /* Borders, slightly lighter than card */
-    --input: 220 10% 20%; /* Input background */
-    --ring: 276 58% 63%; /* Purple for focus rings */
+    --border: 220 10% 22%; /* Borders, slightly lighter than card */
+    --input: 220 10% 18%; /* Input background */
+    --ring: 276 65% 65%; /* Purple for focus rings */
 
     --radius: 0.5rem;
 
@@ -46,12 +46,12 @@ body {
 
     --sidebar-background: 220 10% 8%; /* Darker for sidebar */
     --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 276 58% 63%; /* Purple */
+    --sidebar-primary: 276 65% 65%; /* Purple */
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 275 70% 78%; /* Slightly darker Lavender for sidebar accent */
+    --sidebar-accent: 275 70% 75%; /* Slightly darker Lavender for sidebar accent */
     --sidebar-accent-foreground: 220 10% 8%;
-    --sidebar-border: 220 10% 22%;
-    --sidebar-ring: 276 58% 63%;
+    --sidebar-border: 220 10% 20%;
+    --sidebar-ring: 276 65% 65%;
   }
 
   .light {
@@ -64,7 +64,7 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 220 10% 10%;
 
-    --primary: 276 58% 63%; /* Purple */
+    --primary: 276 58% 60%; /* Purple - slightly adjusted for light theme */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 94%; /* Light gray for secondary elements */
@@ -73,7 +73,7 @@ body {
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 275 70% 82%; /* Lavender */
+    --accent: 275 70% 80%; /* Lavender - slightly adjusted for light theme */
     --accent-foreground: 220 10% 10%;
 
     --destructive: 0 84.2% 60.2%; /* Standard destructive red for light theme */
@@ -81,7 +81,7 @@ body {
 
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 276 58% 63%;
+    --ring: 276 58% 60%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -91,12 +91,12 @@ body {
 
     --sidebar-background: 0 0% 96%;
     --sidebar-foreground: 220 10% 20%;
-    --sidebar-primary: 276 58% 63%;
+    --sidebar-primary: 276 58% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 275 70% 85%;
+    --sidebar-accent: 275 70% 82%;
     --sidebar-accent-foreground: 220 10% 12%;
     --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 276 58% 63%;
+    --sidebar-ring: 276 58% 60%;
   }
 }
 
@@ -109,7 +109,7 @@ body {
     @apply transition-colors duration-300;
   }
   section {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-20; /* Slightly reduced padding for smaller feel */
   }
 }
 
@@ -174,3 +174,101 @@ body {
 .marquee-content > * {
   flex-shrink: 0;
 }
+
+/* Preloader styles */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(var(--background));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+  visibility: visible;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+}
+
+.preloader-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem; /* Reduced size */
+  font-weight: 900;
+  color: hsl(var(--primary));
+  animation: flicker 1.5s infinite alternate, glitch 3s infinite alternate-reverse;
+  margin-bottom: 1rem;
+}
+
+.preloader-text {
+  font-family: 'Courier New', Courier, monospace;
+  color: hsl(var(--accent));
+  font-size: 0.875rem; /* Reduced size */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInText 1s ease-out 0.5s forwards, typing 3s steps(30, end) 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px hsl(var(--primary-foreground)),
+      0 0 10px hsl(var(--primary-foreground)),
+      0 0 18px hsl(var(--primary-foreground)),
+      0 0 38px hsl(var(--primary)),
+      0 0 70px hsl(var(--primary));
+    opacity: 1;
+  }
+  20%, 24%, 55% { opacity: 0.8; text-shadow: none; }
+}
+
+@keyframes glitch {
+  0% { transform: skewX(0deg); }
+  5% { transform: skewX(2deg); }
+  10% { transform: skewX(-2deg); }
+  15% { transform: skewX(0deg); }
+  /* more steps for complex glitch */
+  100% { transform: skewX(0deg); }
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Skill Card custom colors if not mapped to theme */
+.skill-card-html { color: #E44D26; } /* Orange-Red */
+.skill-card-css { color: #1572B6; } /* Blue */
+.skill-card-js { color: #F7DF1E; } /* Yellow */
+.skill-card-react { color: #61DAFB; } /* Light Blue */
+.skill-card-nextjs { color: var(--foreground); } /* White/Black based on theme */
+.skill-card-ts { color: #3178C6; } /* Blue */
+.skill-card-node { color: #339933; } /* Green */
+.skill-card-tailwind { color: #06B6D4; } /* Cyan */
+.skill-card-mongo { color: #47A248; } /* Green */
+.skill-card-postgres { color: #336791; } /* Dark Blue */
+.skill-card-docker { color: #2496ED; } /* Blue */
+.skill-card-git { color: #F05032; } /* Orange-Red */
+.skill-card-github { color: var(--foreground); } /* White/Black */
+.skill-card-n8n { color: #FF4F4F; } /* Reddish */
+.skill-card-chatbot { color: #8A2BE2; } /* BlueViolet */
+
+.skill-card-tag { color: #ec4899; } /* pink-500 */
+.skill-card-bracket { color: #a1a1aa; } /* zinc-500 */
+.skill-card-value { color: #38bdf8; } /* lightBlue-400 */
+.skill-card-prop { color: #a78bfa; } /* violet-400 */

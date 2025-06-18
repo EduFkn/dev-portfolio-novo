@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
         headline: ['Poppins', 'sans-serif'], // Poppins for headlines
-        code: ['monospace'],
+        code: ['Fira Code', 'monospace'], // Added Fira Code
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -102,7 +102,38 @@ export default {
         },
         scroll: {
           '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(calc(-100% - 1rem))' }, // 1rem should match gap in .marquee-content
+          '100%': { transform: 'translateX(calc(-100% - 1rem))' }, 
+        },
+        'fade-in-down': {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        flicker: {
+          '0%, 18%, 22%, 25%, 53%, 57%, 100%': {
+            textShadow: `
+              0 0 4px hsl(var(--primary-foreground)),
+              0 0 10px hsl(var(--primary-foreground)),
+              0 0 18px hsl(var(--primary-foreground)),
+              0 0 38px hsl(var(--primary)),
+              0 0 70px hsl(var(--primary))
+            `,
+            opacity: '1',
+          },
+          '20%, 24%, 55%': { opacity: '0.8', textShadow: 'none' },
+        },
+        glitch: {
+          '0%': { transform: 'skewX(0deg)' },
+          '5%': { transform: 'skewX(2deg)' },
+          '10%': { transform: 'skewX(-2deg)' },
+          '15%': { transform: 'skewX(0deg)' },
+          '100%': { transform: 'skewX(0deg)' },
+        },
+        fadeInText: {
+          to: { opacity: '1' },
+        },
+        typing: {
+          from: { width: '0' },
+          to: { width: '100%' },
         },
       },
       animation: {
@@ -111,12 +142,17 @@ export default {
         'fade-in': 'fade-in 0.5s ease-in-out',
         'fade-out': 'fade-out 0.5s ease-in-out',
         'subtle-parallax': 'subtle-parallax linear alternate infinite',
-        'scroll': 'scroll var(--animation-duration, 20s) linear infinite',
+        'scroll': 'scroll var(--animation-duration, 40s) linear infinite',
+        'fade-in-down': 'fade-in-down 0.3s ease-out',
+        'flicker': 'flicker 1.5s infinite alternate',
+        'glitch': 'glitch 3s infinite alternate-reverse',
+        'fade-in-text': 'fadeInText 1s ease-out 0.5s forwards',
+        'typing': 'typing 3s steps(30, end) 0.5s infinite alternate',
       },
       boxShadow: {
-        'custom-light': '0 4px 6px -1px rgba(120, 120, 120, 0.1), 0 2px 4px -1px rgba(120, 120, 120, 0.06)',
-        'custom-dark': '0 4px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(160, 108, 213, 0.1)', // Gray shadow with purple hint
-        'custom-hover-dark': '0 8px 15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(160, 108, 213, 0.2)',
+        'custom-light': '0 2px 4px -1px rgba(120, 120, 120, 0.1), 0 1px 2px -1px rgba(120, 120, 120, 0.06)', // Slightly reduced
+        'custom-dark': '0 3px 8px rgba(0, 0, 0, 0.35), 0 0 15px rgba(160, 108, 213, 0.15)', // Adjusted
+        'custom-hover-dark': '0 6px 12px rgba(0, 0, 0, 0.45), 0 0 25px rgba(160, 108, 213, 0.25)', // Adjusted
       }
     },
   },
