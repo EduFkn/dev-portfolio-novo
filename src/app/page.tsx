@@ -13,7 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
-      <ProjectsShowcase />
+      <ProjectsShowcase /> {/* This already acts as the projects section */}
       <ExperienceSection />
       <EducationSection />
       <TestimonialsSection />

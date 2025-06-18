@@ -28,7 +28,7 @@ export function Footer() {
           &copy; {currentYear} Eduardo Almeida. Todos os direitos reservados.
         </p>
         <p className="text-xs mt-1.5">
-          Construído com <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Next.js</Link> e <Link href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Tailwind CSS</Link>.
+          Feito com <span role="img" aria-label="coração">❤️</span> usando <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Next.js</Link> e <Link href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Tailwind CSS</Link>.
         </p>
       </div>
     </footer>

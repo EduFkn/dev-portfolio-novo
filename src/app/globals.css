@@ -8,22 +8,22 @@ body {
 
 @layer base {
   :root {
-    --background: 220 10% 6%; /* Even Darker Gray for a more "cyber" feel if preloader is added */
+    --background: 220 10% 4%; /* Even Darker Gray for a more "cyber" feel */
     --foreground: 0 0% 98%; /* Light text */
 
-    --card: 220 10% 12%; /* Slightly lighter than new background */
+    --card: 220 10% 10%; /* Slightly lighter than new background */
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 10% 10%; /* Similar to card or slightly darker */
+    --popover: 220 10% 8%; /* Similar to card or slightly darker */
     --popover-foreground: 0 0% 98%;
 
     --primary: 276 65% 65%; /* Adjusted Purple for better contrast on darker bg */
     --primary-foreground: 0 0% 98%; /* White text on purple */
 
-    --secondary: 220 10% 20%; /* A bit lighter gray for secondary elements */
+    --secondary: 220 10% 18%; /* A bit lighter gray for secondary elements */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 10% 15%;
+    --muted: 220 10% 12%;
     --muted-foreground: 0 0% 65%; /* Softer text */
 
     --accent: 275 70% 78%; /* Lavender - slightly brighter for accent */
@@ -32,8 +32,8 @@ body {
     --destructive: 0 72% 51%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 22%; /* Borders, slightly lighter than card */
-    --input: 220 10% 18%; /* Input background */
+    --border: 220 10% 20%; /* Borders, slightly lighter than card */
+    --input: 220 10% 16%; /* Input background */
     --ring: 276 65% 65%; /* Purple for focus rings */
 
     --radius: 0.5rem;
@@ -109,7 +109,7 @@ body {
     @apply transition-colors duration-300;
   }
   section {
-    @apply py-12 md:py-20; /* Slightly reduced padding for smaller feel */
+    @apply py-16 md:py-24; /* Increased padding between sections */
   }
 }
 
@@ -251,12 +251,12 @@ body {
   to { width: 100% }
 }
 
-/* Skill Card custom colors if not mapped to theme */
+/* Skill Card specific colors for text */
 .skill-card-html { color: #E44D26; } /* Orange-Red */
 .skill-card-css { color: #1572B6; } /* Blue */
 .skill-card-js { color: #F7DF1E; } /* Yellow */
 .skill-card-react { color: #61DAFB; } /* Light Blue */
-.skill-card-nextjs { color: var(--foreground); } /* White/Black based on theme */
+.skill-card-nextjs { color: hsl(var(--foreground)); } /* White/Black based on theme */
 .skill-card-ts { color: #3178C6; } /* Blue */
 .skill-card-node { color: #339933; } /* Green */
 .skill-card-tailwind { color: #06B6D4; } /* Cyan */
@@ -264,11 +264,22 @@ body {
 .skill-card-postgres { color: #336791; } /* Dark Blue */
 .skill-card-docker { color: #2496ED; } /* Blue */
 .skill-card-git { color: #F05032; } /* Orange-Red */
-.skill-card-github { color: var(--foreground); } /* White/Black */
+.skill-card-github { color: hsl(var(--foreground)); } /* White/Black */
 .skill-card-n8n { color: #FF4F4F; } /* Reddish */
-.skill-card-chatbot { color: #8A2BE2; } /* BlueViolet */
+.skill-card-chatbots { color: #8A2BE2; } /* BlueViolet */
 
+
+/* Skill Card syntax highlighting style */
 .skill-card-tag { color: #ec4899; } /* pink-500 */
 .skill-card-bracket { color: #a1a1aa; } /* zinc-500 */
 .skill-card-value { color: #38bdf8; } /* lightBlue-400 */
 .skill-card-prop { color: #a78bfa; } /* violet-400 */
+
+/* For horizontal scroll in skills section */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
