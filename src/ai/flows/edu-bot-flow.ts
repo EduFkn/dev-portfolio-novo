@@ -5,34 +5,35 @@
  *
  * - eduBotFlow - An async function that invokes the Genkit-defined chatbot flow.
  * - EduBotFlowInput - The input type for the eduBotFlow function.
- * - EduBotFlowOutput - The return type for the eduBotFlow function.
+ * - EduBotFlowOutput - The return type for the eduBotFlowOutput function.
  */
 
 import {ai} from '@/ai/genkit';
 import {MessageData, Role} from 'genkit/model';
 import {z} from 'genkit';
 
-// System Prompt for Edu (image part removed as image input is currently disabled in this version)
+// System Prompt for Edu
 const SystemPrompt = `Você é o Edu, 21 anos, dev full stack, responde com sarcasmo, praticidade, foco em benefício para quem lê, sem formalidade.`;
 
-// Schema for individual parts of a chat message (text only for now)
+// Schema for individual parts of a chat message
 const ChatMessagePartSchema = z.object({
   text: z.string().optional(),
-  // imageDataUri: z.string().optional().describe("A data URI of an image (e.g., 'data:image/jpeg;base64,...'). Max 4MB."), // Image input disabled for now
+  // imageDataUri: z.string().optional().describe("A data URI of an image (e.g., 'data:image/jpeg;base64,...'). Max 4MB."), // Image input disabled
 });
 
-// Schema for a single chat message (user, model, or system)
+// Schema for a single chat message
 const ChatMessageSchema = z.object({
   role: z.enum(['user', 'model', 'system']),
   parts: z.array(ChatMessagePartSchema),
 });
 
-// Input schema for the Genkit flow (imageDataUri removed)
+// Input schema for the Genkit flow
 const EduBotFlowInputSchema = z.object({
   message: z.string().describe('The current user message.'),
   history: z.array(ChatMessageSchema.extend({
-    role: z.enum(['user', 'model']) 
+    role: z.enum(['user', 'model'])
   })).optional().describe('The conversation history.'),
+  // imageDataUri: z.string().optional().describe("A data URI of an image to send with the message. Max 4MB."), // Image input disabled
 });
 export type EduBotFlowInput = z.infer<typeof EduBotFlowInputSchema>;
 
@@ -54,9 +55,9 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
     // Prepare history for Genkit: map and filter empty parts
     const genkitHistory: MessageData[] = (input.history || [])
       .map(hMsg => ({
-        role: hMsg.role as Role, 
+        role: hMsg.role as Role, // Ensure role is 'user' or 'model' as expected by Genkit
         content: hMsg.parts
-          .map(part => ({ text: (part.text || "").trim() })) 
+          .map(part => ({ text: (part.text || "").trim() })) // Trim text
           .filter(p => p.text !== ''), // Filter out empty text parts
       }))
       .filter(msg => msg.content.length > 0); // Filter out messages with no content parts
@@ -66,7 +67,7 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
     if (input.message && input.message.trim() !== "") {
       currentUserContent.push({ text: input.message.trim() });
     }
-    
+
     // If no text in the current message, return a specific response
     if (currentUserContent.length === 0) {
         console.log('DEBUG: No content in current user message.');
@@ -74,7 +75,7 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
     }
 
     const messagesToModel: MessageData[] = [
-      { role: 'system', content: [{text: SystemPrompt}] }, 
+      { role: 'system', content: [{text: SystemPrompt}] },
       ...genkitHistory,
       { role: 'user', content: currentUserContent },
     ];
@@ -83,8 +84,8 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
       console.log('DEBUG: Sending to ai.generate (Google AI). Messages:', JSON.stringify(messagesToModel, null, 2));
 
       const result = await ai.generate({
-        model: 'googleai/gemini-1.5-flash-latest', // Using Google AI model
-        prompt: messagesToModel,
+        model: 'googleai/gemini-1.5-flash-latest',
+        prompt: messagesToModel, // Pass the array of MessageData directly
         config: {
           // Example safety settings for Google AI (adjust as needed)
           safetySettings: [
@@ -108,9 +109,9 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
             }
           }
         }
-        
+
         // Handle cases where generation might have failed or been blocked
-        if (!responseText.trim() && firstCandidate.finishReason && firstCandidate.finishReason !== 'STOP') { 
+        if (!responseText.trim() && firstCandidate.finishReason && firstCandidate.finishReason !== 'STOP') {
            // For Google AI, 'SAFETY' is a common reason for blocked content.
            if (firstCandidate.finishReason === 'SAFETY') {
               console.warn('DEBUG: Response blocked due to SAFETY finishReason (Google AI).');
@@ -126,8 +127,8 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
 
     } catch (error: any) {
       console.error('ERROR in eduBotGenkitLogicFlow (ai.generate call with Google AI):', error);
-      // Log the full error for better server-side debugging
-      // console.error('Full error object:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
+      // Log the full error object for better server-side debugging.
+      console.error('Full error object for Google AI failure:', JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
       return { answer: "Desculpe, tive um probleminha para processar sua mensagem com o assistente. Tente de novo, por favor. 🛠️" };
     }
   }
