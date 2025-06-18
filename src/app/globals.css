@@ -8,34 +8,34 @@ body {
 
 @layer base {
   :root {
-    /* Dark Theme (Default) - More Black/Gray, Less Purple */
-    --background: 220 10% 4%; /* Dark Gray */
-    --foreground: 0 0% 90%; /* Lighter Gray text for better contrast */
+    /* Original Purple/Dark Theme */
+    --background: 240 10% 3.9%; /* Dark Blue/Almost Black */
+    --foreground: 0 0% 98%; /* White text */
 
-    --card: 220 10% 8%; /* Slightly lighter than background */
-    --card-foreground: 0 0% 90%;
+    --card: 240 10% 6%; /* Slightly lighter dark blue */
+    --card-foreground: 0 0% 95%;
 
-    --popover: 220 10% 6%; /* Darker popover */
-    --popover-foreground: 0 0% 90%;
+    --popover: 240 10% 4%; /* Darker popover */
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 220 10% 75%; /* Light Gray for primary elements */
-    --primary-foreground: 220 10% 10%; /* Dark text on light gray primary */
+    --primary: 260 70% 65%; /* Vibrant Purple */
+    --primary-foreground: 0 0% 98%; /* White text on purple */
 
-    --secondary: 220 10% 15%; /* Darker Gray for secondary elements */
-    --secondary-foreground: 0 0% 85%;
+    --secondary: 240 5% 12%; /* Darker Gray-Blue */
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 220 10% 12%;
-    --muted-foreground: 0 0% 55%; /* Softer muted text */
+    --muted: 240 5% 10%;
+    --muted-foreground: 0 0% 60%; /* Softer muted text */
 
-    --accent: 220 10% 50%; /* Medium Gray for accents */
-    --accent-foreground: 0 0% 98%; /* Light text on medium gray accent */
+    --accent: 270 60% 70%; /* Lighter, slightly desaturated Purple/Pink */
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 60% 50%; /* Standard destructive red */
+    --destructive: 0 70% 50%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 18%; /* Slightly lighter border */
-    --input: 220 10% 10%; /* Input background */
-    --ring: 220 10% 60%; /* Ring color - a lighter gray */
+    --border: 240 5% 15%; /* Slightly lighter border */
+    --input: 240 5% 8%; /* Input background */
+    --ring: 260 70% 75%; /* Ring color - a lighter purple */
 
     --radius: 0.5rem;
 
@@ -45,44 +45,45 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    --sidebar-background: 220 10% 7%;
-    --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 220 10% 65%; /* Lighter Gray for sidebar primary */
-    --sidebar-primary-foreground: 220 10% 10%;
-    --sidebar-accent: 220 10% 45%; /* Medium Gray for sidebar accent */
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 260 70% 60%; /* Sidebar primary purple */
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 270 60% 65%; /* Sidebar accent purple/pink */
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 10% 15%;
-    --sidebar-ring: 220 10% 55%;
+    --sidebar-border: 240 5% 12%;
+    --sidebar-ring: 260 70% 70%;
   }
 
   .light {
-    --background: 0 0% 98%; /* Very light gray / white */
-    --foreground: 220 10% 10%; /* Dark text */
+    /* Light Theme - keeping it simple and mostly inverted from dark */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
 
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 220 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 10%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 220 20% 30%; /* Darker Gray for primary in light mode */
-    --primary-foreground: 0 0% 98%; /* White text on dark gray primary */
+    --primary: 260 65% 55%; /* Darker purple for light mode */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 94%; /* Light gray for secondary elements */
-    --secondary-foreground: 220 10% 10%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 240 10% 3.9%;
 
     --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 220 15% 50%; /* Medium Gray for accents in light mode */
-    --accent-foreground: 0 0% 98%; /* Light text on accent */
+    --accent: 270 55% 60%; /* Slightly adjusted accent for light mode */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 89.8%;
-    --input: 0 0% 92%; /* Slightly lighter input for light mode */
-    --ring: 220 20% 40%; /* Ring color for light mode */
+    --input: 0 0% 92%;
+    --ring: 260 65% 65%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -91,13 +92,13 @@ body {
     --chart-5: 340 75% 55%;
 
     --sidebar-background: 0 0% 96%;
-    --sidebar-foreground: 220 10% 20%;
-    --sidebar-primary: 220 20% 35%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 260 65% 50%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 15% 55%;
+    --sidebar-accent: 270 55% 55%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 220 20% 45%;
+    --sidebar-ring: 260 65% 60%;
   }
 }
 
@@ -110,7 +111,7 @@ body {
     @apply transition-colors duration-300;
   }
   section {
-    @apply py-20 md:py-28; /* Increased padding between sections */
+    @apply py-16 md:py-24 lg:py-28; /* Increased padding between sections */
   }
 }
 
@@ -286,8 +287,8 @@ body {
 
 /* Skill Progress Bar specific styles */
 .skill-progress-bar {
-  @apply h-2 w-full rounded-full mt-1.5 bg-opacity-10;
-  background-color: rgba(var(--muted-rgb), 0.1); /* Using muted color with opacity */
+  @apply h-2 w-full rounded-full mt-1.5;
+  background-color: hsl(var(--muted) / 0.3); /* Using muted color with opacity */
 }
 .skill-progress-per {
   @apply relative block h-full rounded-full;
@@ -318,17 +319,49 @@ body {
 }
 
 /* Ensure --muted-rgb is defined (example if not directly in :root) */
+/* These are not strictly necessary if hsl(var(--muted) / 0.3) works directly */
+/*
 :root {
-  /* Assuming --muted: 220 10% 12%; */
-  --muted-rgb: 28, 30, 36; /* RGB for 220 10% 12% for fallback */
+  --muted-rgb: 24, 25, 28; 
 }
 .light {
-  /* Assuming --muted: 0 0% 90%; */
-  --muted-rgb: 230, 230, 230; /* RGB for 0 0% 90% for fallback */
+  --muted-rgb: 230, 230, 230; 
 }
+*/
 
 /* Ensure primary HSL is available for JS if needed, though CSS vars are preferred */
 html {
   --primary-hsl: var(--primary); 
 }
 
+/* Mobile menu animation */
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-down {
+  animation: fade-in-down 0.3s ease-out forwards;
+}
+
+/* Custom shadow for navbar */
+.shadow-custom-dark {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 0 15px hsl(var(--primary) / 0.1);
+}
+.shadow-custom-hover-dark {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 0 25px hsl(var(--primary) / 0.2);
+}
+
+/* Custom fade in for ClientLayoutWrapper main content */
+@keyframes fade-in-content {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-content {
+  animation: fade-in-content 0.5s ease-out forwards;
+}

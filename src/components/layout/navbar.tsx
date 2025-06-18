@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggleButton } from '@/components/ui/theme-toggle-button';
 import { cn } from '@/lib/utils';
-import { Aperture, Mail, Menu, Music2, X as CloseIcon, Globe } from 'lucide-react';
+import { Aperture, Mail, Menu, X as CloseIcon } from 'lucide-react'; // Globe and Music2 removed
 import React, { useState, useEffect } from 'react';
 import { ContactDialog } from '@/components/contact-dialog';
-import { MusicDialog } from '@/components/music-dialog';
+// MusicDialog import removed
 import { Button } from '@/components/ui/button';
 import { useI18n } from '@/hooks/use-i18n';
 import {
@@ -17,6 +17,28 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+// Simplified SVG Flag Icons
+const BrazilFlagIcon = () => (
+  <svg width="22" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="20" height="14" fill="#009B3A"/>
+    <path d="M10 3.5L16.5 7L10 10.5L3.5 7L10 3.5Z" fill="#FEDF00"/>
+    <circle cx="10" cy="7" r="2.5" fill="#002776"/>
+  </svg>
+);
+
+const USUKFlagIcon = () => ( // Generic English/US flag
+  <svg width="22" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="20" height="14" fill="#0A3161"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M0 0H20V1.5H0V0ZM0 3H20V4.5H0V3ZM0 6H20V7.5H0V6ZM0 9H20V10.5H0V9ZM0 12H20V13.5H0V12Z" fill="white"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M0 0V1.5H20V0H0ZM0 3V4.5H20V3H0ZM0 6V7.5H20V6H0ZM0 9V10.5H20V9H0ZM0 12V13.5H20V12H0Z" stroke="#BF0A30" strokeWidth="0.5"/>
+    <rect width="10" height="7" fill="#0A3161"/>
+    <path d="M1.5 1.5L3.5 2.5L2.5 0.5L1.5 2.5L0.5 0.5L1.5 1.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
+    <path d="M5.5 1.5L7.5 2.5L6.5 0.5L5.5 2.5L4.5 0.5L5.5 1.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
+    <path d="M1.5 4.5L3.5 5.5L2.5 3.5L1.5 5.5L0.5 3.5L1.5 4.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
+    <path d="M5.5 4.5L7.5 5.5L6.5 3.5L5.5 5.5L4.5 3.5L5.5 4.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
+  </svg>
+);
 
 
 export function Navbar() {
@@ -33,7 +55,7 @@ export function Navbar() {
   ];
 
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
-  const [isMusicDialogOpen, setIsMusicDialogOpen] = React.useState(false);
+  // isMusicDialogOpen state removed
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState('');
 
@@ -58,26 +80,25 @@ export function Navbar() {
   const handleNavLinkClick = (hash?: string) => {
     setIsMobileMenuOpen(false);
     if (hash && hash.startsWith('/#')) {
-      const elementId = hash.substring(2); // Remove '/#'
+      const elementId = hash.substring(2); 
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        // Manually update hash for active state, as scrollIntoView might not trigger hashchange immediately
         if (typeof window !== 'undefined') {
           window.location.hash = elementId; 
         }
       }
     } else if (hash === '/') {
         if (typeof window !== 'undefined') {
-         window.location.hash = ''; // Clear hash for home
+         window.location.hash = ''; 
         }
     }
   };
   
   const isNavItemActive = (itemHref: string) => {
-    const cleanPathname = pathname === '/' && currentHash === '' ? '/' : `/${currentHash}`;
-    if (itemHref === '/') return cleanPathname === '/';
-    return itemHref === `/${currentHash}`;
+    const cleanPathnameWithHash = pathname === '/' && currentHash === '' ? '/' : (currentHash ? `/${currentHash}`: pathname);
+    if (itemHref === '/') return cleanPathnameWithHash === '/';
+    return itemHref === cleanPathnameWithHash || itemHref === `/#${currentHash.replace(/^#/, '')}`;
   };
   
 
@@ -89,7 +110,7 @@ export function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300" onClick={() => handleNavLinkClick('/')}>
                 <Aperture className="h-7 w-7 md:h-8 md:w-8" />
-                <span className="font-headline text-xl md:text-2xl font-bold">EduardoDev</span>
+                <span className="font-headline text-xl md:text-2xl font-bold">{t('nav.brand')}</span>
               </Link>
             </div>
             
@@ -119,28 +140,20 @@ export function Navbar() {
                 >
                   {t('nav.contact')} <Mail className="ml-1.5 h-3.5 w-3.5 lg:h-4 lg:w-4"/>
                </Button>
-               <Button 
-                  variant="ghost" 
-                  size="icon"
-                  onClick={() => setIsMusicDialogOpen(true)}
-                  className="text-foreground/80 hover:text-primary hover:bg-primary/10"
-                  aria-label={t('nav.musicSuggestionLabel')}
-                >
-                  <Music2 className="h-5 w-5 lg:h-5 lg:w-5"/>
-               </Button>
+               {/* Music button removed */}
               <ThemeToggleButton />
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10" aria-label={t('nav.languageLabel')}>
-                    <Globe className="h-5 w-5" />
+                    {currentLanguage === 'pt' ? <BrazilFlagIcon /> : <USUKFlagIcon />}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-card border-border shadow-lg text-sm">
-                  <DropdownMenuItem onClick={() => changeLanguage('pt')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'pt' && "bg-muted font-semibold")}>
-                    Português (BR)
+                <DropdownMenuContent align="end" className="bg-card border-border shadow-lg text-sm min-w-[120px]">
+                  <DropdownMenuItem onClick={() => changeLanguage('pt')} className={cn("cursor-pointer hover:bg-muted flex items-center gap-2", currentLanguage === 'pt' && "bg-muted font-semibold")}>
+                    <BrazilFlagIcon /> {t('nav.langPt')}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => changeLanguage('en')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'en' && "bg-muted font-semibold")}>
-                    English (US)
+                  <DropdownMenuItem onClick={() => changeLanguage('en')} className={cn("cursor-pointer hover:bg-muted flex items-center gap-2", currentLanguage === 'en' && "bg-muted font-semibold")}>
+                    <USUKFlagIcon /> {t('nav.langEn')}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -151,33 +164,25 @@ export function Navbar() {
                   variant="ghost" 
                   size="icon"
                   onClick={() => setIsContactDialogOpen(true)}
-                  className="text-foreground/80 hover:text-primary hover:bg-primary/10 mr-1"
+                  className="text-foreground/80 hover:text-primary hover:bg-primary/10 mr-0.5"
                   aria-label={t('nav.contactLabel')}
                 >
                   <Mail className="h-5 w-5"/>
                </Button>
-               <Button 
-                  variant="ghost" 
-                  size="icon"
-                  onClick={() => setIsMusicDialogOpen(true)}
-                  className="text-foreground/80 hover:text-primary hover:bg-primary/10 mr-1"
-                  aria-label={t('nav.musicSuggestionLabel')}
-                >
-                  <Music2 className="h-5 w-5"/>
-               </Button>
+               {/* Music button removed for mobile */}
               <ThemeToggleButton />
                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 ml-1" aria-label={t('nav.languageLabel')}>
-                    <Globe className="h-5 w-5" />
+                  <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 ml-0.5" aria-label={t('nav.languageLabel')}>
+                     {currentLanguage === 'pt' ? <BrazilFlagIcon /> : <USUKFlagIcon />}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-card border-border shadow-lg text-sm">
-                   <DropdownMenuItem onClick={() => changeLanguage('pt')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'pt' && "bg-muted font-semibold")}>
-                    Português (BR)
+                <DropdownMenuContent align="end" className="bg-card border-border shadow-lg text-sm min-w-[120px]">
+                   <DropdownMenuItem onClick={() => changeLanguage('pt')} className={cn("cursor-pointer hover:bg-muted flex items-center gap-2", currentLanguage === 'pt' && "bg-muted font-semibold")}>
+                     <BrazilFlagIcon /> {t('nav.langPt')}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => changeLanguage('en')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'en' && "bg-muted font-semibold")}>
-                    English (US)
+                  <DropdownMenuItem onClick={() => changeLanguage('en')} className={cn("cursor-pointer hover:bg-muted flex items-center gap-2", currentLanguage === 'en' && "bg-muted font-semibold")}>
+                     <USUKFlagIcon /> {t('nav.langEn')}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -185,7 +190,7 @@ export function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="ml-2 text-foreground/80 hover:text-primary hover:bg-primary/10"
+                className="ml-1 text-foreground/80 hover:text-primary hover:bg-primary/10"
                 aria-label={t('nav.toggleMobileMenuLabel')}
               >
                 {isMobileMenuOpen ? <CloseIcon className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -219,7 +224,7 @@ export function Navbar() {
         )}
       </nav>
       <ContactDialog isOpen={isContactDialogOpen} onOpenChange={setIsContactDialogOpen} recipientEmail="edualmeida1260@gmail.com" />
-      <MusicDialog isOpen={isMusicDialogOpen} onOpenChange={setIsMusicDialogOpen} />
+      {/* MusicDialog instance removed */}
     </>
   );
 }

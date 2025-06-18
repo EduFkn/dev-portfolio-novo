@@ -9,9 +9,11 @@
     "education": "Formação",
     "contact": "Contato",
     "contactLabel": "Abrir formulário de contato",
-    "musicSuggestionLabel": "Sugestão de Música",
     "languageLabel": "Mudar idioma",
-    "toggleMobileMenuLabel": "Alternar menu móvel"
+    "toggleMobileMenuLabel": "Alternar menu móvel",
+    "brand": "EduardoDev",
+    "langPt": "Português (BR)",
+    "langEn": "Inglês (US)"
   },
   "hero": {
     "greeting": "Olá, eu sou",
@@ -22,19 +24,13 @@
     "contactButton": "Entre em Contato",
     "portraitAlt": "Retrato de Eduardo Almeida"
   },
-  "musicDialog": {
-    "title": "Trilha Sonora Anos 90",
-    "description": "Que tal curtir um som nostálgico enquanto navega? Aqui algumas sugestões de playlists dos anos 90 no YouTube!",
-    "openInNewTab": "Clique em uma playlist para abrir no YouTube em uma nova aba.",
-    "closeButton": "Fechar"
-  },
   "contactDialog": {
     "title": "Entre em Contato",
     "description": "Envie uma mensagem diretamente para {{recipientEmail}}. Responderei o mais rápido possível.",
     "yourNameLabel": "Seu Nome",
-    "yourNamePlaceholder": "John Doe",
+    "yourNamePlaceholder": "Fulano de Tal",
     "yourEmailLabel": "Seu Email",
-    "yourEmailPlaceholder": "john.doe@example.com",
+    "yourEmailPlaceholder": "fulano.tal@exemplo.com",
     "yourMessageLabel": "Sua Mensagem",
     "yourMessagePlaceholder": "Olá, gostaria de falar sobre...",
     "cancelButton": "Cancelar",
@@ -45,6 +41,115 @@
     "errorTitle": "Erro ao Enviar",
     "errorDescription": "Houve um problema ao enviar sua mensagem. Tente novamente."
   },
+  "about": {
+    "title": "Sobre",
+    "titleHighlight": "Mim",
+    "name": "Eduardo Almeida",
+    "intro": "Desenvolvedor Full Stack apaixonado por criar soluções digitais inovadoras e experiências de usuário memoráveis. Com um olhar atento aos detalhes e uma busca constante por aprendizado, transformo ideias em realidade através da tecnologia.",
+    "journey": "Minha trajetória é marcada pela dedicação em construir aplicações web robustas, escaláveis e eficientes, utilizando as melhores práticas e as mais recentes tecnologias do mercado.",
+    "specialization": "Especializado em desenvolvimento front-end com React e Next.js, e back-end com Node.js, também possuo experiência com bancos de dados como MongoDB e PostgreSQL, além de ferramentas de DevOps como Docker e Git/GitHub.",
+    "interests": "Além do desenvolvimento tradicional, tenho um forte interesse em automação de processos (N8N) e na criação de chatbots inteligentes para otimizar interações e fluxos de trabalho.",
+    "philosophy": "Fora do código, gosto de explorar novas tecnologias, contribuir para projetos open-source e me manter atualizado com as últimas tendências do setor. Acredito que a colaboração e a troca de conhecimento são fundamentais para o crescimento profissional e pessoal.",
+    "contactButton": "Fale Comigo",
+    "downloadCvButton": "Download CV",
+    "mapTitle": "Localização no Mapa",
+    "location": "Campos dos Goytacazes, RJ, Brasil"
+  },
+  "skills": {
+    "title": "Minhas",
+    "titleHighlight": "Habilidades",
+    "scrollHintMobile": "Arraste para ver mais habilidades →",
+    "html": {"detail1": "Estrutura semântica", "detail2": "Acessibilidade", "detail3": "Formulários"},
+    "css": {"detail1": "Flexbox & Grid", "detail2": "Animações", "detail3": "Design Responsivo"},
+    "js": {"detail1": "ES6+ Moderno", "detail2": "DOM API", "detail3": "Async/Await"},
+    "ts": {"detail1": "Tipagem Estática", "detail2": "Interfaces", "detail3": "Generics"},
+    "react": {"detail1": "Componentização", "detail2": "Hooks", "detail3": "Context API"},
+    "tailwind": {"detail1": "Utility-First", "detail2": "Compilação JIT", "detail3": "Customização"},
+    "node": {"detail1": "APIs RESTful", "detail2": "Express.js", "detail3": "Async I/O"},
+    "mongo": {"detail1": "NoSQL", "detail2": "Documentos BSON", "detail3": "Mongoose"},
+    "postgres": {"detail1": "SQL Relacional", "detail2": "Transações ACID", "detail3": "Sequelize"},
+    "docker": {"detail1": "Conteinerização", "detail2": "Docker Compose", "detail3": "Imagens"},
+    "git": {"detail1": "Controle de Versão", "detail2": "Branching", "detail3": "Merge"},
+    "github": {"detail1": "Repositórios", "detail2": "Pull Requests", "detail3": "Actions (CI/CD)"},
+    "n8n": {"detail1": "Automação", "detail2": "Workflows Visuais", "detail3": "Integrações"},
+    "chatbots": {"detail1": "NLP Básico", "detail2": "Dialogflow/Rasa", "detail3": "APIs de Mensagens"}
+  },
+  "projects": {
+    "title": "Meus",
+    "titleHighlight": "Projetos",
+    "noProjectsFound": "Nenhum projeto encontrado para esta categoria.",
+    "categories": {
+      "all": "Todos",
+      "systems": "Sistemas",
+      "automations": "Automações",
+      "landingPages": "Landing Pages"
+    },
+    "techLabel": "Tecnologias:",
+    "demoButton": "Demo",
+    "repoButton": "Repositório",
+    "ecommerce": {
+      "title": "Plataforma E-commerce",
+      "description": "Plataforma de e-commerce com React, Node.js, e MongoDB para gerenciamento de produtos e vendas."
+    },
+    "taskApp": {
+      "title": "App de Gerenciamento de Tarefas",
+      "description": "Aplicativo colaborativo de gerenciamento de tarefas com atualizações em tempo real."
+    },
+    "portfolio": {
+      "title": "Website Portfolio Pessoal",
+      "description": "Este próprio site de portfólio, construído com as tecnologias mais recentes para uma experiência visual moderna."
+    },
+    "chatbot": {
+      "title": "Chatbot de Atendimento",
+      "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria."
+    },
+    "bookingSystem": {
+      "title": "Sistema de Reservas Simplificado",
+      "description": "Plataforma para gerenciamento de reservas e clientes, ideal para pequenas pousadas ou serviços."
+    },
+    "startupLp": {
+      "title": "Landing Page para Startup",
+      "description": "Página de destino moderna e otimizada para conversão para uma startup de tecnologia."
+    },
+    "n8nReports": {
+      "title": "Automação de Relatórios com N8N",
+      "description": "Workflow N8N para automatizar a geração e envio de relatórios periódicos via e-mail."
+    }
+  },
+  "experience": {
+    "title": "Experiência",
+    "titleHighlight": "Profissional",
+    "job1": {
+      "role": "Desenvolvedor Full Stack Sênior",
+      "company": "Tech Solutions Inc.",
+      "duration": "Jan 2022 - Presente",
+      "description": "Liderei o desenvolvimento de funcionalidades chave para uma plataforma SaaS, mentorei desenvolvedores juniores e melhorei a performance da aplicação em 20%. Trabalhei extensivamente com Next.js, Node.js e PostgreSQL.",
+      "task1": "Projetei e implementei microsserviços escaláveis.",
+      "task2": "Colaborei com equipes multifuncionais para definir requisitos de projeto.",
+      "task3": "Conduzi revisões de código e mantive padrões de qualidade de código.",
+      "task4": "Integrei APIs e serviços de terceiros."
+    },
+    "job2": {
+      "role": "Engenheiro de Software",
+      "company": "Web Wizards LLC",
+      "duration": "Jun 2019 - Dez 2021",
+      "description": "Desenvolvi e mantive websites e aplicações web para clientes utilizando React, Express e MongoDB. Contribuí para o design UI/UX e otimizei a performance web.",
+      "task1": "Construí interfaces de usuário responsivas com React e Tailwind CSS.",
+      "task2": "Desenvolvi APIs RESTful para diversos projetos de clientes.",
+      "task3": "Participei de ciclos de desenvolvimento ágil e planejamento de sprints.",
+      "task4": "Forneci suporte técnico e correções de bugs para aplicações existentes."
+    },
+    "job3": {
+      "role": "Desenvolvedor Web Júnior",
+      "company": "Startup Visionária",
+      "duration": "Mar 2018 - Mai 2019",
+      "description": "Auxiliei no desenvolvimento de um MVP para uma startup inovadora, focando em tecnologias front-end e aprendendo rapidamente sobre o ciclo de vida de desenvolvimento de software.",
+      "task1": "Desenvolvimento de componentes UI com HTML, CSS e JavaScript.",
+      "task2": "Colaboração com a equipe de design para implementar interfaces pixel-perfect.",
+      "task3": "Testes e depuração de funcionalidades.",
+      "task4": "Aprendizado e aplicação de metodologias ágeis."
+    }
+  },
   "education": {
     "title": "Formação",
     "titleHighlight": "Acadêmica",
@@ -52,6 +157,7 @@
     "csDegree": {
       "degree": "Bacharelado em Ciência da Computação",
       "institution": "Universidade Estácio de Sá",
+      "duration": "2018 - 2022",
       "description": "Foco em desenvolvimento de software, algoritmos, estruturas de dados e inteligência artificial. Participei de projetos de pesquisa e desenvolvi um sistema de gerenciamento acadêmico como projeto final.",
       "highlight1": "Projeto de Conclusão de Curso: Sistema de Gerenciamento Acadêmico com nota A.",
       "highlight2": "Participação em maratonas de programação.",
@@ -60,18 +166,34 @@
     "webDevCourse": {
       "degree": "Curso Técnico em Informática para Internet",
       "institution": "Instituto Federal Fluminense (IFF)",
+      "duration": "2015 - 2017",
       "description": "Formação técnica abrangente em desenvolvimento web front-end e back-end, design de interfaces, banco de dados e redes de computadores.",
       "highlight1": "Desenvolvimento de um portal de notícias local como projeto prático.",
       "highlight2": "Prêmio de melhor projeto da turma de 2017."
     },
     "nextjsCert": {
       "degree": "Certificação Next.js Developer",
-      "institution": "Online Platform X",
+      "institution": "Plataforma Online X",
+      "duration": "2023",
       "description": "Curso intensivo focado nas melhores práticas de desenvolvimento com Next.js, incluindo App Router, Server Components, e otimizações de performance."
     }
   },
+  "testimonials": {
+    "title": "O Que Dizem",
+    "titleHighlight": "Sobre Mim",
+    "person1": {"name": "Ana Silva", "role": "Gerente de Projetos, Innovatech", "comment": "Trabalhar com Eduardo foi uma experiência fantástica. Sua proatividade e conhecimento técnico foram cruciais para o sucesso do nosso projeto. Entregou tudo no prazo e com qualidade excepcional!"},
+    "person2": {"name": "Carlos Oliveira", "role": "CEO, StartUp Vision", "comment": "Eduardo não apenas desenvolveu nossa plataforma, mas também trouxe insights valiosos que melhoraram o produto final. Recomendo fortemente seus serviços."},
+    "person3": {"name": "Juliana Santos", "role": "Designer UX/UI", "comment": "A colaboração com Eduardo foi muito produtiva. Ele tem uma ótima capacidade de transformar designs complexos em interfaces funcionais e agradáveis."},
+    "person4": {"name": "Ricardo Mendes", "role": "Empreendedor Digital", "comment": "Precisa de um desenvolvedor que entende do negócio e entrega soluções robustas? Fale com o Eduardo. Transformou minha ideia em realidade!"},
+    "person5": {"name": "Beatriz Costa", "role": "Analista de Marketing", "comment": "A automação que Eduardo desenvolveu para nossa equipe economizou horas de trabalho manual. Eficiente e muito profissional."},
+    "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo é um desenvolvedor dedicado e com grande potencial. Sempre disposto a aprender e enfrentar novos desafios."}
+  },
   "footer": {
+    "name": "Eduardo Almeida",
     "rights": "Todos os direitos reservados.",
-    "madeWith": "Feito com ❤️ usando Next.js e Tailwind CSS."
+    "madeWith": "Feito com ❤️ usando Next.js e Tailwind CSS.",
+    "githubLabel": "Perfil no GitHub",
+    "linkedinLabel": "Perfil no LinkedIn",
+    "emailLabel": "Enviar Email"
   }
 }

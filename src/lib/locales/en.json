@@ -9,9 +9,11 @@
     "education": "Education",
     "contact": "Contact",
     "contactLabel": "Open contact form",
-    "musicSuggestionLabel": "Music Suggestion",
     "languageLabel": "Change language",
-    "toggleMobileMenuLabel": "Toggle mobile menu"
+    "toggleMobileMenuLabel": "Toggle mobile menu",
+    "brand": "EduardoDev",
+    "langPt": "Portuguese (BR)",
+    "langEn": "English (US)"
   },
   "hero": {
     "greeting": "Hello, I'm",
@@ -21,12 +23,6 @@
     "projectsButton": "My Projects",
     "contactButton": "Contact Me",
     "portraitAlt": "Eduardo Almeida Portrait"
-  },
-  "musicDialog": {
-    "title": "90s Soundtrack",
-    "description": "How about enjoying some nostalgic tunes while you browse? Here are some 90s playlist suggestions on YouTube!",
-    "openInNewTab": "Click a playlist to open it on YouTube in a new tab.",
-    "closeButton": "Close"
   },
   "contactDialog": {
     "title": "Get in Touch",
@@ -45,6 +41,115 @@
     "errorTitle": "Error Sending",
     "errorDescription": "There was a problem sending your message. Please try again."
   },
+  "about": {
+    "title": "About",
+    "titleHighlight": "Me",
+    "name": "Eduardo Almeida",
+    "intro": "Passionate Full Stack Developer dedicated to creating innovative digital solutions and memorable user experiences. With a keen eye for detail and a constant pursuit of learning, I transform ideas into reality through technology.",
+    "journey": "My career is marked by dedication to building robust, scalable, and efficient web applications, utilizing best practices and the latest market technologies.",
+    "specialization": "Specializing in front-end development with React and Next.js, and back-end with Node.js, I also have experience with databases like MongoDB and PostgreSQL, as well as DevOps tools like Docker and Git/GitHub.",
+    "interests": "Beyond traditional development, I have a strong interest in process automation (N8N) and creating intelligent chatbots to optimize interactions and workflows.",
+    "philosophy": "Outside of coding, I enjoy exploring new technologies, contributing to open-source projects, and staying updated with the latest industry trends. I believe collaboration and knowledge sharing are fundamental for professional and personal growth.",
+    "contactButton": "Talk to Me",
+    "downloadCvButton": "Download CV",
+    "mapTitle": "Location on Map",
+    "location": "Campos dos Goytacazes, RJ, Brazil"
+  },
+  "skills": {
+    "title": "My",
+    "titleHighlight": "Skills",
+    "scrollHintMobile": "Swipe to see more skills →",
+    "html": {"detail1": "Semantic structure", "detail2": "Accessibility", "detail3": "Forms"},
+    "css": {"detail1": "Flexbox & Grid", "detail2": "Animations", "detail3": "Responsive Design"},
+    "js": {"detail1": "Modern ES6+", "detail2": "DOM API", "detail3": "Async/Await"},
+    "ts": {"detail1": "Static Typing", "detail2": "Interfaces", "detail3": "Generics"},
+    "react": {"detail1": "Componentization", "detail2": "Hooks", "detail3": "Context API"},
+    "tailwind": {"detail1": "Utility-First", "detail2": "JIT Compilation", "detail3": "Customization"},
+    "node": {"detail1": "RESTful APIs", "detail2": "Express.js", "detail3": "Async I/O"},
+    "mongo": {"detail1": "NoSQL", "detail2": "BSON Documents", "detail3": "Mongoose"},
+    "postgres": {"detail1": "Relational SQL", "detail2": "ACID Transactions", "detail3": "Sequelize"},
+    "docker": {"detail1": "Containerization", "detail2": "Docker Compose", "detail3": "Images"},
+    "git": {"detail1": "Version Control", "detail2": "Branching", "detail3": "Merge"},
+    "github": {"detail1": "Repositories", "detail2": "Pull Requests", "detail3": "Actions (CI/CD)"},
+    "n8n": {"detail1": "Automation", "detail2": "Visual Workflows", "detail3": "Integrations"},
+    "chatbots": {"detail1": "Basic NLP", "detail2": "Dialogflow/Rasa", "detail3": "Messaging APIs"}
+  },
+  "projects": {
+    "title": "My",
+    "titleHighlight": "Projects",
+    "noProjectsFound": "No projects found for this category.",
+    "categories": {
+      "all": "All",
+      "systems": "Systems",
+      "automations": "Automations",
+      "landingPages": "Landing Pages"
+    },
+    "techLabel": "Technologies:",
+    "demoButton": "Demo",
+    "repoButton": "Repository",
+    "ecommerce": {
+      "title": "E-commerce Platform",
+      "description": "E-commerce platform with React, Node.js, and MongoDB for product and sales management."
+    },
+    "taskApp": {
+      "title": "Task Management App",
+      "description": "Collaborative task management application with real-time updates."
+    },
+    "portfolio": {
+      "title": "Personal Portfolio Website",
+      "description": "This very portfolio site, built with the latest technologies for a modern visual experience."
+    },
+    "chatbot": {
+      "title": "Customer Service Chatbot",
+      "description": "Intelligent chatbot for customer support automation, integrated with messaging platforms."
+    },
+    "bookingSystem": {
+      "title": "Simplified Booking System",
+      "description": "Platform for managing reservations and clients, ideal for small inns or services."
+    },
+    "startupLp": {
+      "title": "Startup Landing Page",
+      "description": "Modern and conversion-optimized landing page for a tech startup."
+    },
+    "n8nReports": {
+      "title": "N8N Report Automation",
+      "description": "N8N workflow to automate the generation and sending of periodic reports via email."
+    }
+  },
+  "experience": {
+    "title": "Professional",
+    "titleHighlight": "Experience",
+    "job1": {
+      "role": "Senior Full Stack Developer",
+      "company": "Tech Solutions Inc.",
+      "duration": "Jan 2022 - Present",
+      "description": "Led the development of key features for a SaaS platform, mentored junior developers, and improved application performance by 20%. Worked extensively with Next.js, Node.js, and PostgreSQL.",
+      "task1": "Designed and implemented scalable microservices.",
+      "task2": "Collaborated with cross-functional teams to define project requirements.",
+      "task3": "Conducted code reviews and maintained code quality standards.",
+      "task4": "Integrated third-party APIs and services."
+    },
+    "job2": {
+      "role": "Software Engineer",
+      "company": "Web Wizards LLC",
+      "duration": "Jun 2019 - Dec 2021",
+      "description": "Developed and maintained websites and web applications for clients using React, Express, and MongoDB. Contributed to UI/UX design and optimized web performance.",
+      "task1": "Built responsive user interfaces with React and Tailwind CSS.",
+      "task2": "Developed RESTful APIs for various client projects.",
+      "task3": "Participated in agile development cycles and sprint planning.",
+      "task4": "Provided technical support and bug fixes for existing applications."
+    },
+    "job3": {
+      "role": "Junior Web Developer",
+      "company": "Visionary Startup",
+      "duration": "Mar 2018 - May 2019",
+      "description": "Assisted in the development of an MVP for an innovative startup, focusing on front-end technologies and rapidly learning about the software development lifecycle.",
+      "task1": "Development of UI components with HTML, CSS, and JavaScript.",
+      "task2": "Collaboration with the design team to implement pixel-perfect interfaces.",
+      "task3": "Testing and debugging features.",
+      "task4": "Learning and application of agile methodologies."
+    }
+  },
   "education": {
     "title": "Academic",
     "titleHighlight": "Background",
@@ -52,6 +157,7 @@
     "csDegree": {
       "degree": "Bachelor of Computer Science",
       "institution": "Estácio de Sá University",
+      "duration": "2018 - 2022",
       "description": "Focus on software development, algorithms, data structures, and artificial intelligence. Participated in research projects and developed an academic management system as a final project.",
       "highlight1": "Final Course Project: Academic Management System with Grade A.",
       "highlight2": "Participation in programming marathons.",
@@ -60,6 +166,7 @@
     "webDevCourse": {
       "degree": "Technical Course in Web Development",
       "institution": "Federal Fluminense Institute (IFF)",
+      "duration": "2015 - 2017",
       "description": "Comprehensive technical training in front-end and back-end web development, interface design, databases, and computer networks.",
       "highlight1": "Development of a local news portal as a practical project.",
       "highlight2": "Award for best project of the 2017 class."
@@ -67,11 +174,26 @@
     "nextjsCert": {
       "degree": "Next.js Developer Certification",
       "institution": "Online Platform X",
+      "duration": "2023",
       "description": "Intensive course focused on best practices for Next.js development, including App Router, Server Components, and performance optimizations."
     }
   },
+  "testimonials": {
+    "title": "What They Say",
+    "titleHighlight": "About Me",
+    "person1": {"name": "Ana Silva", "role": "Project Manager, Innovatech", "comment": "Working with Eduardo was a fantastic experience. His proactivity and technical knowledge were crucial to our project's success. Delivered everything on time and with exceptional quality!"},
+    "person2": {"name": "Carlos Oliveira", "role": "CEO, StartUp Vision", "comment": "Eduardo not only developed our platform but also brought valuable insights that improved the final product. Highly recommend his services."},
+    "person3": {"name": "Juliana Santos", "role": "UX/UI Designer", "comment": "Collaboration with Eduardo was very productive. He has a great ability to transform complex designs into functional and pleasant interfaces."},
+    "person4": {"name": "Ricardo Mendes", "role": "Digital Entrepreneur", "comment": "Need a developer who understands the business and delivers robust solutions? Talk to Eduardo. He turned my idea into reality!"},
+    "person5": {"name": "Beatriz Costa", "role": "Marketing Analyst", "comment": "The automation Eduardo developed for our team saved hours of manual work. Efficient and very professional."},
+    "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo is a dedicated developer with great potential. Always willing to learn and face new challenges."}
+  },
   "footer": {
+    "name": "Eduardo Almeida",
     "rights": "All rights reserved.",
-    "madeWith": "Made with ❤️ using Next.js and Tailwind CSS."
+    "madeWith": "Made with ❤️ using Next.js & Tailwind CSS.",
+    "githubLabel": "GitHub Profile",
+    "linkedinLabel": "LinkedIn Profile",
+    "emailLabel": "Email Me"
   }
 }

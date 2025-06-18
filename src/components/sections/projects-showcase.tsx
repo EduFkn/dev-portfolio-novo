@@ -5,104 +5,114 @@ import React, { useState } from 'react';
 import { ProjectCard } from './project-card';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useI18n } from '@/hooks/use-i18n';
 
-// Adjusted projects with filtered tags
-const allProjects = [
+// Adjusted projects with filtered tags and i18n
+const getProjectsData = (t: Function) => [
   {
     id: '1',
-    title: 'Plataforma E-commerce',
-    description: 'Plataforma de e-commerce com React, Node.js, e MongoDB para gerenciamento de produtos e vendas.',
-    imageUrl: 'https://placehold.co/600x360/A06CD5/FFFFFF.png?text=E-commerce',
+    title: t('projects.ecommerce.title'),
+    description: t('projects.ecommerce.description'),
+    imageUrl: 'https://placehold.co/600x360/6A0DAD/FFFFFF.png?text=E-commerce', // Purple theme
     imageHint: 'online store shopping cart',
     liveLink: '#',
     repoLink: '#',
-    tags: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'], // Allowed tags
-    category: 'Sistemas'
+    tags: ['React', 'Node.js', 'MongoDB', 'TailwindCSS'],
+    category: t('projects.categories.systems')
   },
   {
     id: '2',
-    title: 'App de Gerenciamento de Tarefas',
-    description: 'Aplicativo colaborativo de gerenciamento de tarefas com atualizações em tempo real.',
-    imageUrl: 'https://placehold.co/600x360/D8B4F1/23272F.png?text=Task+App',
+    title: t('projects.taskApp.title'),
+    description: t('projects.taskApp.description'),
+    imageUrl: 'https://placehold.co/600x360/A020F0/FFFFFF.png?text=Task+App', // Bright Purple
     imageHint: 'productivity tool checklist',
     liveLink: '#',
     repoLink: '#',
-    tags: ['React', 'Node.js', 'PostgreSQL'], // Allowed tags
-    category: 'Sistemas'
+    tags: ['React', 'Node.js', 'PostgreSQL'],
+    category: t('projects.categories.systems')
   },
   {
     id: '3',
-    title: 'Website Portfolio Pessoal',
-    description: 'Este próprio site de portfólio, construído com as tecnologias mais recentes para uma experiência visual moderna.',
-    imageUrl: 'https://placehold.co/600x360/23272F/A06CD5.png?text=Portfolio',
+    title: t('projects.portfolio.title'),
+    description: t('projects.portfolio.description'),
+    imageUrl: 'https://placehold.co/600x360/301934/E6E6FA.png?text=Portfolio', // Dark Purple, Lavender text
     imageHint: 'personal website cv',
-    liveLink: '#', // Should point to itself if applicable
+    liveLink: '#', 
     repoLink: '#',
-    tags: ['React', 'TypeScript', 'TailwindCSS'], // Using React as Next.js is based on it
-    category: 'Landing Pages'
+    tags: ['React', 'TypeScript', 'TailwindCSS'], 
+    category: t('projects.categories.landingPages')
   },
   {
     id: '4',
-    title: 'Chatbot de Atendimento',
-    description: 'Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria.',
-    imageUrl: 'https://placehold.co/600x360/A06CD5/FFFFFF.png?text=AI+Chatbot',
+    title: t('projects.chatbot.title'),
+    description: t('projects.chatbot.description'),
+    imageUrl: 'https://placehold.co/600x360/8A2BE2/FFFFFF.png?text=AI+Chatbot', // Blue Violet
     imageHint: 'artificial intelligence customer service',
     liveLink: '#',
     repoLink: '#',
-    tags: ['Chatbots', 'Node.js', 'JavaScript'], // Allowed tags
-    category: 'Automações'
+    tags: ['Chatbots', 'Node.js', 'JavaScript'], 
+    category: t('projects.categories.automations')
   },
   {
     id: '5',
-    title: 'Sistema de Reservas Simplificado',
-    description: 'Plataforma para gerenciamento de reservas e clientes, ideal para pequenas pousadas ou serviços.',
-    imageUrl: 'https://placehold.co/600x360/8E7DBE/FFFFFF.png?text=Booking+System',
+    title: t('projects.bookingSystem.title'),
+    description: t('projects.bookingSystem.description'),
+    imageUrl: 'https://placehold.co/600x360/4B0082/E6E6FA.png?text=Booking+System', // Indigo, Lavender text
     imageHint: 'booking calendar reservation',
     liveLink: '#',
     repoLink: '#',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Docker'], // Allowed tags
-    category: 'Sistemas'
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Docker'], 
+    category: t('projects.categories.systems')
   },
   {
     id: '6',
-    title: 'Landing Page para Startup',
-    description: 'Página de destino moderna e otimizada para conversão para uma startup de tecnologia.',
-    imageUrl: 'https://placehold.co/600x360/C084FC/2D1B3F.png?text=Startup+LP',
+    title: t('projects.startupLp.title'),
+    description: t('projects.startupLp.description'),
+    imageUrl: 'https://placehold.co/600x360/9932CC/FFFFFF.png?text=Startup+LP', // Dark Orchid
     imageHint: 'startup website tech',
     liveLink: '#',
     repoLink: '#',
-    tags: ['HTML', 'CSS', 'JavaScript', 'TailwindCSS'], // Allowed tags
-    category: 'Landing Pages'
+    tags: ['HTML', 'CSS', 'JavaScript', 'TailwindCSS'], 
+    category: t('projects.categories.landingPages')
   },
    {
     id: '7',
-    title: 'Automação de Relatórios com N8N',
-    description: 'Workflow N8N para automatizar a geração e envio de relatórios periódicos via e-mail.',
-    imageUrl: 'https://placehold.co/600x360/A4A4A4/2E2E2E.png?text=N8N+Reports',
+    title: t('projects.n8nReports.title'),
+    description: t('projects.n8nReports.description'),
+    imageUrl: 'https://placehold.co/600x360/7F00FF/FFFFFF.png?text=N8N+Automation', // Violet
     imageHint: 'automation workflow data',
     liveLink: '#',
     repoLink: '#',
-    tags: ['N8N', 'JavaScript'], // N8N often uses JS for custom nodes
-    category: 'Automações'
+    tags: ['N8N', 'JavaScript'],
+    category: t('projects.categories.automations')
   },
 ];
 
-const categories = ['Todos', 'Sistemas', 'Automações', 'Landing Pages'];
 
 export function ProjectsShowcase() {
-  const [filter, setFilter] = useState('Todos');
+  const { t } = useI18n();
+  const allProjects = getProjectsData(t);
   
-  const filteredProjects = filter === 'Todos' 
+  const categories = [
+    t('projects.categories.all'), 
+    t('projects.categories.systems'), 
+    t('projects.categories.automations'), 
+    t('projects.categories.landingPages')
+  ];
+  
+  const [filter, setFilter] = useState(categories[0]);
+  
+  const filteredProjects = filter === t('projects.categories.all')
     ? allProjects 
     : allProjects.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="py-12 md:py-20"> {/* Keep section padding consistent */}
+    <section id="projects" className="py-12 md:py-20"> 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-headline text-2xl sm:text-3xl font-bold text-center mb-10">
-          Meus <span className="text-primary">Projetos</span>
+        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
+          {t('projects.title')} <span className="text-primary">{t('projects.titleHighlight')}</span>
         </h2>
-        <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-10">
+        <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-10 md:mb-12">
           {categories.map(category => (
             <Button 
               key={category}
@@ -110,7 +120,7 @@ export function ProjectsShowcase() {
               variant={filter === category ? 'default' : 'outline'}
               size="sm"
               className={cn(
-                "transition-all duration-300 text-xs px-4 py-2",
+                "transition-all duration-300 text-xs px-3 py-1.5 h-auto md:px-4 md:py-2",
                 filter === category 
                   ? "bg-primary text-primary-foreground scale-105 shadow-lg" 
                   : "border-primary text-primary hover:bg-primary/10 hover:text-primary"
@@ -127,7 +137,7 @@ export function ProjectsShowcase() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-foreground/70 text-sm">Nenhum projeto encontrado para esta categoria.</p>
+          <p className="text-center text-foreground/70 text-sm md:text-base">{t('projects.noProjectsFound')}</p>
         )}
       </div>
     </section>
