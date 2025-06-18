@@ -69,7 +69,7 @@ export function AboutSection() {
           </Card>
 
           {/* Card 4: Map */}
-          <Card className="md:col-span-2 bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle aspect-[16/9] md:aspect-auto min-h-[300px]" style={{ animationDelay: '0.3s' }}>
+          <Card className="md:col-span-2 bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle aspect-[16/9] md:aspect-auto min-h-[300px] overflow-hidden" style={{ animationDelay: '0.3s' }}>
             <CardContent className="p-0 relative h-full w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118835.84029402056!2d-41.38100060856933!3d-21.75200217276238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96383c1455555555%3A0x56a93b8c52a91560!2sCampos%20dos%20Goytacazes%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1717000000000" 
@@ -97,3 +97,5 @@ export function AboutSection() {
     </section>
   );
 }
+
+    

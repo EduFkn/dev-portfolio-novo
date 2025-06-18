@@ -217,26 +217,7 @@
     "githubLabel": "GitHub Profile",
     "linkedinLabel": "LinkedIn Profile",
     "emailLabel": "Email Me"
-  },
-  "chatbot": {
-    "openAriaLabel": "Open EduBot Chat",
-    "closeAriaLabel": "Close EduBot Chat",
-    "iconAlt": "EduBot Bat Icon",
-    "headerTitle": "🦇 EduBot",
-    "inputPlaceholder": "Ask something...",
-    "sendButton": "Send",
-    "sendingButton": "Sending...",
-    "stopButton": "Stop",
-    "clearButton": "Clear",
-    "thinking": "Edu is thinking... 🕶️",
-    "stopped": "⛔ Stopped.",
-    "errorPrefix": "Error",
-    "errorDefault": "Oops! Something went wrong. Try again.",
-    "fileTooLarge": "File is too large. Max 4MB.",
-    "fileConversionError": "Error processing the image. Please try another one.",
-    "imageSent": "[Image Sent]",
-    "uploadedImageAlt": "Uploaded image",
-    "imagePreview": "Image Preview:",
-    "imagePreviewAlt": "Preview of uploaded image"
   }
 }
+
+    

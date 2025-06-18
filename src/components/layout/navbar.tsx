@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggleButton } from '@/components/ui/theme-toggle-button';
 import { cn } from '@/lib/utils';
-import { Aperture, Mail, Menu, X as CloseIcon } from 'lucide-react';
+import { Aperture, Mail } from 'lucide-react'; // Menu e CloseIcon removidos
 import React, { useState, useEffect } from 'react';
 import { ContactDialog } from '@/components/contact-dialog';
 import { Button } from '@/components/ui/button';
@@ -55,31 +55,20 @@ export function Navbar() {
   ];
 
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // isMobileMenuOpen state e useEffect relacionado removidos
   const [currentHash, setCurrentHash] = useState('');
 
   useEffect(() => {
     const updateHash = () => setCurrentHash(window.location.hash);
     window.addEventListener('hashchange', updateHash, { passive: true });
-    updateHash(); 
+    updateHash();
     return () => window.removeEventListener('hashchange', updateHash);
   }, []);
 
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isMobileMenuOpen]);
-
   const handleNavLinkClick = (hash?: string) => {
-    setIsMobileMenuOpen(false);
+    // setIsMobileMenuOpen(false) removido daqui pois o menu móvel foi removido
     if (hash && hash.startsWith('/#')) {
-      const elementId = hash.substring(2); 
+      const elementId = hash.substring(2);
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -91,18 +80,17 @@ export function Navbar() {
         }
     }
   };
-  
+
   const isNavItemActive = (itemHref: string) => {
     const currentPathWithHash = pathname + currentHash;
     if (itemHref === '/') return currentPathWithHash === '/' || (pathname === '/' && currentHash === '');
-    // For section links, check if the hash matches or if it's the base path and the hash matches the item's hash part
     if (itemHref.startsWith('/#')) {
-      const itemHash = itemHref.substring(1); // #about
+      const itemHash = itemHref.substring(1);
       return currentHash === itemHash || (pathname === '/' && currentHash === itemHash);
     }
     return currentPathWithHash === itemHref || currentPathWithHash === `/${itemHref.replace(/^#/, '')}`;
   };
-  
+
 
   return (
     <>
@@ -115,8 +103,8 @@ export function Navbar() {
                 <span className="font-headline text-xl md:text-2xl font-bold">{t('nav.brand')}</span>
               </Link>
             </div>
-            
-            <div className="hidden md:flex items-center space-x-1 ml-8"> {/* Added ml-8 for more space */}
+
+            <div className="hidden md:flex items-center space-x-1 ml-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -126,17 +114,17 @@ export function Navbar() {
                     "px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-all duration-300 ease-in-out",
                     "hover:text-primary hover:bg-primary/10",
                     isNavItemActive(item.href)
-                      ? "text-primary font-semibold" // Base active style
+                      ? "text-primary font-semibold"
                       : "text-foreground/80 hover:text-foreground",
-                    isNavItemActive(item.href) && item.href !== '/' && "bg-primary/10" // Conditional background for non-home active links
+                    isNavItemActive(item.href) && item.href !== '/' && "bg-primary/10"
                   )}
                   aria-current={isNavItemActive(item.href) ? 'page' : undefined}
                 >
                   {item.name}
                 </Link>
               ))}
-               <Button 
-                  variant="ghost" 
+               <Button
+                  variant="ghost"
                   onClick={() => setIsContactDialogOpen(true)}
                   className={cn(
                     "px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-all duration-300 ease-in-out",
@@ -164,9 +152,10 @@ export function Navbar() {
               </DropdownMenu>
             </div>
 
+            {/* Botão de menu hambúrguer e menu móvel removidos para md:hidden */}
             <div className="md:hidden flex items-center">
-               <Button 
-                  variant="ghost" 
+               <Button
+                  variant="ghost"
                   size="icon"
                   onClick={() => setIsContactDialogOpen(true)}
                   className="text-foreground/80 hover:text-primary hover:bg-primary/10 mr-0.5"
@@ -190,45 +179,15 @@ export function Navbar() {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="ml-1 text-foreground/80 hover:text-primary hover:bg-primary/10"
-                aria-label={t('nav.toggleMobileMenuLabel')}
-              >
-                {isMobileMenuOpen ? <CloseIcon className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
+              {/* O botão de menu hambúrguer foi removido daqui */}
             </div>
           </div>
         </div>
-
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background shadow-lg z-40 p-4 animate-fade-in-down">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => handleNavLinkClick(item.href)}
-                  className={cn(
-                    "block px-3 py-2 rounded-md text-base font-medium",
-                    "hover:text-primary hover:bg-primary/10",
-                     isNavItemActive(item.href)
-                      ? "text-primary font-semibold"
-                      : "text-foreground/80 hover:text-foreground",
-                    isNavItemActive(item.href) && item.href !== '/' && "bg-primary/10"
-                  )}
-                  aria-current={isNavItemActive(item.href) ? 'page' : undefined}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* O painel do menu móvel foi removido daqui */}
       </nav>
       <ContactDialog isOpen={isContactDialogOpen} onOpenChange={setIsContactDialogOpen} recipientEmail="edualmeida1260@gmail.com" />
     </>
   );
 }
+
+    

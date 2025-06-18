@@ -101,7 +101,7 @@
       "title": "Website Portfolio Pessoal",
       "description": "Este próprio site de portfólio, construído com Next.js, TypeScript e TailwindCSS para uma experiência visual moderna."
     },
-    "chatbot": {
+    "chatbotProject": {
       "title": "Chatbot de Atendimento com IA",
       "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria usando Node.js e Genkit."
     },
@@ -217,26 +217,7 @@
     "githubLabel": "Perfil no GitHub",
     "linkedinLabel": "Perfil no LinkedIn",
     "emailLabel": "Enviar Email"
-  },
-  "chatbot": {
-    "openAriaLabel": "Abrir Chat EduBot",
-    "closeAriaLabel": "Fechar Chat EduBot",
-    "iconAlt": "Ícone de Morcego EduBot",
-    "headerTitle": "🦇 EduBot",
-    "inputPlaceholder": "Manda a braba...",
-    "sendButton": "Enviar",
-    "sendingButton": "Enviando...",
-    "stopButton": "Parar",
-    "clearButton": "Limpar",
-    "thinking": "O Edu está pensando... 🕶️",
-    "stopped": "⛔ Parou.",
-    "errorPrefix": "Erro",
-    "errorDefault": "Opa! Algo deu errado. Tente novamente.",
-    "fileTooLarge": "Arquivo muito grande. Máximo 4MB.",
-    "fileConversionError": "Erro ao processar a imagem. Tente outra.",
-    "imageSent": "[Imagem Enviada]",
-    "uploadedImageAlt": "Imagem enviada",
-    "imagePreview": "Prévia da Imagem:",
-    "imagePreviewAlt": "Prévia da imagem enviada"
   }
 }
+
+    

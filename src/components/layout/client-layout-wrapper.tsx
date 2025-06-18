@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Navbar } from './navbar';
 import { Footer } from './footer';
-import { EduChatbot } from '@/components/chatbot/edu-chatbot'; // Import the chatbot
+// Chatbot import removido
 
 export function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -44,7 +44,9 @@ export function ClientLayoutWrapper({ children }: { children: React.ReactNode })
         {children}
       </main>
       <Footer />
-      <EduChatbot /> {/* Add the chatbot here */}
+      {/* Chatbot component removido daqui */}
     </div>
   );
 }
+
+    
