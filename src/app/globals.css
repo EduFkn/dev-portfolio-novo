@@ -111,7 +111,7 @@ body {
     @apply transition-colors duration-300;
   }
   section {
-    @apply py-16 md:py-24 lg:py-28; /* Increased padding between sections */
+    @apply py-20 md:py-28 lg:py-32; /* Increased padding between sections */
   }
 }
 
@@ -411,7 +411,8 @@ html {
   padding-right: 8px; /* Space for scrollbar if it appears, to prevent content shift */
 }
 
-.scroll-snap-container::-webkit-scrollbar {
+/* Applied hide-scrollbar class directly in EducationSection.tsx for specificity */
+/* .scroll-snap-container::-webkit-scrollbar {
   width: 6px;
 }
 .scroll-snap-container::-webkit-scrollbar-track {
@@ -424,7 +425,7 @@ html {
 }
 .scroll-snap-container::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary) / 0.7);
-}
+} */
 
 .scroll-snap-child {
   scroll-snap-align: start;

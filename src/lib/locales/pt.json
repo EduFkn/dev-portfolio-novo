@@ -46,8 +46,10 @@
     "titleHighlight": "Mim",
     "name": "Eduardo Almeida",
     "intro": "Desenvolvedor Full Stack apaixonado por criar soluções digitais inovadoras e experiências de usuário memoráveis. Com um olhar atento aos detalhes e uma busca constante por aprendizado, transformo ideias em realidade através da tecnologia.",
+    "journeyTitle": "Minha Jornada e Especialização",
     "journey": "Minha trajetória é marcada pela dedicação em construir aplicações web robustas, escaláveis e eficientes, utilizando as melhores práticas e as mais recentes tecnologias do mercado.",
     "specialization": "Especializado em desenvolvimento front-end com React e Next.js, e back-end com Node.js, também possuo experiência com bancos de dados como MongoDB e PostgreSQL, além de ferramentas de DevOps como Docker e Git/GitHub.",
+    "interestsTitle": "Interesses e Filosofia",
     "interests": "Além do desenvolvimento tradicional, tenho um forte interesse em automação de processos (N8N) e na criação de chatbots inteligentes para otimizar interações e fluxos de trabalho.",
     "philosophy": "Fora do código, gosto de explorar novas tecnologias, contribuir para projetos open-source e me manter atualizado com as últimas tendências do setor. Acredito que a colaboração e a troca de conhecimento são fundamentais para o crescimento profissional e pessoal.",
     "contactButton": "Fale Comigo",
@@ -93,27 +95,27 @@
     },
     "taskApp": {
       "title": "App de Gerenciamento de Tarefas",
-      "description": "Aplicativo colaborativo de gerenciamento de tarefas com atualizações em tempo real."
+      "description": "Aplicativo colaborativo de gerenciamento de tarefas com atualizações em tempo real usando React e Node.js."
     },
     "portfolio": {
       "title": "Website Portfolio Pessoal",
-      "description": "Este próprio site de portfólio, construído com as tecnologias mais recentes para uma experiência visual moderna."
+      "description": "Este próprio site de portfólio, construído com Next.js, TypeScript e TailwindCSS para uma experiência visual moderna."
     },
     "chatbot": {
       "title": "Chatbot de Atendimento",
-      "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria."
+      "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria usando Node.js."
     },
     "bookingSystem": {
       "title": "Sistema de Reservas Simplificado",
-      "description": "Plataforma para gerenciamento de reservas e clientes, ideal para pequenas pousadas ou serviços."
+      "description": "Plataforma para gerenciamento de reservas e clientes, ideal para pequenas pousadas ou serviços, usando React e PostgreSQL."
     },
     "startupLp": {
       "title": "Landing Page para Startup",
-      "description": "Página de destino moderna e otimizada para conversão para uma startup de tecnologia."
+      "description": "Página de destino moderna e otimizada para conversão para uma startup de tecnologia, construída com HTML, CSS e JavaScript."
     },
     "n8nReports": {
       "title": "Automação de Relatórios com N8N",
-      "description": "Workflow N8N para automatizar a geração e envio de relatórios periódicos via e-mail."
+      "description": "Workflow N8N para automatizar a geração e envio de relatórios periódicos via e-mail usando nós JavaScript."
     }
   },
   "experience": {
@@ -124,30 +126,30 @@
       "company": "Tech Solutions Inc.",
       "duration": "Jan 2022 - Presente",
       "description": "Liderei o desenvolvimento de funcionalidades chave para plataforma SaaS, mentorei juniores e melhorei performance da app em 20%.",
-      "task1": "Projetei e implementei microsserviços escaláveis.",
-      "task2": "Colaborei com equipes multifuncionais.",
-      "task3": "Conduzi revisões de código e mantive qualidade.",
-      "task4": "Integrei APIs de terceiros."
+      "task1": "Projetei e implementei microsserviços escaláveis usando Node.js e Docker.",
+      "task2": "Colaborei com equipes multifuncionais em ambiente ágil.",
+      "task3": "Conduzi revisões de código e mantive qualidade com Git e GitHub.",
+      "task4": "Integrei APIs de terceiros e gerenciei dados com MongoDB e PostgreSQL."
     },
     "job2": {
       "role": "Engenheiro de Software",
       "company": "Web Wizards LLC",
       "duration": "Jun 2019 - Dez 2021",
       "description": "Desenvolvi e mantive websites/apps para clientes (React, Express, MongoDB). Contribuí para UI/UX e performance.",
-      "task1": "Construí UIs responsivas com React & Tailwind.",
-      "task2": "Desenvolvi APIs RESTful.",
-      "task3": "Participei de ciclos de desenvolvimento ágil.",
-      "task4": "Forneci suporte técnico e correções de bugs."
+      "task1": "Construí UIs responsivas com React & TailwindCSS.",
+      "task2": "Desenvolvi APIs RESTful com Node.js e Express.",
+      "task3": "Participei de ciclos de desenvolvimento ágil, versionando com Git.",
+      "task4": "Forneci suporte técnico e correções de bugs em toda a stack."
     },
     "job3": {
       "role": "Desenvolvedor Web Júnior",
       "company": "Startup Visionária",
       "duration": "Mar 2018 - Mai 2019",
-      "description": "Auxiliei no desenvolvimento de MVP, focando em front-end e aprendendo o ciclo de vida de desenvolvimento de software.",
-      "task1": "Desenvolvimento de componentes UI (HTML, CSS, JS).",
-      "task2": "Colaboração com design para UIs pixel-perfect.",
-      "task3": "Testes e depuração de funcionalidades.",
-      "task4": "Aprendizado de metodologias ágeis."
+      "description": "Auxiliei no desenvolvimento de MVP, focando em front-end (HTML, CSS, JavaScript) e aprendendo o ciclo de vida de desenvolvimento de software.",
+      "task1": "Desenvolvimento de componentes UI usando HTML, CSS e JavaScript.",
+      "task2": "Colaboração com equipe de design para UIs pixel-perfect.",
+      "task3": "Testes e depuração de funcionalidades, aprendendo Git básico.",
+      "task4": "Aprendizado de metodologias ágeis e fundamentos backend com Node.js."
     }
   },
   "education": {
@@ -167,13 +169,13 @@
       "institution": "Instituto Federal Fluminense (IFF)",
       "duration": "2015 - 2017",
       "description": "Formação técnica abrangente em desenvolvimento web (front/back-end), design de interfaces, BDs e redes.",
-      "highlight1": "Projeto: Portal de Notícias Local."
+      "highlight1": "Projeto: Portal de Notícias Local (HTML, CSS, JS, PHP)."
     },
     "nextjsCert": {
       "degree": "Certificação Next.js Developer",
       "institution": "Plataforma Online X",
       "duration": "2023",
-      "description": "Curso intensivo focado em Next.js: App Router, Server Components, otimizações de performance."
+      "description": "Curso intensivo focado em Next.js: App Router, Server Components, otimizações de performance, React, TypeScript."
     }
   },
   "testimonials": {
@@ -183,8 +185,8 @@
     "person2": {"name": "Carlos Oliveira", "role": "CEO, StartUp Vision", "comment": "Eduardo não apenas desenvolveu nossa plataforma, mas também trouxe insights valiosos que melhoraram o produto final. Recomendo fortemente seus serviços."},
     "person3": {"name": "Juliana Santos", "role": "Designer UX/UI", "comment": "A colaboração com Eduardo foi muito produtiva. Ele tem uma ótima capacidade de transformar designs complexos em interfaces funcionais e agradáveis."},
     "person4": {"name": "Ricardo Mendes", "role": "Empreendedor Digital", "comment": "Precisa de um desenvolvedor que entende do negócio e entrega soluções robustas? Fale com o Eduardo. Transformou minha ideia em realidade!"},
-    "person5": {"name": "Beatriz Costa", "role": "Analista de Marketing", "comment": "A automação que Eduardo desenvolveu para nossa equipe economizou horas de trabalho manual. Eficiente e muito profissional."},
-    "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo é um desenvolvedor dedicado e com grande potencial. Sempre disposto a aprender e enfrentar novos desafios."}
+    "person5": {"name": "Beatriz Costa", "role": "Analista de Marketing", "comment": "A automação N8N que Eduardo desenvolveu para nossa equipe economizou horas de trabalho manual. Eficiente e muito profissional."},
+    "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo é um desenvolvedor dedicado e com grande potencial. Sempre disposto a aprender e enfrentar novos desafios com Node.js e Docker."}
   },
   "footer": {
     "brand": "EduardoDev",

@@ -46,8 +46,10 @@
     "titleHighlight": "Me",
     "name": "Eduardo Almeida",
     "intro": "Passionate Full Stack Developer dedicated to creating innovative digital solutions and memorable user experiences. With a keen eye for detail and a constant pursuit of learning, I transform ideas into reality through technology.",
+    "journeyTitle": "My Journey & Specialization",
     "journey": "My career is marked by dedication to building robust, scalable, and efficient web applications, utilizing best practices and the latest market technologies.",
     "specialization": "Specializing in front-end development with React and Next.js, and back-end with Node.js, I also have experience with databases like MongoDB and PostgreSQL, as well as DevOps tools like Docker and Git/GitHub.",
+    "interestsTitle": "Interests & Philosophy",
     "interests": "Beyond traditional development, I have a strong interest in process automation (N8N) and creating intelligent chatbots to optimize interactions and workflows.",
     "philosophy": "Outside of coding, I enjoy exploring new technologies, contributing to open-source projects, and staying updated with the latest industry trends. I believe collaboration and knowledge sharing are fundamental for professional and personal growth.",
     "contactButton": "Talk to Me",
@@ -93,27 +95,27 @@
     },
     "taskApp": {
       "title": "Task Management App",
-      "description": "Collaborative task management application with real-time updates."
+      "description": "Collaborative task management application with real-time updates using React and Node.js."
     },
     "portfolio": {
       "title": "Personal Portfolio Website",
-      "description": "This very portfolio site, built with the latest technologies for a modern visual experience."
+      "description": "This very portfolio site, built with Next.js, TypeScript, and TailwindCSS for a modern visual experience."
     },
     "chatbot": {
       "title": "Customer Service Chatbot",
-      "description": "Intelligent chatbot for customer support automation, integrated with messaging platforms."
+      "description": "Intelligent chatbot for customer support automation, integrated with messaging platforms using Node.js."
     },
     "bookingSystem": {
       "title": "Simplified Booking System",
-      "description": "Platform for managing reservations and clients, ideal for small inns or services."
+      "description": "Platform for managing reservations and clients, ideal for small inns or services, using React and PostgreSQL."
     },
     "startupLp": {
       "title": "Startup Landing Page",
-      "description": "Modern and conversion-optimized landing page for a tech startup."
+      "description": "Modern and conversion-optimized landing page for a tech startup, built with HTML, CSS, and JavaScript."
     },
     "n8nReports": {
       "title": "N8N Report Automation",
-      "description": "N8N workflow to automate the generation and sending of periodic reports via email."
+      "description": "N8N workflow to automate the generation and sending of periodic reports via email using JavaScript nodes."
     }
   },
   "experience": {
@@ -124,30 +126,30 @@
       "company": "Tech Solutions Inc.",
       "duration": "Jan 2022 - Present",
       "description": "Led development of key SaaS platform features, mentored juniors, and improved app performance by 20%.",
-      "task1": "Designed and implemented scalable microservices.",
-      "task2": "Collaborated with cross-functional teams.",
-      "task3": "Conducted code reviews and maintained quality.",
-      "task4": "Integrated third-party APIs."
+      "task1": "Designed and implemented scalable microservices using Node.js and Docker.",
+      "task2": "Collaborated with cross-functional teams in an agile environment.",
+      "task3": "Conducted code reviews and maintained code quality with Git and GitHub.",
+      "task4": "Integrated third-party APIs and managed data with MongoDB and PostgreSQL."
     },
     "job2": {
       "role": "Software Engineer",
       "company": "Web Wizards LLC",
       "duration": "Jun 2019 - Dec 2021",
       "description": "Developed and maintained client websites/apps (React, Express, MongoDB). Contributed to UI/UX and performance.",
-      "task1": "Built responsive UIs with React & Tailwind.",
-      "task2": "Developed RESTful APIs.",
-      "task3": "Participated in agile development cycles.",
-      "task4": "Provided technical support and bug fixes."
+      "task1": "Built responsive UIs with React & TailwindCSS.",
+      "task2": "Developed RESTful APIs with Node.js and Express.",
+      "task3": "Participated in agile development cycles, versioning with Git.",
+      "task4": "Provided technical support and bug fixes across full stack."
     },
     "job3": {
       "role": "Junior Web Developer",
       "company": "Visionary Startup",
       "duration": "Mar 2018 - May 2019",
-      "description": "Assisted in MVP development, focusing on front-end tech and learning the software development lifecycle.",
-      "task1": "UI component development (HTML, CSS, JS).",
-      "task2": "Collaboration with design for pixel-perfect UIs.",
-      "task3": "Testing and debugging features.",
-      "task4": "Learning agile methodologies."
+      "description": "Assisted in MVP development, focusing on front-end tech (HTML, CSS, JavaScript) and learning the software development lifecycle.",
+      "task1": "UI component development using HTML, CSS, and JavaScript.",
+      "task2": "Collaboration with design team for pixel-perfect UIs.",
+      "task3": "Testing and debugging features, learning Git basics.",
+      "task4": "Learning agile methodologies and backend fundamentals with Node.js."
     }
   },
   "education": {
@@ -167,13 +169,13 @@
       "institution": "Federal Fluminense Institute (IFF)",
       "duration": "2015 - 2017",
       "description": "Comprehensive technical training in web dev (front/back-end), UI design, databases, and networks.",
-      "highlight1": "Project: Local News Portal."
+      "highlight1": "Project: Local News Portal (HTML, CSS, JS, PHP)."
     },
     "nextjsCert": {
       "degree": "Next.js Developer Certification",
       "institution": "Online Platform X",
       "duration": "2023",
-      "description": "Intensive course on Next.js best practices: App Router, Server Components, performance optimizations."
+      "description": "Intensive course on Next.js best practices: App Router, Server Components, performance optimizations, React, TypeScript."
     }
   },
   "testimonials": {
@@ -183,8 +185,8 @@
     "person2": {"name": "Carlos Oliveira", "role": "CEO, StartUp Vision", "comment": "Eduardo not only developed our platform but also brought valuable insights that improved the final product. Highly recommend his services."},
     "person3": {"name": "Juliana Santos", "role": "UX/UI Designer", "comment": "Collaboration with Eduardo was very productive. He has a great ability to transform complex designs into functional and pleasant interfaces."},
     "person4": {"name": "Ricardo Mendes", "role": "Digital Entrepreneur", "comment": "Need a developer who understands the business and delivers robust solutions? Talk to Eduardo. He turned my idea into reality!"},
-    "person5": {"name": "Beatriz Costa", "role": "Marketing Analyst", "comment": "The automation Eduardo developed for our team saved hours of manual work. Efficient and very professional."},
-    "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo is a dedicated developer with great potential. Always willing to learn and face new challenges."}
+    "person5": {"name": "Beatriz Costa", "role": "Marketing Analyst", "comment": "The N8N automation Eduardo developed for our team saved hours of manual work. Efficient and very professional."},
+    "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo is a dedicated developer with great potential. Always willing to learn and face new challenges with Node.js and Docker."}
   },
   "footer": {
     "brand": "EduardoDev",
