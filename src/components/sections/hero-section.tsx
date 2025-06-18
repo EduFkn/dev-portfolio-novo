@@ -33,11 +33,11 @@ export function HeroSection() {
         ref={bgRef}
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('https://placehold.co/1920x1080/060914/A06CD5.png?text=')", // Updated background color to match theme
+          backgroundImage: "url('https://placehold.co/1920x1080/060914/A06CD5.png?text=')",
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          opacity: 0.07, // Slightly increased opacity for subtle effect
-          transform: 'scale(1.15)', // Slightly more scale
+          opacity: 0.07, 
+          transform: 'scale(1.15)', 
         }}
         data-ai-hint="abstract dark coding particles purple blue"
       ></div>
@@ -48,8 +48,9 @@ export function HeroSection() {
             <Image
               src="https://placehold.co/200x200/e0e0e0/1c1c2e.png?text=EA" 
               alt={t('hero.portraitAlt')}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 112px, 128px"
               data-ai-hint="man avatar white character dark straight hair"
               priority
             />

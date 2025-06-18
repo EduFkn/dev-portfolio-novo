@@ -101,9 +101,9 @@
       "title": "Website Portfolio Pessoal",
       "description": "Este próprio site de portfólio, construído com Next.js, TypeScript e TailwindCSS para uma experiência visual moderna."
     },
-    "chatbotProject": {
-      "title": "Chatbot de Atendimento",
-      "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria usando Node.js."
+    "chatbot": {
+      "title": "Chatbot de Atendimento com IA",
+      "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria usando Node.js e Genkit."
     },
     "bookingSystem": {
       "title": "Sistema de Reservas Simplificado",

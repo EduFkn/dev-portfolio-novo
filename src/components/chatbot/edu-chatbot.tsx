@@ -74,7 +74,7 @@ export function EduChatbot() {
     if (!text && !currentFile) return;
 
     setIsLoading(true);
-    const newAbortController = new AbortController(); // Genkit itself doesn't directly use this for cancellation in this simple setup.
+    const newAbortController = new AbortController(); 
     setAbortController(newAbortController);
 
     const userMessageId = Date.now().toString();
@@ -100,44 +100,44 @@ export function EduChatbot() {
     setFilePreview(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
 
-    // Prepare history for Genkit flow
+    
     const flowHistory = messages.filter(m => m.role === 'user' || m.role === 'bot').map(msg => {
-      const parts: any[] = [{ text: msg.text }];
-      // Note: The flow's input schema expects imageDataUri for the *current* user message, not for history.
-      // If historical images were needed by the flow, its input/history schema would need adjustment.
+      const parts: any[] = [];
+      if (msg.text && msg.text.trim() !== '') {
+        parts.push({ text: msg.text.trim() });
+      }
+      // Note: For history, we are only sending text parts. 
+      // If the flow needs to "remember" images from history, its schema and logic would need to support that.
       return {
-        role: msg.role as 'user' | 'model', // Ensure role is 'user' or 'model'
+        role: msg.role as 'user' | 'model',
         parts: parts,
       };
-    });
+    }).filter(msg => msg.parts.length > 0);
 
 
-    // Add a thinking message for the bot
+    
     const thinkingMessageId = (Date.now() + 1).toString();
     setMessages(prev => [...prev, { id: thinkingMessageId, text: t('chatbot.thinking'), role: 'bot' }]);
 
     try {
       const flowInput: EduBotFlowInput = {
-        message: text,
+        message: text, // Will be trimmed by the flow
         history: flowHistory,
         imageDataUri: imageDataUriForFlow,
       };
       
-      // Simulate the abort functionality for Genkit (actual cancellation depends on flow design)
-      // This promise wrapper allows us to race against the abort signal
+      
       const flowPromise = eduBotFlow(flowInput);
       const result = await Promise.race([
         flowPromise,
         new Promise<null>((_, reject) => {
-          // This AbortController is for client-side cancellation attempt.
-          // True server-side cancellation for Genkit flows requires more setup.
           newAbortController.signal.addEventListener('abort', () => {
             reject(new DOMException('Aborted', 'AbortError'));
           });
         })
       ]);
 
-      if (result === null) { // Aborted by client-side AbortController
+      if (result === null) { 
         return;
       }
       
@@ -149,9 +149,6 @@ export function EduChatbot() {
       let errorMessage = t('chatbot.errorDefault');
       if (error.name === 'AbortError') {
         errorMessage = t('chatbot.stopped');
-      } else if (error.message) {
-        // Avoid showing verbose internal Genkit errors directly to user
-        errorMessage = t('chatbot.errorDefault'); 
       }
        setMessages(prev => prev.map(m => m.id === thinkingMessageId ? { ...m, text: errorMessage, role: 'system-info' } : m));
     } finally {
@@ -162,15 +159,13 @@ export function EduChatbot() {
   
   const handleStop = () => {
     if (abortController) {
-      abortController.abort(); // This triggers the AbortError in the Promise.race
-      // UI update for "Stopped" is handled in the catch block of handleSendMessage
+      abortController.abort(); 
       setIsLoading(false); 
     }
   };
 
   const handleClear = () => {
     setMessages([]);
-    // chatHistory for the flow will be rebuilt on next send
   };
 
 
@@ -178,16 +173,16 @@ export function EduChatbot() {
     <div className="fixed bottom-6 right-6 z-[1000]">
       <button 
         onClick={handleToggle}
-        className="p-3 bg-primary text-primary-foreground rounded-full cursor-pointer hover:bg-primary/90 transition-all shadow-lg hover:scale-110"
+        className="p-3 bg-primary text-primary-foreground rounded-full cursor-pointer hover:bg-primary/90 transition-all shadow-lg hover:scale-110 text-3xl bat-icon-filter"
         aria-label={isOpen ? t('chatbot.closeAriaLabel') : t('chatbot.openAriaLabel')}
       >
-        <span role="img" aria-label={t('chatbot.iconAlt')} className="text-3xl bat-icon-filter">🦇</span>
+        🦇
       </button>
 
       {isOpen && (
         <div 
           className={cn(
-            "absolute bottom-[85px] right-0", // Adjusted bottom to accommodate larger toggle button
+            "absolute bottom-[85px] right-0", 
             "w-[320px] sm:w-[350px] max-h-[500px] flex flex-col overflow-hidden",
             "bg-card border border-border rounded-lg shadow-xl",
             "animate-fade-in-up-subtle" 
@@ -195,7 +190,7 @@ export function EduChatbot() {
         >
           <div className="flex items-center justify-between p-3 bg-primary text-primary-foreground">
             <h3 className="font-headline text-base font-semibold flex items-center">
-              <span role="img" aria-label={t('chatbot.iconAlt')} className="mr-2 text-lg">🦇</span>
+              <span className="mr-2 text-lg">🦇</span>
               {t('chatbot.headerTitle')}
             </h3>
             <Button variant="ghost" size="icon" onClick={handleToggle} className="h-7 w-7 text-primary-foreground hover:bg-primary/80">
@@ -211,7 +206,7 @@ export function EduChatbot() {
                   "p-2 rounded-md max-w-[85%]",
                   msg.role === 'user' ? 'ml-auto bg-primary text-primary-foreground text-right' : 
                   msg.role === 'bot' ? 'mr-auto bg-muted text-foreground' : 
-                  'mr-auto bg-destructive/20 text-destructive-foreground text-center w-full', // Adjusted destructive text color
+                  'mr-auto bg-destructive/20 text-destructive-foreground text-center w-full', 
                   "whitespace-pre-wrap break-words"
                 )}
               >
@@ -255,7 +250,7 @@ export function EduChatbot() {
                 ref={fileInputRef} 
                 onChange={handleFileChange} 
                 className="hidden" 
-                accept="image/*" // Accepts all image types
+                accept="image/*" 
                 disabled={isLoading}
               />
               <div className="flex-grow flex gap-2">

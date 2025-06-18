@@ -53,25 +53,25 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <Image
             src={project.imageUrl}
             alt={project.title}
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
             className="transition-transform duration-500 ease-in-out group-hover:scale-105"
             data-ai-hint={project.imageHint}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // Adjusted sizes for smaller cards
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 group-hover:via-black/10 transition-all duration-300"></div>
            <Badge variant="secondary" className="absolute top-2 right-2 text-[0.6rem] px-1.5 py-0.5 md:top-2.5 md:right-2.5 border-primary/50 text-primary bg-card/80 backdrop-blur-sm md:text-[0.65rem] md:px-2">{project.category}</Badge>
         </div>
       </CardHeader>
-      <CardContent className="p-3 md:p-3.5 flex-grow flex flex-col"> {/* Reduced padding */}
-        <CardTitle className="font-headline text-base md:text-md mb-1 text-accent group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle> {/* Reduced font size */}
-        <CardDescription className="text-foreground/80 mb-2 text-xs md:text-xs line-clamp-2 flex-grow leading-normal">{project.description}</CardDescription> {/* Reduced font size, line-clamp */}
+      <CardContent className="p-3 md:p-3.5 flex-grow flex flex-col"> 
+        <CardTitle className="font-headline text-base md:text-md mb-1 text-accent group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle> 
+        <CardDescription className="text-foreground/80 mb-2 text-xs md:text-xs line-clamp-2 flex-grow leading-normal">{project.description}</CardDescription> 
         
         <div className="mt-auto">
-          <p className="text-[0.6rem] md:text-[0.65rem] text-muted-foreground mb-1">{t('projects.techLabel')}</p> {/* Reduced font size */}
-          <div className="flex flex-wrap gap-1 md:gap-1 mb-2"> {/* Reduced gap */}
-            {project.tags.slice(0, 3).map((tag) => ( // Show 3 tags initially
-              <Badge key={tag} variant="secondary" className="text-[0.55rem] md:text-[0.6rem] bg-secondary/80 text-secondary-foreground/90 flex items-center gap-0.5 px-1 py-0.5 hover:bg-primary/20 hover:text-primary transition-colors"> {/* Reduced font size & padding */}
+          <p className="text-[0.6rem] md:text-[0.65rem] text-muted-foreground mb-1">{t('projects.techLabel')}</p> 
+          <div className="flex flex-wrap gap-1 md:gap-1 mb-2"> 
+            {project.tags.slice(0, 3).map((tag) => ( 
+              <Badge key={tag} variant="secondary" className="text-[0.55rem] md:text-[0.6rem] bg-secondary/80 text-secondary-foreground/90 flex items-center gap-0.5 px-1 py-0.5 hover:bg-primary/20 hover:text-primary transition-colors"> 
                 {techIconMap[tag] || <Code className="h-2.5 w-2.5" />} 
                 <span className="ml-0.5">{tag}</span>
               </Badge>
@@ -82,17 +82,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="p-3 md:p-3.5 border-t border-border/50 bg-card/30"> {/* Reduced padding */}
-        <div className="flex justify-start space-x-1.5 w-full"> {/* Reduced space */}
+      <CardFooter className="p-3 md:p-3.5 border-t border-border/50 bg-card/30"> 
+        <div className="flex justify-start space-x-1.5 w-full"> 
           {project.liveLink && (
-            <Button asChild variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> {/* Reduced font size & padding */}
+            <Button asChild variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> 
               <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-1 h-2.5 w-2.5 md:h-3 md:w-3" /> {t('projects.demoButton')}
               </Link>
             </Button>
           )}
           {project.repoLink && (
-            <Button asChild variant="ghost" size="sm" className="text-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> {/* Reduced font size & padding */}
+            <Button asChild variant="ghost" size="sm" className="text-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> 
               <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
                 <Github className="mr-1 h-2.5 w-2.5 md:h-3 md:w-3" /> {t('projects.repoButton')}
               </Link>
