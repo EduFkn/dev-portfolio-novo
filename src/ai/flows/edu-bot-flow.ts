@@ -83,6 +83,9 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
     ];
 
     try {
+      // Log the request payload for debugging
+      console.log('DEBUG: Sending to ai.generate. Messages:', JSON.stringify(messagesToModel, null, 2));
+
       const result = await ai.generate({
         model: 'googleai/gemini-1.5-flash-latest',
         prompt: messagesToModel, // Pass MessageData[] directly
@@ -95,6 +98,9 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
           ],
         }
       });
+
+      // Log the raw result for debugging
+      console.log('DEBUG: Received from ai.generate. Result:', JSON.stringify(result, null, 2));
 
       let responseText = "";
       if (result.candidates && result.candidates.length > 0) {
@@ -109,9 +115,10 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
         // Check for finish reason if responseText is empty after processing candidates
         if (!responseText.trim() && firstCandidate.finishReason && firstCandidate.finishReason !== 'STOP') {
            if (firstCandidate.finishReason === 'SAFETY') {
+              console.warn('DEBUG: Response blocked due to SAFETY finishReason.');
               return { answer: "Hmm, parece que minha resposta foi bloqueada por segurança. Tente algo diferente. 🤔" };
            }
-           // Add other specific finish reasons if needed
+           console.warn(`DEBUG: Response generation failed with finishReason: ${firstCandidate.finishReason}`);
            return { answer: `Não consegui gerar uma resposta (motivo: ${firstCandidate.finishReason}). Tenta de novo?`};
         }
       }
@@ -120,8 +127,11 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
       return { answer };
 
     } catch (error: any) {
-      // Em um ambiente de produção real, você logaria o 'error' detalhado no servidor.
-      console.error('Error in eduBotGenkitLogicFlow (ai.generate call):', error); // Para depuração no servidor
+      // Log the detailed error from ai.generate
+      console.error('ERROR in eduBotGenkitLogicFlow (ai.generate call):', error);
+      // Optionally, log specific error properties if known, e.g., error.message, error.stack
+      // console.error('Error message:', error.message);
+      // console.error('Error stack:', error.stack);
       return { answer: "Desculpe, tive um probleminha para processar sua mensagem. Tente de novo, por favor. 🛠️" };
     }
   }
