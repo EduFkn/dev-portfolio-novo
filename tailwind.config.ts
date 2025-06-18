@@ -1,7 +1,7 @@
 import type {Config} from 'tailwindcss';
 
 export default {
-  darkMode: ['class'],
+  darkMode: ['class'], // Use class strategy for dark mode
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        headline: ['Poppins', 'sans-serif'], // Poppins for headlines
         code: ['monospace'],
       },
       colors: {
@@ -88,11 +88,31 @@ export default {
             height: '0',
           },
         },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+         'subtle-parallax': {
+          '0%': { transform: 'translateY(0px)' },
+          '100%': { transform: 'translateY(-20px)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.5s ease-in-out',
+        'fade-out': 'fade-out 0.5s ease-in-out',
+        'subtle-parallax': 'subtle-parallax linear alternate infinite',
       },
+      boxShadow: {
+        'custom-light': '0 4px 6px -1px rgba(120, 120, 120, 0.1), 0 2px 4px -1px rgba(120, 120, 120, 0.06)',
+        'custom-dark': '0 4px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(160, 108, 213, 0.1)', // Gray shadow with purple hint
+        'custom-hover-dark': '0 8px 15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(160, 108, 213, 0.2)',
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
