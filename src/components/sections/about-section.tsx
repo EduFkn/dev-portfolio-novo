@@ -13,7 +13,7 @@ export function AboutSection() {
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
 
   return (
-    <section id="about" className="bg-card/10 animate-fade-in-up-subtle py-20 md:py-28 lg:py-32">
+    <section id="about" className="bg-background/10 animate-fade-in-up-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16">
           {t('about.title')} <span className="text-primary">{t('about.titleHighlight')}</span>
@@ -83,9 +83,7 @@ export function AboutSection() {
                 className="rounded-lg"
               ></iframe>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[90%] z-10 transition-transform hover:scale-110">
-                 <span role="img" aria-label={t('about.mapAvatarAltGeneric')} className="text-4xl md:text-5xl">
-                  👨
-                </span>
+                 <MapPin className="h-10 w-10 text-primary opacity-75" aria-label={t('about.mapPinLabel')} />
               </div>
                <div className="absolute bottom-2 left-2 bg-card/80 backdrop-blur-sm p-1.5 rounded-md text-[0.65rem] text-foreground flex items-center shadow-md">
                 <MapPin className="h-3 w-3 mr-1 text-primary" />

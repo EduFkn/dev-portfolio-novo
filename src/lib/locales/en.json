@@ -55,7 +55,7 @@
     "contactButton": "Talk to Me",
     "mapTitle": "Location on Map",
     "location": "Campos dos Goytacazes, RJ, Brazil",
-    "mapAvatarAltGeneric": "Person on Map"
+    "mapPinLabel": "Map Pin indicating location in Campos dos Goytacazes"
   },
   "skills": {
     "title": "My",
@@ -101,7 +101,7 @@
       "title": "Personal Portfolio Website",
       "description": "This very portfolio site, built with Next.js, TypeScript, and TailwindCSS for a modern visual experience."
     },
-    "chatbot": {
+    "chatbotProject": {
       "title": "Customer Service Chatbot",
       "description": "Intelligent chatbot for customer support automation, integrated with messaging platforms using Node.js."
     },
@@ -162,35 +162,20 @@
       "duration": "2018 - 2022",
       "description": "Focus on software dev, algorithms, data structures, AI. Developed an academic management system (final project).",
       "highlight1": "Final Project: Academic Management System (Grade A).",
-      "highlight2": "Participation in programming marathons.",
-      "skills": [
-        {"name": "JavaScript", "proficiency": 70, "iconName": "JavaScript"},
-        {"name": "Node.js", "proficiency": 60, "iconName": "Nodejs"},
-        {"name": "React", "proficiency": 50, "iconName": "React"}
-      ]
+      "highlight2": "Participation in programming marathons."
     },
     "webDevCourse": {
       "degree": "Technical Course in Web Development",
       "institution": "Federal Fluminense Institute (IFF)",
       "duration": "2015 - 2017",
       "description": "Comprehensive technical training in web dev (front/back-end), UI design, databases, and networks.",
-      "highlight1": "Project: Local News Portal (HTML, CSS, JS, PHP).",
-      "skills": [
-        {"name": "HTML", "proficiency": 90, "iconName": "HTML"},
-        {"name": "CSS", "proficiency": 85, "iconName": "CSS"},
-        {"name": "PostgreSQL", "proficiency": 55, "iconName": "PostgreSQL"}
-      ]
+      "highlight1": "Project: Local News Portal (HTML, CSS, JS, PHP)."
     },
     "nextjsCert": {
       "degree": "Next.js Developer Certification",
       "institution": "Online Platform X",
       "duration": "2023",
-      "description": "Intensive course on Next.js best practices: App Router, Server Components, performance optimizations, React, TypeScript.",
-      "skills": [
-        {"name": "React", "proficiency": 90, "iconName": "React"},
-        {"name": "TypeScript", "proficiency": 75, "iconName": "TypeScript"},
-        {"name": "TailwindCSS", "proficiency": 70, "iconName": "TailwindCSS"}
-      ]
+      "description": "Intensive course on Next.js best practices: App Router, Server Components, performance optimizations, React, TypeScript."
     }
   },
   "testimonials": {
@@ -232,5 +217,26 @@
     "githubLabel": "GitHub Profile",
     "linkedinLabel": "LinkedIn Profile",
     "emailLabel": "Email Me"
+  },
+  "chatbot": {
+    "openAriaLabel": "Open EduBot Chat",
+    "closeAriaLabel": "Close EduBot Chat",
+    "iconAlt": "EduBot Bat Icon",
+    "headerTitle": "🦇 EduBot",
+    "inputPlaceholder": "Ask something...",
+    "sendButton": "Send",
+    "sendingButton": "Sending...",
+    "stopButton": "Stop",
+    "clearButton": "Clear",
+    "thinking": "Edu is thinking... 🕶️",
+    "stopped": "⛔ Stopped.",
+    "errorPrefix": "Error",
+    "errorDefault": "Oops! Something went wrong. Try again.",
+    "fileTooLarge": "File is too large. Max 4MB.",
+    "fileConversionError": "Error processing the image. Please try another one.",
+    "imageSent": "[Image Sent]",
+    "uploadedImageAlt": "Uploaded image",
+    "imagePreview": "Image Preview:",
+    "imagePreviewAlt": "Preview of uploaded image"
   }
 }

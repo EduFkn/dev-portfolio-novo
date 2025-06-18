@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +9,6 @@ body {
 
 @layer base {
   :root {
-    /* Original Purple/Dark Theme */
     --background: 224 71% 4%; /* #060914 - Even darker */
     --foreground: 210 40% 98%; /* White text */
 
@@ -433,4 +433,14 @@ html {
 .scroll-snap-child {
   scroll-snap-align: start;
   scroll-margin-top: 1rem; /* Optional: space above snapped item */
+}
+
+/* Chatbot styles */
+.bat-icon-filter {
+  filter: drop-shadow(0 0 8px hsl(var(--primary-foreground) / 0.7));
+}
+
+/* Ensure smooth scroll behavior for the whole page */
+html {
+  scroll-behavior: smooth;
 }
