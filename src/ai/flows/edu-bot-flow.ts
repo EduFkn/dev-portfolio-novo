@@ -121,7 +121,7 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
 
     } catch (error: any) {
       // Em um ambiente de produção real, você logaria o 'error' detalhado no servidor.
-      // console.error('Error in eduBotGenkitLogicFlow (ai.generate call):', error); // Para depuração no servidor
+      console.error('Error in eduBotGenkitLogicFlow (ai.generate call):', error); // Para depuração no servidor
       return { answer: "Desculpe, tive um probleminha para processar sua mensagem. Tente de novo, por favor. 🛠️" };
     }
   }
