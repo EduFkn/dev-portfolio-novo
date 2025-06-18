@@ -25,7 +25,7 @@ const ChatMessagePartSchema = z.object({
 
 // Schema for a single chat message (user, model, or system)
 const ChatMessageSchema = z.object({
-  role: z.enum(['user', 'model', 'system']), // System role added for completeness, though history usually 'user'/'model'
+  role: z.enum(['user', 'model', 'system']), // System role added for completeness
   parts: z.array(ChatMessagePartSchema),
 });
 
