@@ -54,17 +54,18 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
     outputSchema: EduBotFlowOutputSchema,
   },
   async (input: EduBotFlowInput): Promise<EduBotFlowOutput> => {
-    const genkitHistory: MessageData[] = (input.history || []).map(hMsg => ({
-      role: hMsg.role as Role, // 'user' | 'model'
-      content: hMsg.parts.map(part => {
-        // For history, we primarily expect text parts based on current client implementation
-        return { text: part.text || "" }; // Ensure text property exists
-      }).filter(p => p.text.trim() !== '') // Filter out parts that are just empty strings
-    })).filter(msg => msg.content.length > 0); // Filter out messages with no valid content
+    const genkitHistory: MessageData[] = (input.history || [])
+      .map(hMsg => ({
+        role: hMsg.role as Role, // 'user' | 'model'
+        content: hMsg.parts
+          .map(part => ({ text: (part.text || "").trim() })) // Trim text parts
+          .filter(p => p.text !== ''), // Filter out empty text parts
+      }))
+      .filter(msg => msg.content.length > 0); // Filter out messages with no valid content
 
     const currentUserContent: MessagePart[] = [];
     if (input.message && input.message.trim() !== "") {
-      currentUserContent.push({ text: input.message });
+      currentUserContent.push({ text: input.message.trim() });
     }
     if (input.imageDataUri) {
       currentUserContent.push({ media: { url: input.imageDataUri } });
@@ -81,41 +82,48 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
       { role: 'user', content: currentUserContent },
     ];
 
-    const result = await ai.generate({
-      model: 'googleai/gemini-1.5-flash-latest',
-      prompt: messagesToModel, // Pass MessageData[] directly
-      config: {
-         safetySettings: [
-          { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-          { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-          { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
-          { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-        ],
-      }
-    });
+    try {
+      const result = await ai.generate({
+        model: 'googleai/gemini-1.5-flash-latest',
+        prompt: messagesToModel, // Pass MessageData[] directly
+        config: {
+           safetySettings: [
+            { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+            { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+            { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+            { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+          ],
+        }
+      });
 
-    let responseText = "";
-    if (result.candidates && result.candidates.length > 0) {
-      const firstCandidate = result.candidates[0];
-      if (firstCandidate.message && firstCandidate.message.content) {
-        for (const part of firstCandidate.message.content) {
-          if (part.text) {
-            responseText += part.text;
+      let responseText = "";
+      if (result.candidates && result.candidates.length > 0) {
+        const firstCandidate = result.candidates[0];
+        if (firstCandidate.message && firstCandidate.message.content) {
+          for (const part of firstCandidate.message.content) {
+            if (part.text) {
+              responseText += part.text;
+            }
           }
         }
+        // Check for finish reason if responseText is empty after processing candidates
+        if (!responseText.trim() && firstCandidate.finishReason && firstCandidate.finishReason !== 'STOP') {
+           if (firstCandidate.finishReason === 'SAFETY') {
+              return { answer: "Hmm, parece que minha resposta foi bloqueada por segurança. Tente algo diferente. 🤔" };
+           }
+           // Add other specific finish reasons if needed
+           return { answer: `Não consegui gerar uma resposta (motivo: ${firstCandidate.finishReason}). Tenta de novo?`};
+        }
       }
-      // Check for finish reason if responseText is empty after processing candidates
-      if (!responseText.trim() && firstCandidate.finishReason && firstCandidate.finishReason !== 'STOP') {
-         if (firstCandidate.finishReason === 'SAFETY') {
-            return { answer: "Hmm, parece que minha resposta foi bloqueada por segurança. Tente algo diferente. 🤔" };
-         }
-         // Add other specific finish reasons if needed
-         return { answer: `Não consegui gerar uma resposta (motivo: ${firstCandidate.finishReason}). Tenta de novo?`};
-      }
-    }
 
-    const answer = responseText.trim() || "Não consegui pensar em nada para isso agora. Tenta de novo? 🙄";
-    return { answer };
+      const answer = responseText.trim() || "Não consegui pensar em nada para isso agora. Tenta de novo? 🙄";
+      return { answer };
+
+    } catch (error: any) {
+      // Em um ambiente de produção real, você logaria o 'error' detalhado no servidor.
+      // console.error('Error in eduBotGenkitLogicFlow (ai.generate call):', error); // Para depuração no servidor
+      return { answer: "Desculpe, tive um probleminha para processar sua mensagem. Tente de novo, por favor. 🛠️" };
+    }
   }
 );
 
