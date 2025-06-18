@@ -55,7 +55,7 @@
     "contactButton": "Fale Comigo",
     "mapTitle": "Localização no Mapa",
     "location": "Campos dos Goytacazes, RJ, Brasil",
-    "mapAvatarAlt": "Avatar do Desenvolvedor no Mapa"
+    "mapAvatarAltGeneric": "Pessoa no Mapa"
   },
   "skills": {
     "title": "Minhas",
@@ -162,20 +162,35 @@
       "duration": "2018 - 2022",
       "description": "Foco em desenvolvimento de software, algoritmos, estruturas de dados, IA. Desenvolvi um sistema de gerenciamento acadêmico (TCC).",
       "highlight1": "TCC: Sistema de Gerenciamento Acadêmico (Nota A).",
-      "highlight2": "Participação em maratonas de programação."
+      "highlight2": "Participação em maratonas de programação.",
+      "skills": [
+        {"name": "JavaScript", "proficiency": 70, "iconName": "JavaScript"},
+        {"name": "Node.js", "proficiency": 60, "iconName": "Nodejs"},
+        {"name": "React", "proficiency": 50, "iconName": "React"}
+      ]
     },
     "webDevCourse": {
       "degree": "Curso Técnico em Informática para Internet",
       "institution": "Instituto Federal Fluminense (IFF)",
       "duration": "2015 - 2017",
       "description": "Formação técnica abrangente em desenvolvimento web (front/back-end), design de interfaces, BDs e redes.",
-      "highlight1": "Projeto: Portal de Notícias Local (HTML, CSS, JS, PHP)."
+      "highlight1": "Projeto: Portal de Notícias Local (HTML, CSS, JS, PHP).",
+      "skills": [
+        {"name": "HTML", "proficiency": 90, "iconName": "HTML"},
+        {"name": "CSS", "proficiency": 85, "iconName": "CSS"},
+        {"name": "PostgreSQL", "proficiency": 55, "iconName": "PostgreSQL"}
+      ]
     },
     "nextjsCert": {
       "degree": "Certificação Next.js Developer",
       "institution": "Plataforma Online X",
       "duration": "2023",
-      "description": "Curso intensivo focado em Next.js: App Router, Server Components, otimizações de performance, React, TypeScript."
+      "description": "Curso intensivo focado em Next.js: App Router, Server Components, otimizações de performance, React, TypeScript.",
+      "skills": [
+        {"name": "React", "proficiency": 90, "iconName": "React"},
+        {"name": "TypeScript", "proficiency": 75, "iconName": "TypeScript"},
+        {"name": "TailwindCSS", "proficiency": 70, "iconName": "TailwindCSS"}
+      ]
     }
   },
   "testimonials": {

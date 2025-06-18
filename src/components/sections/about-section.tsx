@@ -13,7 +13,7 @@ export function AboutSection() {
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
 
   return (
-    <section id="about" className="bg-card/10 animate-fade-in-up-subtle">
+    <section id="about" className="bg-card/10 animate-fade-in-up-subtle py-20 md:py-28 lg:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16">
           {t('about.title')} <span className="text-primary">{t('about.titleHighlight')}</span>
@@ -40,7 +40,7 @@ export function AboutSection() {
             </CardContent>
           </Card>
           
-          {/* Card 3: Journey & Specialization */}
+          {/* Card 2: Journey & Specialization */}
           <Card className="bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle" style={{ animationDelay: '0.1s' }}>
             <CardHeader>
               <CardTitle className="font-headline text-lg sm:text-xl text-accent flex items-center">
@@ -54,7 +54,7 @@ export function AboutSection() {
             </CardContent>
           </Card>
 
-          {/* Card 4: Interests & Philosophy */}
+          {/* Card 3: Interests & Philosophy */}
           <Card className="bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle" style={{ animationDelay: '0.2s' }}>
             <CardHeader>
               <CardTitle className="font-headline text-lg sm:text-xl text-accent flex items-center">
@@ -68,7 +68,7 @@ export function AboutSection() {
             </CardContent>
           </Card>
 
-          {/* Card 2: Map */}
+          {/* Card 4: Map */}
           <Card className="md:col-span-2 bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle aspect-[16/9] md:aspect-auto min-h-[300px]" style={{ animationDelay: '0.3s' }}>
             <CardContent className="p-0 relative h-full w-full">
               <iframe
@@ -83,7 +83,9 @@ export function AboutSection() {
                 className="rounded-lg"
               ></iframe>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[90%] z-10 transition-transform hover:scale-110">
-                 <span role="img" aria-label={t('about.mapAvatarAlt')} className="text-4xl md:text-5xl">👨‍💻</span>
+                 <span role="img" aria-label={t('about.mapAvatarAltGeneric')} className="text-4xl md:text-5xl">
+                  👨
+                </span>
               </div>
                <div className="absolute bottom-2 left-2 bg-card/80 backdrop-blur-sm p-1.5 rounded-md text-[0.65rem] text-foreground flex items-center shadow-md">
                 <MapPin className="h-3 w-3 mr-1 text-primary" />
