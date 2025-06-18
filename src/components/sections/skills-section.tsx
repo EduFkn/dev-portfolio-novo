@@ -3,8 +3,9 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, LayoutPanelLeft, Smartphone, Brain, Wind, Server, Type, FileJson, SigmaSquare, Flame, CreditCard, Component, Sparkles, FileCode2, Paintbrush, Package, Router, Network, Cloud, Container, GitFork, Webhook, DatabaseZap } from "lucide-react";
+import { Code, Database, LayoutPanelLeft, Smartphone, Brain, Wind, Server, Type, FileJson, Sigma, Flame, CreditCard, Component, Sparkles, FileCode2, Paintbrush, Package, Router, Network, Cloud, Container, GitFork, Webhook, DatabaseZap } from "lucide-react";
 import { InfiniteMarquee } from "@/components/ui/infinite-marquee";
+import React from 'react';
 
 const skillsData = [
   {
@@ -40,7 +41,7 @@ const techIcons = [
   { name: "Node.js", icon: <Server />, color: "text-green-500" },
   { name: "TypeScript", icon: <Type />, color: "text-blue-500" },
   { name: "JavaScript", icon: <FileJson />, color: "text-yellow-400" },
-  { name: "Python", icon: <SigmaSquare />, color: "text-blue-400" },
+  { name: "Python", icon: <Sigma />, color: "text-blue-400" },
   { name: "HTML5", icon: <FileCode2 />, color: "text-orange-500" },
   { name: "CSS3", icon: <Paintbrush />, color: "text-blue-600" },
   { name: "Tailwind CSS", icon: <Wind />, color: "text-cyan-400" },

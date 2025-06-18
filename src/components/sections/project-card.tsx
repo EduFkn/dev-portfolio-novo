@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -5,7 +6,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Code, Webhook, Server, Type, FileJson, SigmaSquare, DatabaseZap, Database, Wind, Flame, CreditCard, Component as ComponentIcon, Sparkles, FileCode2, Paintbrush, Package, Router, Network, Cloud, Container, GitFork, Zap, TrendingUp, FileText } from 'lucide-react';
+import { ExternalLink, Github, Code, Webhook, Server, Type, FileJson, Sigma, DatabaseZap, Database, Wind, Flame, CreditCard, Component as ComponentIcon, Sparkles, FileCode2, Paintbrush, Package, Router, Network, Cloud, Container, GitFork, Zap, TrendingUp, FileText } from 'lucide-react';
 import type React from 'react';
 
 interface Project {
@@ -30,14 +31,14 @@ const techIconMap: Record<string, React.ReactElement | null> = {
   'Node.js': <Server className="h-4 w-4" />,
   'TypeScript': <Type className="h-4 w-4" />,
   'JavaScript': <FileJson className="h-4 w-4" />,
-  'Python': <SigmaSquare className="h-4 w-4" />,
+  'Python': <Sigma className="h-4 w-4" />,
   'MongoDB': <DatabaseZap className="h-4 w-4" />,
   'PostgreSQL': <Database className="h-4 w-4" />,
   'Tailwind CSS': <Wind className="h-4 w-4" />,
   'Firebase': <Flame className="h-4 w-4" />,
   'Stripe': <CreditCard className="h-4 w-4" />,
   'ShadCN UI': <ComponentIcon className="h-4 w-4" />,
-  'Genkit': <Sparkles className="h-4 w-4" />, // Changed from BrainCircuit
+  'Genkit': <Sparkles className="h-4 w-4" />,
   'Google AI': <Sparkles className="h-4 w-4" />,
   'HTML5': <FileCode2 className="h-4 w-4" />,
   'CSS3': <Paintbrush className="h-4 w-4" />,
