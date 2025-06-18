@@ -4,39 +4,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { Paperclip, Send, RotateCcw, StopCircle, Loader2, X } from 'lucide-react';
+import { Send, RotateCcw, StopCircle, Loader2, X } from 'lucide-react'; // Paperclip removed
 import { eduBotFlow, type EduBotFlowInput, type EduBotFlowOutput } from '@/ai/flows/edu-bot-flow';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+// Image component is no longer needed here for user uploads
 import { useI18n } from '@/hooks/use-i18n';
 
 interface Message {
   id: string;
   text: string;
   role: 'user' | 'bot' | 'system-info';
-  imageUrl?: string; // For displaying user-uploaded images
+  // imageUrl removed as image uploads are disabled
 }
-
-// Helper to convert file to Base64 Data URI
-const toBase64 = (file: File): Promise<string> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = (error) => reject(error);
-  });
-};
 
 export function EduChatbot() {
   const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
-  const [currentFile, setCurrentFile] = useState<File | null>(null);
-  const [filePreview, setFilePreview] = useState<string | null>(null);
+  // currentFile, filePreview, and fileInputRef removed
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
   const [abortController, setAbortController] = useState<AbortController | null>(null);
 
   const scrollToBottom = () => {
@@ -47,31 +35,11 @@ export function EduChatbot() {
 
   const handleToggle = () => setIsOpen(!isOpen);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      if (file.size > 4 * 1024 * 1024) { // Example: 4MB limit
-        alert(t('chatbot.fileTooLarge'));
-        setCurrentFile(null);
-        setFilePreview(null);
-        if (fileInputRef.current) fileInputRef.current.value = "";
-        return;
-      }
-      setCurrentFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFilePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setCurrentFile(null);
-      setFilePreview(null);
-    }
-  };
+  // handleFileChange and toBase64 removed
 
   const handleSendMessage = async () => {
     const text = inputValue.trim();
-    if (!text && !currentFile) return;
+    if (!text) return; // Only check for text now
 
     setIsLoading(true);
     const newAbortController = new AbortController(); 
@@ -79,26 +47,11 @@ export function EduChatbot() {
 
     const userMessageId = Date.now().toString();
     
-    let imageDataUriForFlow: string | undefined = undefined;
-    let localImagePreviewForMessage: string | undefined = undefined;
-
-    if (currentFile) {
-      try {
-        imageDataUriForFlow = await toBase64(currentFile);
-        localImagePreviewForMessage = imageDataUriForFlow; 
-      } catch (error) {
-        console.error("Error converting file to Base64:", error);
-        setMessages(prev => [...prev, { id: Date.now().toString(), text: t('chatbot.fileConversionError'), role: 'system-info' }]);
-        setIsLoading(false);
-        return;
-      }
-    }
+    // Logic for imageDataUriForFlow and localImagePreviewForMessage removed
     
-    setMessages(prev => [...prev, { id: userMessageId, text: text || t('chatbot.imageSent'), role: 'user', imageUrl: localImagePreviewForMessage }]);
+    setMessages(prev => [...prev, { id: userMessageId, text: text, role: 'user' }]); // imageUrl removed
     setInputValue('');
-    setCurrentFile(null);
-    setFilePreview(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
+    // Logic for resetting file input removed
 
     
     const flowHistory = messages.filter(m => m.role === 'user' || m.role === 'bot').map(msg => {
@@ -106,14 +59,11 @@ export function EduChatbot() {
       if (msg.text && msg.text.trim() !== '') {
         parts.push({ text: msg.text.trim() });
       }
-      // Note: For history, we are only sending text parts. 
-      // If the flow needs to "remember" images from history, its schema and logic would need to support that.
       return {
         role: msg.role as 'user' | 'model',
         parts: parts,
       };
     }).filter(msg => msg.parts.length > 0);
-
 
     
     const thinkingMessageId = (Date.now() + 1).toString();
@@ -121,11 +71,10 @@ export function EduChatbot() {
 
     try {
       const flowInput: EduBotFlowInput = {
-        message: text, // Will be trimmed by the flow
+        message: text, 
         history: flowHistory,
-        imageDataUri: imageDataUriForFlow,
+        // imageDataUri removed
       };
-      
       
       const flowPromise = eduBotFlow(flowInput);
       const result = await Promise.race([
@@ -211,20 +160,13 @@ export function EduChatbot() {
                 )}
               >
                 {msg.text}
-                {msg.imageUrl && msg.role === 'user' && (
-                  <Image src={msg.imageUrl} alt={t('chatbot.uploadedImageAlt')} width={150} height={150} className="rounded-md mt-1.5 inline-block" />
-                )}
+                {/* Image display for user messages removed */}
               </div>
             ))}
             <div ref={messagesEndRef} />
           </div>
           
-          {filePreview && (
-            <div className="p-3 border-t border-border">
-              <p className="text-xs text-muted-foreground mb-1">{t('chatbot.imagePreview')}</p>
-              <Image src={filePreview} alt={t('chatbot.imagePreviewAlt')} width={80} height={80} className="rounded-md" />
-            </div>
-          )}
+          {/* File preview section removed */}
 
           <div className="p-3 border-t border-border space-y-2">
             <Textarea 
@@ -242,19 +184,9 @@ export function EduChatbot() {
               disabled={isLoading}
             />
             <div className="flex items-center justify-between gap-2">
-              <Button variant="outline" size="icon" onClick={() => fileInputRef.current?.click()} disabled={isLoading} className="h-9 w-9 border-primary text-primary hover:bg-primary/10">
-                <Paperclip size={18} />
-              </Button>
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                onChange={handleFileChange} 
-                className="hidden" 
-                accept="image/*" 
-                disabled={isLoading}
-              />
+              {/* File input button removed */}
               <div className="flex-grow flex gap-2">
-                <Button onClick={handleSendMessage} disabled={isLoading || (!inputValue.trim() && !currentFile)} className="w-full bg-primary hover:bg-primary/90 text-xs h-9">
+                <Button onClick={handleSendMessage} disabled={isLoading || !inputValue.trim()} className="w-full bg-primary hover:bg-primary/90 text-xs h-9">
                   {isLoading ? <Loader2 size={18} className="animate-spin mr-1.5" /> : <Send size={16} className="mr-1.5" />}
                   {isLoading ? t('chatbot.sendingButton') : t('chatbot.sendButton')}
                 </Button>
