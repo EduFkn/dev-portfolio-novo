@@ -15,7 +15,7 @@ export function AboutSection() {
   return (
     <section id="about" className="bg-card/30 animate-fade-in-up-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
+        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16">
           {t('about.title')} <span className="text-primary">{t('about.titleHighlight')}</span>
         </h2>
         <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
@@ -52,8 +52,8 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="md:col-span-2 space-y-6 animate-fade-in-up-subtle md:self-center" style={{ animationDelay: '0.4s' }}> {/* md:self-center for better vertical alignment */}
-            <div className="relative aspect-square md:aspect-[4/3] rounded-lg overflow-hidden shadow-custom-dark border border-border"> {/* Adjusted aspect ratio */}
+          <div className="md:col-span-2 space-y-6 animate-fade-in-up-subtle md:self-center relative" style={{ animationDelay: '0.4s' }}>
+            <div className="relative aspect-square md:aspect-[4/3] rounded-lg overflow-hidden shadow-custom-dark border border-border">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118835.84029402056!2d-41.38100060856933!3d-21.75200217276238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96383c1455555555%3A0x56a93b8c52a91560!2sCampos%20dos%20Goytacazes%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1717000000000" 
                 width="100%"
@@ -69,13 +69,13 @@ export function AboutSection() {
                 <MapPin className="h-4 w-4 mr-1.5 text-primary" />
                 {t('about.location')}
               </div>
-              {/* Character avatar over map */}
-              <div className="absolute top-4 right-4 md:top-auto md:bottom-3 md:right-[-20px] lg:right-[-30px] z-10 transform transition-transform hover:scale-110">
+              {/* Character avatar over map - Centered roughly over Campos using absolute positioning */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[120%] md:-translate-y-[110%] z-10 transition-transform hover:scale-110">
                  <Image 
-                    src="https://placehold.co/80x80/FFFFFF/1c1c2e.png?text=EA" 
+                    src="https://placehold.co/60x60/FFFFFF/1c1c2e.png?text=EA" 
                     alt={t('about.mapAvatarAlt')} 
-                    width={60} 
-                    height={60} 
+                    width={48} // Slightly smaller avatar
+                    height={48} 
                     className="rounded-full border-2 border-primary shadow-lg"
                     data-ai-hint="man avatar white character dark straight hair"
                   />

@@ -65,26 +65,26 @@ const getTestimonialsData = (t: Function) => [
 ];
 
 const TestimonialCard = ({ testimonial }: { testimonial: ReturnType<typeof getTestimonialsData>[0] }) => (
-  <Card className="w-[280px] sm:w-[320px] md:w-[350px] h-full flex flex-col bg-card shadow-lg hover:shadow-custom-hover-dark transition-all duration-300 mx-4 shrink-0"> {/* Increased mx for more gap */}
-    <CardContent className="p-5 md:p-6 flex flex-col items-center text-center flex-grow">
-      <div className="relative w-16 h-16 md:w-20 md:h-20 mb-3 rounded-full overflow-hidden border-2 border-primary">
+  <Card className="w-[260px] sm:w-[280px] md:w-[300px] h-full flex flex-col bg-card shadow-lg hover:shadow-custom-hover-dark transition-all duration-300 mx-3 shrink-0"> {/* Reduced width and mx */}
+    <CardContent className="p-4 md:p-5 flex flex-col items-center text-center flex-grow"> {/* Reduced padding */}
+      <div className="relative w-14 h-14 md:w-16 md:h-16 mb-2.5 rounded-full overflow-hidden border-2 border-primary"> {/* Reduced size and margin */}
         <Image
           src={testimonial.avatarUrl}
           alt={testimonial.name}
           layout="fill"
           objectFit="cover"
           data-ai-hint={testimonial.avatarHint}
-          sizes="80px"
+          sizes="64px"
         />
       </div>
-      <h3 className="text-md md:text-lg font-semibold text-accent">{testimonial.name}</h3>
-      <p className="text-xs md:text-sm text-muted-foreground mb-2">{testimonial.role}</p>
-      <div className="flex mb-3">
+      <h3 className="text-sm md:text-base font-semibold text-accent">{testimonial.name}</h3> {/* Reduced font size */}
+      <p className="text-xs text-muted-foreground mb-1.5">{testimonial.role}</p> {/* Reduced margin */}
+      <div className="flex mb-2.5"> {/* Reduced margin */}
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className={`h-3.5 w-3.5 md:h-4 md:w-4 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/50'}`} />
+          <Star key={i} className={`h-3 w-3 md:h-3.5 md:w-3.5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/50'}`} />
         ))}
       </div>
-      <blockquote className="text-xs md:text-sm text-foreground/80 italic leading-relaxed flex-grow">
+      <blockquote className="text-xs text-foreground/80 italic leading-relaxed flex-grow"> {/* Reduced font size */}
         &ldquo;{testimonial.comment}&rdquo;
       </blockquote>
     </CardContent>
@@ -100,11 +100,11 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-12 md:py-20 bg-background overflow-hidden animate-fade-in-up-subtle">
       <div className="container mx-auto px-0 sm:px-4 lg:px-8">
-        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
+        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16">
           {t('testimonials.title')} <span className="text-primary">{t('testimonials.titleHighlight')}</span>
         </h2>
         
-        <div className="space-y-8"> {/* Increased space-y */}
+        <div className="space-y-6"> {/* Reduced space-y */}
           <InfiniteMarquee speed="slow" pauseOnHover>
             {firstHalf.map((testimonial) => (
               <TestimonialCard key={testimonial.id} testimonial={testimonial} />

@@ -402,3 +402,31 @@ html {
   animation: fade-in-up-subtle 0.6s ease-out forwards;
   opacity: 0; /* Start hidden for animation */
 }
+
+/* Education Section Scroll Snap */
+.scroll-snap-container {
+  scroll-snap-type: y proximity;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 70vh; /* Adjust as needed, or make it full screen height */
+  padding-right: 8px; /* Space for scrollbar if it appears, to prevent content shift */
+}
+
+.scroll-snap-container::-webkit-scrollbar {
+  width: 6px;
+}
+.scroll-snap-container::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.2);
+  border-radius: 3px;
+}
+.scroll-snap-container::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 3px;
+}
+.scroll-snap-container::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
+
+.scroll-snap-child {
+  scroll-snap-align: start;
+  scroll-margin-top: 1rem; /* Optional: space above snapped item */
+}

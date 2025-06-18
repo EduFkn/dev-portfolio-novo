@@ -123,31 +123,31 @@
       "role": "Senior Full Stack Developer",
       "company": "Tech Solutions Inc.",
       "duration": "Jan 2022 - Present",
-      "description": "Led the development of key features for a SaaS platform, mentored junior developers, and improved application performance by 20%. Worked extensively with Next.js, Node.js, and PostgreSQL.",
+      "description": "Led development of key SaaS platform features, mentored juniors, and improved app performance by 20%.",
       "task1": "Designed and implemented scalable microservices.",
-      "task2": "Collaborated with cross-functional teams to define project requirements.",
-      "task3": "Conducted code reviews and maintained code quality standards.",
-      "task4": "Integrated third-party APIs and services."
+      "task2": "Collaborated with cross-functional teams.",
+      "task3": "Conducted code reviews and maintained quality.",
+      "task4": "Integrated third-party APIs."
     },
     "job2": {
       "role": "Software Engineer",
       "company": "Web Wizards LLC",
       "duration": "Jun 2019 - Dec 2021",
-      "description": "Developed and maintained websites and web applications for clients using React, Express, and MongoDB. Contributed to UI/UX design and optimized web performance.",
-      "task1": "Built responsive user interfaces with React and Tailwind CSS.",
-      "task2": "Developed RESTful APIs for various client projects.",
-      "task3": "Participated in agile development cycles and sprint planning.",
-      "task4": "Provided technical support and bug fixes for existing applications."
+      "description": "Developed and maintained client websites/apps (React, Express, MongoDB). Contributed to UI/UX and performance.",
+      "task1": "Built responsive UIs with React & Tailwind.",
+      "task2": "Developed RESTful APIs.",
+      "task3": "Participated in agile development cycles.",
+      "task4": "Provided technical support and bug fixes."
     },
     "job3": {
       "role": "Junior Web Developer",
       "company": "Visionary Startup",
       "duration": "Mar 2018 - May 2019",
-      "description": "Assisted in the development of an MVP for an innovative startup, focusing on front-end technologies and rapidly learning about the software development lifecycle.",
-      "task1": "Development of UI components with HTML, CSS, and JavaScript.",
-      "task2": "Collaboration with the design team to implement pixel-perfect interfaces.",
+      "description": "Assisted in MVP development, focusing on front-end tech and learning the software development lifecycle.",
+      "task1": "UI component development (HTML, CSS, JS).",
+      "task2": "Collaboration with design for pixel-perfect UIs.",
       "task3": "Testing and debugging features.",
-      "task4": "Learning and application of agile methodologies."
+      "task4": "Learning agile methodologies."
     }
   },
   "education": {
@@ -158,24 +158,22 @@
       "degree": "Bachelor of Computer Science",
       "institution": "Estácio de Sá University",
       "duration": "2018 - 2022",
-      "description": "Focus on software development, algorithms, data structures, and artificial intelligence. Participated in research projects and developed an academic management system as a final project.",
-      "highlight1": "Final Course Project: Academic Management System with Grade A.",
-      "highlight2": "Participation in programming marathons.",
-      "highlight3": "Teaching assistant for Object-Oriented Programming."
+      "description": "Focus on software dev, algorithms, data structures, AI. Developed an academic management system (final project).",
+      "highlight1": "Final Project: Academic Management System (Grade A).",
+      "highlight2": "Participation in programming marathons."
     },
     "webDevCourse": {
       "degree": "Technical Course in Web Development",
       "institution": "Federal Fluminense Institute (IFF)",
       "duration": "2015 - 2017",
-      "description": "Comprehensive technical training in front-end and back-end web development, interface design, databases, and computer networks.",
-      "highlight1": "Development of a local news portal as a practical project.",
-      "highlight2": "Award for best project of the 2017 class."
+      "description": "Comprehensive technical training in web dev (front/back-end), UI design, databases, and networks.",
+      "highlight1": "Project: Local News Portal."
     },
     "nextjsCert": {
       "degree": "Next.js Developer Certification",
       "institution": "Online Platform X",
       "duration": "2023",
-      "description": "Intensive course focused on best practices for Next.js development, including App Router, Server Components, and performance optimizations."
+      "description": "Intensive course on Next.js best practices: App Router, Server Components, performance optimizations."
     }
   },
   "testimonials": {
@@ -189,6 +187,7 @@
     "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo is a dedicated developer with great potential. Always willing to learn and face new challenges."}
   },
   "footer": {
+    "brand": "EduardoDev",
     "tagline": "Passionate about creating innovative digital solutions and memorable user experiences.",
     "quickContact": {
       "title": "Let's Connect!",

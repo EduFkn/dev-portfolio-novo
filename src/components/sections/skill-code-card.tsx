@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -17,22 +18,22 @@ export function SkillCodeCard({ skillName, details, icon }: SkillCodeCardProps) 
       case 'javascript': return 'skill-card-js';
       case 'typescript': return 'skill-card-ts';
       case 'react': return 'skill-card-react';
-      case 'next.js': return 'skill-card-nextjs';
+      case 'next.js': return 'skill-card-nextjs'; // Kept for consistency if needed
       case 'node.js': return 'skill-card-node';
-      case 'tailwind css': return 'skill-card-tailwind';
+      case 'tailwindcss': return 'skill-card-tailwind'; // Corrected from Tailwind CSS
       case 'mongodb': return 'skill-card-mongo';
       case 'postgresql': return 'skill-card-postgres';
       case 'docker': return 'skill-card-docker';
       case 'git': return 'skill-card-git';
       case 'github': return 'skill-card-github';
       case 'n8n': return 'skill-card-n8n';
-      case 'chatbots': return 'skill-card-chatbot';
+      case 'chatbots': return 'skill-card-chatbots'; // Corrected case
       default: return 'text-foreground/80';
     }
   };
   
   return (
-    <div className="relative rounded-lg bg-slate-900/70 dark:bg-slate-900 p-3 shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:scale-[1.02]">
+    <div className="relative rounded-lg bg-slate-900/70 dark:bg-slate-900 p-3 shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:scale-[1.02] h-full flex flex-col">
       <div className="relative flex items-center mb-3">
         <div className="flex pl-2 pt-1">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500/80 mr-1.5"></span>
@@ -44,14 +45,14 @@ export function SkillCodeCard({ skillName, details, icon }: SkillCodeCardProps) 
           {skillName}.config.js
         </div>
       </div>
-      <div className="space-y-1 px-2 pb-3 font-mono text-[0.7rem] leading-relaxed">
-        <p><span className="skill-card-bracket">&lt;</span><span className={`skill-card-tag ${languageColorClass(skillName)}`}>{skillName.replace(/\s+/g, '')}</span><span className="skill-card-bracket">&gt;</span></p>
+      <div className="space-y-1 px-2 pb-3 font-mono text-[0.7rem] leading-relaxed flex-grow">
+        <p><span className="skill-card-bracket">&lt;</span><span className={`skill-card-tag ${languageColorClass(skillName)}`}>{skillName.replace(/\s+/g, '').replace('.','')}</span><span className="skill-card-bracket">&gt;</span></p>
         {details.map((detail, index) => (
           <p key={index} className="ml-3">
             <span className="skill-card-prop">feature</span><span className="skill-card-bracket">=</span><span className="skill-card-value">&quot;{detail}&quot;</span>
           </p>
         ))}
-        <p><span className="skill-card-bracket">&lt;/</span><span className={`skill-card-tag ${languageColorClass(skillName)}`}>{skillName.replace(/\s+/g, '')}</span><span className="skill-card-bracket">&gt;</span></p>
+        <p><span className="skill-card-bracket">&lt;/</span><span className={`skill-card-tag ${languageColorClass(skillName)}`}>{skillName.replace(/\s+/g, '').replace('.','')}</span><span className="skill-card-bracket">&gt;</span></p>
       </div>
     </div>
   );

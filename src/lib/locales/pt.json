@@ -123,31 +123,31 @@
       "role": "Desenvolvedor Full Stack Sênior",
       "company": "Tech Solutions Inc.",
       "duration": "Jan 2022 - Presente",
-      "description": "Liderei o desenvolvimento de funcionalidades chave para uma plataforma SaaS, mentorei desenvolvedores juniores e melhorei a performance da aplicação em 20%. Trabalhei extensivamente com Next.js, Node.js e PostgreSQL.",
+      "description": "Liderei o desenvolvimento de funcionalidades chave para plataforma SaaS, mentorei juniores e melhorei performance da app em 20%.",
       "task1": "Projetei e implementei microsserviços escaláveis.",
-      "task2": "Colaborei com equipes multifuncionais para definir requisitos de projeto.",
-      "task3": "Conduzi revisões de código e mantive padrões de qualidade de código.",
-      "task4": "Integrei APIs e serviços de terceiros."
+      "task2": "Colaborei com equipes multifuncionais.",
+      "task3": "Conduzi revisões de código e mantive qualidade.",
+      "task4": "Integrei APIs de terceiros."
     },
     "job2": {
       "role": "Engenheiro de Software",
       "company": "Web Wizards LLC",
       "duration": "Jun 2019 - Dez 2021",
-      "description": "Desenvolvi e mantive websites e aplicações web para clientes utilizando React, Express e MongoDB. Contribuí para o design UI/UX e otimizei a performance web.",
-      "task1": "Construí interfaces de usuário responsivas com React e Tailwind CSS.",
-      "task2": "Desenvolvi APIs RESTful para diversos projetos de clientes.",
-      "task3": "Participei de ciclos de desenvolvimento ágil e planejamento de sprints.",
-      "task4": "Forneci suporte técnico e correções de bugs para aplicações existentes."
+      "description": "Desenvolvi e mantive websites/apps para clientes (React, Express, MongoDB). Contribuí para UI/UX e performance.",
+      "task1": "Construí UIs responsivas com React & Tailwind.",
+      "task2": "Desenvolvi APIs RESTful.",
+      "task3": "Participei de ciclos de desenvolvimento ágil.",
+      "task4": "Forneci suporte técnico e correções de bugs."
     },
     "job3": {
       "role": "Desenvolvedor Web Júnior",
       "company": "Startup Visionária",
       "duration": "Mar 2018 - Mai 2019",
-      "description": "Auxiliei no desenvolvimento de um MVP para uma startup inovadora, focando em tecnologias front-end e aprendendo rapidamente sobre o ciclo de vida de desenvolvimento de software.",
-      "task1": "Desenvolvimento de componentes UI com HTML, CSS e JavaScript.",
-      "task2": "Colaboração com a equipe de design para implementar interfaces pixel-perfect.",
+      "description": "Auxiliei no desenvolvimento de MVP, focando em front-end e aprendendo o ciclo de vida de desenvolvimento de software.",
+      "task1": "Desenvolvimento de componentes UI (HTML, CSS, JS).",
+      "task2": "Colaboração com design para UIs pixel-perfect.",
       "task3": "Testes e depuração de funcionalidades.",
-      "task4": "Aprendizado e aplicação de metodologias ágeis."
+      "task4": "Aprendizado de metodologias ágeis."
     }
   },
   "education": {
@@ -158,24 +158,22 @@
       "degree": "Bacharelado em Ciência da Computação",
       "institution": "Universidade Estácio de Sá",
       "duration": "2018 - 2022",
-      "description": "Foco em desenvolvimento de software, algoritmos, estruturas de dados e inteligência artificial. Participei de projetos de pesquisa e desenvolvi um sistema de gerenciamento acadêmico como projeto final.",
-      "highlight1": "Projeto de Conclusão de Curso: Sistema de Gerenciamento Acadêmico com nota A.",
-      "highlight2": "Participação em maratonas de programação.",
-      "highlight3": "Monitoria na disciplina de Programação Orientada a Objetos."
+      "description": "Foco em desenvolvimento de software, algoritmos, estruturas de dados, IA. Desenvolvi um sistema de gerenciamento acadêmico (TCC).",
+      "highlight1": "TCC: Sistema de Gerenciamento Acadêmico (Nota A).",
+      "highlight2": "Participação em maratonas de programação."
     },
     "webDevCourse": {
       "degree": "Curso Técnico em Informática para Internet",
       "institution": "Instituto Federal Fluminense (IFF)",
       "duration": "2015 - 2017",
-      "description": "Formação técnica abrangente em desenvolvimento web front-end e back-end, design de interfaces, banco de dados e redes de computadores.",
-      "highlight1": "Desenvolvimento de um portal de notícias local como projeto prático.",
-      "highlight2": "Prêmio de melhor projeto da turma de 2017."
+      "description": "Formação técnica abrangente em desenvolvimento web (front/back-end), design de interfaces, BDs e redes.",
+      "highlight1": "Projeto: Portal de Notícias Local."
     },
     "nextjsCert": {
       "degree": "Certificação Next.js Developer",
       "institution": "Plataforma Online X",
       "duration": "2023",
-      "description": "Curso intensivo focado nas melhores práticas de desenvolvimento com Next.js, incluindo App Router, Server Components, e otimizações de performance."
+      "description": "Curso intensivo focado em Next.js: App Router, Server Components, otimizações de performance."
     }
   },
   "testimonials": {
@@ -189,6 +187,7 @@
     "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo é um desenvolvedor dedicado e com grande potencial. Sempre disposto a aprender e enfrentar novos desafios."}
   },
   "footer": {
+    "brand": "EduardoDev",
     "tagline": "Apaixonado por criar soluções digitais inovadoras e experiências de usuário memoráveis.",
     "quickContact": {
       "title": "Vamos Conectar!",

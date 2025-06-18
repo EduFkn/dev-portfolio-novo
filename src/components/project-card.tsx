@@ -28,14 +28,14 @@ interface ProjectCardProps {
 
 const techIconMap: Record<string, React.ReactElement | null> = {
   'HTML': <Code className="h-3 w-3" />,
-  'CSS': <Code className="h-3 w-3" />, // Using generic Code icon
+  'CSS': <Code className="h-3 w-3" />,
   'JavaScript': <Braces className="h-3 w-3" />,
   'Node.js': <Server className="h-3 w-3" />,
   'TypeScript': <Type className="h-3 w-3" />,
   'MongoDB': <Database className="h-3 w-3" />,
   'TailwindCSS': <Wind className="h-3 w-3" />,
   'PostgreSQL': <Database className="h-3 w-3" />,
-  'React': <Code className="h-3 w-3" />, // Using generic Code icon
+  'React': <Code className="h-3 w-3" />,
   'Docker': <Container className="h-3 w-3" />,
   'Git': <GitFork className="h-3 w-3" />,
   'GitHub': <Github className="h-3 w-3" />,
@@ -57,44 +57,44 @@ export function ProjectCard({ project }: ProjectCardProps) {
             objectFit="cover"
             className="transition-transform duration-500 ease-in-out group-hover:scale-105"
             data-ai-hint={project.imageHint}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // Adjusted sizes for smaller cards
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:from-black/40 group-hover:via-black/10 transition-all duration-300"></div>
-           <Badge variant="secondary" className="absolute top-2 right-2 md:top-2.5 md:right-2.5 border-primary/50 text-primary bg-card/80 backdrop-blur-sm text-[0.6rem] md:text-[0.65rem] px-1.5 py-0.5 md:px-2">{project.category}</Badge>
+           <Badge variant="secondary" className="absolute top-2 right-2 text-[0.6rem] px-1.5 py-0.5 md:top-2.5 md:right-2.5 border-primary/50 text-primary bg-card/80 backdrop-blur-sm md:text-[0.65rem] md:px-2">{project.category}</Badge>
         </div>
       </CardHeader>
-      <CardContent className="p-3 md:p-4 flex-grow flex flex-col">
-        <CardTitle className="font-headline text-md md:text-lg mb-1 text-accent group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-        <CardDescription className="text-foreground/80 mb-2.5 text-xs md:text-sm line-clamp-3 flex-grow leading-relaxed">{project.description}</CardDescription>
+      <CardContent className="p-3 md:p-3.5 flex-grow flex flex-col"> {/* Reduced padding */}
+        <CardTitle className="font-headline text-base md:text-md mb-1 text-accent group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle> {/* Reduced font size */}
+        <CardDescription className="text-foreground/80 mb-2 text-xs md:text-xs line-clamp-2 flex-grow leading-normal">{project.description}</CardDescription> {/* Reduced font size, line-clamp */}
         
         <div className="mt-auto">
-          <p className="text-[0.65rem] md:text-[0.7rem] text-muted-foreground mb-1.5">{t('projects.techLabel')}</p>
-          <div className="flex flex-wrap gap-1 md:gap-1.5 mb-2.5">
-            {project.tags.slice(0, 4).map((tag) => ( // Show 4 tags initially
-              <Badge key={tag} variant="secondary" className="text-[0.6rem] md:text-[0.65rem] bg-secondary/80 text-secondary-foreground/90 flex items-center gap-0.5 md:gap-1 px-1 md:px-1.5 py-0.5 hover:bg-primary/20 hover:text-primary transition-colors">
-                {techIconMap[tag] || <Code className="h-3 w-3" />} 
+          <p className="text-[0.6rem] md:text-[0.65rem] text-muted-foreground mb-1">{t('projects.techLabel')}</p> {/* Reduced font size */}
+          <div className="flex flex-wrap gap-1 md:gap-1 mb-2"> {/* Reduced gap */}
+            {project.tags.slice(0, 3).map((tag) => ( // Show 3 tags initially
+              <Badge key={tag} variant="secondary" className="text-[0.55rem] md:text-[0.6rem] bg-secondary/80 text-secondary-foreground/90 flex items-center gap-0.5 px-1 py-0.5 hover:bg-primary/20 hover:text-primary transition-colors"> {/* Reduced font size & padding */}
+                {techIconMap[tag] || <Code className="h-2.5 w-2.5" />} 
                 <span className="ml-0.5">{tag}</span>
               </Badge>
             ))}
-            {project.tags.length > 4 && (
-              <Badge variant="outline" className="text-[0.6rem] md:text-[0.65rem] px-1 md:px-1.5 py-0.5">+{project.tags.length - 4}</Badge>
+            {project.tags.length > 3 && (
+              <Badge variant="outline" className="text-[0.55rem] md:text-[0.6rem] px-1 py-0.5">+{project.tags.length - 3}</Badge>
             )}
           </div>
         </div>
       </CardContent>
-      <CardFooter className="p-3 md:p-4 border-t border-border/50 bg-card/30">
-        <div className="flex justify-start space-x-2 w-full">
+      <CardFooter className="p-3 md:p-3.5 border-t border-border/50 bg-card/30"> {/* Reduced padding */}
+        <div className="flex justify-start space-x-1.5 w-full"> {/* Reduced space */}
           {project.liveLink && (
-            <Button asChild variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform hover:scale-105 text-xs px-2.5 py-1 h-auto md:px-3 md:py-1.5">
+            <Button asChild variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> {/* Reduced font size & padding */}
               <Link href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-1 h-3 w-3 md:h-3.5 md:w-3.5" /> {t('projects.demoButton')}
+                <ExternalLink className="mr-1 h-2.5 w-2.5 md:h-3 md:w-3" /> {t('projects.demoButton')}
               </Link>
             </Button>
           )}
           {project.repoLink && (
-            <Button asChild variant="ghost" size="sm" className="text-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-105 text-xs px-2.5 py-1 h-auto md:px-3 md:py-1.5">
+            <Button asChild variant="ghost" size="sm" className="text-foreground/70 hover:text-primary hover:bg-primary/10 transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> {/* Reduced font size & padding */}
               <Link href={project.repoLink} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-1 h-3 w-3 md:h-3.5 md:w-3.5" /> {t('projects.repoButton')}
+                <Github className="mr-1 h-2.5 w-2.5 md:h-3 md:w-3" /> {t('projects.repoButton')}
               </Link>
             </Button>
           )}

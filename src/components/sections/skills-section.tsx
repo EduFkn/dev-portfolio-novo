@@ -40,13 +40,13 @@ export function SkillsSection() {
   return (
     <section id="skills" className="bg-card/30 animate-fade-in-up-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
+        <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16">
           {t('skills.title')} <span className="text-primary">{t('skills.titleHighlight')}</span>
         </h2>
         
         <div className="relative animate-fade-in-up-subtle" style={{ animationDelay: '0.2s' }}>
           <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10 hidden sm:block">
-            <Button variant="outline" size="icon" onClick={() => scroll('left')} className="rounded-full bg-background/50 hover:bg-primary/20 border-primary text-primary">
+            <Button variant="outline" size="icon" onClick={() => scroll('left')} className="rounded-full bg-background/50 hover:bg-primary/20 border-primary text-primary shadow-md">
               <ChevronLeft className="h-5 w-5" />
             </Button>
           </div>
@@ -55,7 +55,7 @@ export function SkillsSection() {
             className="flex overflow-x-auto pb-4 space-x-4 md:space-x-6 hide-scrollbar px-2"
           >
             {skillsList.map((skill, index) => (
-              <div key={skill.name} className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] animate-fade-in-up-subtle" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
+              <div key={skill.name} className="flex-shrink-0 w-[270px] sm:w-[290px] md:w-[310px] animate-fade-in-up-subtle h-full" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
                 <SkillCodeCard 
                   skillName={skill.name}
                   details={skill.details}
@@ -65,7 +65,7 @@ export function SkillsSection() {
             ))}
           </div>
           <div className="absolute top-1/2 -translate-y-1/2 right-0 z-10 hidden sm:block">
-             <Button variant="outline" size="icon" onClick={() => scroll('right')} className="rounded-full bg-background/50 hover:bg-primary/20 border-primary text-primary">
+             <Button variant="outline" size="icon" onClick={() => scroll('right')} className="rounded-full bg-background/50 hover:bg-primary/20 border-primary text-primary shadow-md">
               <ChevronRight className="h-5 w-5" />
             </Button>
           </div>
