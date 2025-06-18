@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggleButton } from '@/components/ui/theme-toggle-button';
 import { cn } from '@/lib/utils';
-import { Aperture, Mail, Menu, X as CloseIcon } from 'lucide-react'; // Globe and Music2 removed
+import { Aperture, Mail, Menu, X as CloseIcon } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { ContactDialog } from '@/components/contact-dialog';
-// MusicDialog import removed
 import { Button } from '@/components/ui/button';
 import { useI18n } from '@/hooks/use-i18n';
 import {
@@ -33,6 +32,7 @@ const USUKFlagIcon = () => ( // Generic English/US flag
     <path fillRule="evenodd" clipRule="evenodd" d="M0 0H20V1.5H0V0ZM0 3H20V4.5H0V3ZM0 6H20V7.5H0V6ZM0 9H20V10.5H0V9ZM0 12H20V13.5H0V12Z" fill="white"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M0 0V1.5H20V0H0ZM0 3V4.5H20V3H0ZM0 6V7.5H20V6H0ZM0 9V10.5H20V9H0ZM0 12V13.5H20V12H0Z" stroke="#BF0A30" strokeWidth="0.5"/>
     <rect width="10" height="7" fill="#0A3161"/>
+    {/* Simplified stars to avoid too much detail */}
     <path d="M1.5 1.5L3.5 2.5L2.5 0.5L1.5 2.5L0.5 0.5L1.5 1.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
     <path d="M5.5 1.5L7.5 2.5L6.5 0.5L5.5 2.5L4.5 0.5L5.5 1.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
     <path d="M1.5 4.5L3.5 5.5L2.5 3.5L1.5 5.5L0.5 3.5L1.5 4.5Z" fill="white" transform="translate(0.5 0.5) scale(0.8)"/>
@@ -55,13 +55,12 @@ export function Navbar() {
   ];
 
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
-  // isMusicDialogOpen state removed
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState('');
 
   useEffect(() => {
     const updateHash = () => setCurrentHash(window.location.hash);
-    window.addEventListener('hashchange', updateHash);
+    window.addEventListener('hashchange', updateHash, { passive: true });
     updateHash(); 
     return () => window.removeEventListener('hashchange', updateHash);
   }, []);
@@ -84,21 +83,24 @@ export function Navbar() {
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        if (typeof window !== 'undefined') {
-          window.location.hash = elementId; 
-        }
+        // Setting hash directly can be jarring, let scrollIntoView handle it.
+        // If direct hash update is needed, ensure it doesn't conflict.
+        // setTimeout(() => { window.location.hash = elementId; }, 0);
       }
     } else if (hash === '/') {
-        if (typeof window !== 'undefined') {
-         window.location.hash = ''; 
+        // For home, scroll to top and clear hash
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.location.hash) {
+          // Use history.pushState to clear hash without page reload or jump
+          history.pushState("", document.title, window.location.pathname + window.location.search);
         }
     }
   };
   
   const isNavItemActive = (itemHref: string) => {
-    const cleanPathnameWithHash = pathname === '/' && currentHash === '' ? '/' : (currentHash ? `/${currentHash}`: pathname);
-    if (itemHref === '/') return cleanPathnameWithHash === '/';
-    return itemHref === cleanPathnameWithHash || itemHref === `/#${currentHash.replace(/^#/, '')}`;
+    const currentPathWithHash = pathname + currentHash;
+    if (itemHref === '/') return currentPathWithHash === '/' || (pathname === '/' && currentHash === '');
+    return currentPathWithHash === itemHref || currentPathWithHash === `/${itemHref.replace(/^#/, '')}`;
   };
   
 
@@ -124,7 +126,7 @@ export function Navbar() {
                     "px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-all duration-300 ease-in-out",
                     "hover:text-primary hover:bg-primary/10",
                     isNavItemActive(item.href)
-                      ? "text-primary font-semibold bg-primary/5"
+                      ? "text-primary bg-primary/10 font-semibold" // Ensure background for active is subtle
                       : "text-foreground/80 hover:text-foreground"
                   )}
                   aria-current={isNavItemActive(item.href) ? 'page' : undefined}
@@ -135,12 +137,14 @@ export function Navbar() {
                <Button 
                   variant="ghost" 
                   onClick={() => setIsContactDialogOpen(true)}
-                  className="px-3 py-2 rounded-md text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out"
+                  className={cn(
+                    "px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-all duration-300 ease-in-out",
+                    "text-foreground/80 hover:text-primary hover:bg-primary/10"
+                  )}
                   aria-label={t('nav.contactLabel')}
                 >
                   {t('nav.contact')} <Mail className="ml-1.5 h-3.5 w-3.5 lg:h-4 lg:w-4"/>
                </Button>
-               {/* Music button removed */}
               <ThemeToggleButton />
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -169,7 +173,6 @@ export function Navbar() {
                 >
                   <Mail className="h-5 w-5"/>
                </Button>
-               {/* Music button removed for mobile */}
               <ThemeToggleButton />
                <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -211,7 +214,7 @@ export function Navbar() {
                     "block px-3 py-2 rounded-md text-base font-medium",
                     "hover:text-primary hover:bg-primary/10",
                     isNavItemActive(item.href)
-                      ? "text-primary bg-primary/5"
+                      ? "text-primary bg-primary/10"
                       : "text-foreground/80 hover:text-foreground"
                   )}
                   aria-current={isNavItemActive(item.href) ? 'page' : undefined}
@@ -224,7 +227,6 @@ export function Navbar() {
         )}
       </nav>
       <ContactDialog isOpen={isContactDialogOpen} onOpenChange={setIsContactDialogOpen} recipientEmail="edualmeida1260@gmail.com" />
-      {/* MusicDialog instance removed */}
     </>
   );
 }

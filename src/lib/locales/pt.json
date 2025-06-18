@@ -51,7 +51,6 @@
     "interests": "Além do desenvolvimento tradicional, tenho um forte interesse em automação de processos (N8N) e na criação de chatbots inteligentes para otimizar interações e fluxos de trabalho.",
     "philosophy": "Fora do código, gosto de explorar novas tecnologias, contribuir para projetos open-source e me manter atualizado com as últimas tendências do setor. Acredito que a colaboração e a troca de conhecimento são fundamentais para o crescimento profissional e pessoal.",
     "contactButton": "Fale Comigo",
-    "downloadCvButton": "Download CV",
     "mapTitle": "Localização no Mapa",
     "location": "Campos dos Goytacazes, RJ, Brasil",
     "mapAvatarAlt": "Avatar do Desenvolvedor no Mapa"
@@ -60,20 +59,20 @@
     "title": "Minhas",
     "titleHighlight": "Habilidades",
     "scrollHintMobile": "Arraste para ver mais habilidades →",
-    "html": {"detail1": "Estrutura semântica", "detail2": "Acessibilidade", "detail3": "Formulários"},
+    "html": {"detail1": "Estrutura semântica", "detail2": "Acessibilidade", "detail3": "Formulários e APIs"},
     "css": {"detail1": "Flexbox & Grid", "detail2": "Animações", "detail3": "Design Responsivo"},
-    "js": {"detail1": "ES6+ Moderno", "detail2": "DOM API", "detail3": "Async/Await"},
-    "ts": {"detail1": "Tipagem Estática", "detail2": "Interfaces", "detail3": "Generics"},
-    "react": {"detail1": "Componentização", "detail2": "Hooks", "detail3": "Context API"},
-    "tailwind": {"detail1": "Utility-First", "detail2": "Compilação JIT", "detail3": "Customização"},
-    "node": {"detail1": "APIs RESTful", "detail2": "Express.js", "detail3": "Async I/O"},
-    "mongo": {"detail1": "NoSQL", "detail2": "Documentos BSON", "detail3": "Mongoose"},
-    "postgres": {"detail1": "SQL Relacional", "detail2": "Transações ACID", "detail3": "Sequelize"},
-    "docker": {"detail1": "Conteinerização", "detail2": "Docker Compose", "detail3": "Imagens"},
-    "git": {"detail1": "Controle de Versão", "detail2": "Branching", "detail3": "Merge"},
-    "github": {"detail1": "Repositórios", "detail2": "Pull Requests", "detail3": "Actions (CI/CD)"},
-    "n8n": {"detail1": "Automação", "detail2": "Workflows Visuais", "detail3": "Integrações"},
-    "chatbots": {"detail1": "NLP Básico", "detail2": "Dialogflow/Rasa", "detail3": "APIs de Mensagens"}
+    "js": {"detail1": "ES6+ Moderno", "detail2": "Manipulação DOM", "detail3": "Async/Await"},
+    "ts": {"detail1": "Tipagem Estática", "detail2": "Interfaces e Genéricos", "detail3": "Módulos"},
+    "react": {"detail1": "Componentização", "detail2": "Hooks e Context API", "detail3": "Gerenciamento de Estado"},
+    "tailwind": {"detail1": "Utility-First", "detail2": "Compilação JIT", "detail3": "Temas Customizados"},
+    "node": {"detail1": "APIs RESTful", "detail2": "Express.js", "detail3": "Middleware e Autenticação"},
+    "mongo": {"detail1": "Banco NoSQL", "detail2": "Documentos BSON", "detail3": "Mongoose ODM"},
+    "postgres": {"detail1": "SQL Relacional", "detail2": "Transações ACID", "detail3": "Sequelize ORM"},
+    "docker": {"detail1": "Conteinerização", "detail2": "Docker Compose", "detail3": "Otimização de Imagens"},
+    "git": {"detail1": "Controle de Versão", "detail2": "Estratégias de Branch", "detail3": "Merge e Rebase"},
+    "github": {"detail1": "Repositórios", "detail2": "Pull Requests e Issues", "detail3": "GitHub Actions (CI/CD)"},
+    "n8n": {"detail1": "Automação de Fluxos", "detail2": "Editor Visual de Nós", "detail3": "Integrações Customizadas"},
+    "chatbots": {"detail1": "Fundamentos de NLP", "detail2": "Básico de Dialogflow/Rasa", "detail3": "APIs de Mensageria"}
   },
   "projects": {
     "title": "Meus",
@@ -191,13 +190,12 @@
   },
   "footer": {
     "tagline": "Apaixonado por criar soluções digitais inovadoras e experiências de usuário memoráveis.",
-    "newsletter": {
-      "title": "Mantenha-se Atualizado!",
-      "description": "Inscreva-se para receber notícias sobre meus últimos projetos e artigos.",
-      "emailLabel": "Email",
+    "quickContact": {
+      "title": "Vamos Conectar!",
+      "description": "Interessado em trabalhar juntos ou tem alguma pergunta? Envie-me uma mensagem rápida.",
+      "emailLabel": "Seu Email (Opcional)",
       "emailPlaceholder": "seu.email@exemplo.com",
-      "signupButton": "Inscrever-se",
-      "signupSuccess": "Obrigado por se inscrever!"
+      "button": "Enviar Mensagem"
     },
     "sections": {
       "services": {
@@ -209,8 +207,7 @@
       "helpfulLinks": {
         "title": "Links Úteis",
         "contact": "Contato",
-        "about": "Sobre Mim",
-        "faqs": "FAQs" 
+        "about": "Sobre Mim"
       }
     },
     "name": "Eduardo Almeida",

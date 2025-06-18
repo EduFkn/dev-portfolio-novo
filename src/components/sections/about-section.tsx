@@ -2,7 +2,7 @@
 "use client";
 
 import Image from 'next/image';
-import { MapPin, Mail, Download, UserCircle, Briefcase, Code, Zap } from 'lucide-react';
+import { MapPin, Mail, UserCircle, Briefcase, Code, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ContactDialog } from '@/components/contact-dialog';
 import React from 'react';
@@ -52,8 +52,8 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="md:col-span-2 space-y-6 animate-fade-in-up-subtle" style={{ animationDelay: '0.4s' }}>
-            <div className="relative aspect-square md:aspect-video rounded-lg overflow-hidden shadow-custom-dark border border-border">
+          <div className="md:col-span-2 space-y-6 animate-fade-in-up-subtle md:self-center" style={{ animationDelay: '0.4s' }}> {/* md:self-center for better vertical alignment */}
+            <div className="relative aspect-square md:aspect-[4/3] rounded-lg overflow-hidden shadow-custom-dark border border-border"> {/* Adjusted aspect ratio */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118835.84029402056!2d-41.38100060856933!3d-21.75200217276238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96383c1455555555%3A0x56a93b8c52a91560!2sCampos%20dos%20Goytacazes%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1717000000000" 
                 width="100%"
@@ -69,9 +69,10 @@ export function AboutSection() {
                 <MapPin className="h-4 w-4 mr-1.5 text-primary" />
                 {t('about.location')}
               </div>
-              <div className="absolute top-4 right-4 md:top-auto md:bottom-10 md:right-[-20px] lg:right-[-30px] z-10 transform transition-transform hover:scale-110">
+              {/* Character avatar over map */}
+              <div className="absolute top-4 right-4 md:top-auto md:bottom-3 md:right-[-20px] lg:right-[-30px] z-10 transform transition-transform hover:scale-110">
                  <Image 
-                    src="https://placehold.co/80x80/FFFFFF/1c1c2e.png?text=Dev" 
+                    src="https://placehold.co/80x80/FFFFFF/1c1c2e.png?text=EA" 
                     alt={t('about.mapAvatarAlt')} 
                     width={60} 
                     height={60} 

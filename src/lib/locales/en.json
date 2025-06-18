@@ -51,7 +51,6 @@
     "interests": "Beyond traditional development, I have a strong interest in process automation (N8N) and creating intelligent chatbots to optimize interactions and workflows.",
     "philosophy": "Outside of coding, I enjoy exploring new technologies, contributing to open-source projects, and staying updated with the latest industry trends. I believe collaboration and knowledge sharing are fundamental for professional and personal growth.",
     "contactButton": "Talk to Me",
-    "downloadCvButton": "Download CV",
     "mapTitle": "Location on Map",
     "location": "Campos dos Goytacazes, RJ, Brazil",
     "mapAvatarAlt": "Developer Avatar on Map"
@@ -60,20 +59,20 @@
     "title": "My",
     "titleHighlight": "Skills",
     "scrollHintMobile": "Swipe to see more skills →",
-    "html": {"detail1": "Semantic structure", "detail2": "Accessibility", "detail3": "Forms"},
+    "html": {"detail1": "Semantic structure", "detail2": "Accessibility", "detail3": "Forms & APIs"},
     "css": {"detail1": "Flexbox & Grid", "detail2": "Animations", "detail3": "Responsive Design"},
-    "js": {"detail1": "Modern ES6+", "detail2": "DOM API", "detail3": "Async/Await"},
-    "ts": {"detail1": "Static Typing", "detail2": "Interfaces", "detail3": "Generics"},
-    "react": {"detail1": "Componentization", "detail2": "Hooks", "detail3": "Context API"},
-    "tailwind": {"detail1": "Utility-First", "detail2": "JIT Compilation", "detail3": "Customization"},
-    "node": {"detail1": "RESTful APIs", "detail2": "Express.js", "detail3": "Async I/O"},
-    "mongo": {"detail1": "NoSQL", "detail2": "BSON Documents", "detail3": "Mongoose"},
-    "postgres": {"detail1": "Relational SQL", "detail2": "ACID Transactions", "detail3": "Sequelize"},
-    "docker": {"detail1": "Containerization", "detail2": "Docker Compose", "detail3": "Images"},
-    "git": {"detail1": "Version Control", "detail2": "Branching", "detail3": "Merge"},
-    "github": {"detail1": "Repositories", "detail2": "Pull Requests", "detail3": "Actions (CI/CD)"},
-    "n8n": {"detail1": "Automation", "detail2": "Visual Workflows", "detail3": "Integrations"},
-    "chatbots": {"detail1": "Basic NLP", "detail2": "Dialogflow/Rasa", "detail3": "Messaging APIs"}
+    "js": {"detail1": "Modern ES6+", "detail2": "DOM Manipulation", "detail3": "Async/Await"},
+    "ts": {"detail1": "Static Typing", "detail2": "Interfaces & Generics", "detail3": "Modules"},
+    "react": {"detail1": "Componentization", "detail2": "Hooks & Context API", "detail3": "State Management"},
+    "tailwind": {"detail1": "Utility-First", "detail2": "JIT Compilation", "detail3": "Custom Theming"},
+    "node": {"detail1": "RESTful APIs", "detail2": "Express.js", "detail3": "Middleware & Auth"},
+    "mongo": {"detail1": "NoSQL Database", "detail2": "BSON Documents", "detail3": "Mongoose ODM"},
+    "postgres": {"detail1": "Relational SQL", "detail2": "ACID Transactions", "detail3": "Sequelize ORM"},
+    "docker": {"detail1": "Containerization", "detail2": "Docker Compose", "detail3": "Image Optimization"},
+    "git": {"detail1": "Version Control", "detail2": "Branching Strategies", "detail3": "Merge & Rebase"},
+    "github": {"detail1": "Repositories", "detail2": "Pull Requests & Issues", "detail3": "GitHub Actions (CI/CD)"},
+    "n8n": {"detail1": "Workflow Automation", "detail2": "Visual Node Editor", "detail3": "Custom Integrations"},
+    "chatbots": {"detail1": "NLP Fundamentals", "detail2": "Dialogflow/Rasa Basics", "detail3": "Messaging Platform APIs"}
   },
   "projects": {
     "title": "My",
@@ -191,13 +190,12 @@
   },
   "footer": {
     "tagline": "Passionate about creating innovative digital solutions and memorable user experiences.",
-    "newsletter": {
-      "title": "Stay Updated!",
-      "description": "Subscribe to receive news about my latest projects and articles.",
-      "emailLabel": "Email",
+    "quickContact": {
+      "title": "Let's Connect!",
+      "description": "Interested in working together or have a question? Send me a quick message.",
+      "emailLabel": "Your Email (Optional)",
       "emailPlaceholder": "your.email@example.com",
-      "signupButton": "Sign Up",
-      "signupSuccess": "Thanks for subscribing!"
+      "button": "Send Message"
     },
     "sections": {
       "services": {
@@ -209,8 +207,7 @@
       "helpfulLinks": {
         "title": "Helpful Links",
         "contact": "Contact",
-        "about": "About Me",
-        "faqs": "FAQs" 
+        "about": "About Me"
       }
     },
     "name": "Eduardo Almeida",

@@ -55,7 +55,7 @@ export function ExperienceSection() {
           {t('experience.title')} <span className="text-primary">{t('experience.titleHighlight')}</span>
         </h2>
         <div className="relative space-y-10 md:space-y-12">
-          {/* Timeline line */}
+          {/* Timeline line - now primary color */}
           <div className="absolute left-2 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary transform md:-translate-x-1/2" style={{ minHeight: 'calc(100% - 1.5rem)' }}></div>
           
           {experienceData.map((exp, index) => (

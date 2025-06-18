@@ -19,7 +19,7 @@ const getEducationData = (t: Function) => [
     ],
     skillsLearned: [
       { name: "JavaScript", proficiency: 70, iconName: "JavaScript" },
-      { name: "Node.js", proficiency: 60, iconName: "Nodejs" },
+      { name: "Node.js", proficiency: 60, iconName: "Nodejs" }, // Key for iconMap
       { name: "React", proficiency: 50, iconName: "React" },
       { name: "HTML", proficiency: 80, iconName: "HTML" },
       { name: "CSS", proficiency: 75, iconName: "CSS" },
@@ -47,7 +47,7 @@ const getEducationData = (t: Function) => [
     institution: t('education.nextjsCert.institution'),
     duration: t('education.nextjsCert.duration'),
     description: t('education.nextjsCert.description'),
-    highlights: [],
+    highlights: [], // No highlights specified, pass empty array
     skillsLearned: [
       { name: "React", proficiency: 90, iconName: "React" }, 
       { name: "TypeScript", proficiency: 75, iconName: "TypeScript" },
