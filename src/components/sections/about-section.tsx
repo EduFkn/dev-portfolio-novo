@@ -29,7 +29,7 @@ export function AboutSection() {
                 {t('about.name')}
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground/80 leading-relaxed text-sm md:text-base space-y-3">
+            <CardContent className="text-foreground/80 leading-relaxed text-sm md:text-base space-y-3 p-4 md:p-5 pt-0">
               <p>{t('about.intro')}</p>
               <Button 
                 variant="outline" 
@@ -42,31 +42,31 @@ export function AboutSection() {
           </Card>
 
           {/* Card 2: Map */}
-          <Card className="bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle" style={{ animationDelay: '0.1s' }}>
-            <CardContent className="p-0 relative aspect-[4/3] md:aspect-auto">
+          <Card className="bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 animate-fade-in-up-subtle md:row-span-2 aspect-[4/3] md:aspect-auto" style={{ animationDelay: '0.1s' }}>
+            <CardContent className="p-0 relative h-full w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118835.84029402056!2d-41.38100060856933!3d-21.75200217276238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96383c1455555555%3A0x56a93b8c52a91560!2sCampos%20dos%20Goytacazes%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1717000000000" 
                 width="100%"
                 height="100%"
-                style={{ border:0, minHeight: '280px' }} // Ensure map has a min height
+                style={{ border:0, minHeight: '280px' }} 
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title={t('about.mapTitle')}
                 className="rounded-lg"
               ></iframe>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[100%] z-10 transition-transform hover:scale-110">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[90%] z-10 transition-transform hover:scale-110">
                  <Image 
-                    src="https://placehold.co/48x48/FFFFFF/1c1c2e.png?text=EA" 
+                    src="https://placehold.co/48x48.png" 
                     alt={t('about.mapAvatarAlt')} 
-                    width={40} // Slightly smaller avatar
-                    height={40}
+                    width={48}
+                    height={48}
                     className="rounded-full border-2 border-primary shadow-lg"
-                    data-ai-hint="man avatar white character dark straight hair"
+                    data-ai-hint="man memoji laptop dark hair"
                   />
               </div>
-               <div className="absolute bottom-2 left-2 bg-card/80 backdrop-blur-sm p-1.5 rounded-md text-[0.65rem] text-foreground flex items-center shadow-md"> {/* Smaller text */}
-                <MapPin className="h-3 w-3 mr-1 text-primary" /> {/* Smaller icon */}
+               <div className="absolute bottom-2 left-2 bg-card/80 backdrop-blur-sm p-1.5 rounded-md text-[0.65rem] text-foreground flex items-center shadow-md">
+                <MapPin className="h-3 w-3 mr-1 text-primary" />
                 {t('about.location')}
               </div>
             </CardContent>
@@ -80,7 +80,7 @@ export function AboutSection() {
                 {t('about.journeyTitle')}
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground/80 leading-relaxed text-sm md:text-base space-y-3">
+            <CardContent className="text-foreground/80 leading-relaxed text-sm md:text-base space-y-3 p-4 md:p-5 pt-0">
               <p>{t('about.journey')}</p>
               <p>{t('about.specialization')}</p>
             </CardContent>
@@ -94,7 +94,7 @@ export function AboutSection() {
                 {t('about.interestsTitle')}
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-foreground/80 leading-relaxed text-sm md:text-base space-y-3">
+            <CardContent className="text-foreground/80 leading-relaxed text-sm md:text-base space-y-3 p-4 md:p-5 pt-0">
               <p>{t('about.interests')}</p>
               <p>{t('about.philosophy')}</p>
             </CardContent>
@@ -106,3 +106,4 @@ export function AboutSection() {
     </section>
   );
 }
+
