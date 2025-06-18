@@ -1,11 +1,14 @@
+
 "use client";
 
 import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react'; 
 import React from 'react';
 import { ContactDialog } from '@/components/contact-dialog';
+import { useI18n } from '@/hooks/use-i18n';
 
 export function Footer() {
+  const { t } = useI18n();
   const currentYear = new Date().getFullYear();
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
 
@@ -25,10 +28,10 @@ export function Footer() {
           </button>
         </div>
         <p className="text-xs">
-          &copy; {currentYear} Eduardo Almeida. Todos os direitos reservados.
+          &copy; {currentYear} Eduardo Almeida. {t('footer.rights')}
         </p>
         <p className="text-xs mt-1.5">
-          Feito com <span role="img" aria-label="coração">❤️</span> usando <Link href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Next.js</Link> e <Link href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary underline">Tailwind CSS</Link>.
+          {t('footer.madeWith')}
         </p>
       </div>
     </footer>

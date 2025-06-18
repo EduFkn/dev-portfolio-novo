@@ -3,55 +3,56 @@
 @tailwind utilities;
 
 body {
-  font-family: var(--font-inter), sans-serif; /* Updated to use Inter variable */
+  font-family: var(--font-inter), sans-serif;
 }
 
 @layer base {
   :root {
-    --background: 220 10% 4%; /* Even Darker Gray for a more "cyber" feel */
-    --foreground: 0 0% 98%; /* Light text */
+    /* Dark Theme (Default) - More Black/Gray, Less Purple */
+    --background: 220 10% 4%; /* Dark Gray */
+    --foreground: 0 0% 90%; /* Lighter Gray text for better contrast */
 
-    --card: 220 10% 10%; /* Slightly lighter than new background */
-    --card-foreground: 0 0% 98%;
+    --card: 220 10% 8%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 90%;
 
-    --popover: 220 10% 8%; /* Similar to card or slightly darker */
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 10% 6%; /* Darker popover */
+    --popover-foreground: 0 0% 90%;
 
-    --primary: 276 65% 65%; /* Adjusted Purple for better contrast on darker bg */
-    --primary-foreground: 0 0% 98%; /* White text on purple */
+    --primary: 220 10% 75%; /* Light Gray for primary elements */
+    --primary-foreground: 220 10% 10%; /* Dark text on light gray primary */
 
-    --secondary: 220 10% 18%; /* A bit lighter gray for secondary elements */
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 10% 15%; /* Darker Gray for secondary elements */
+    --secondary-foreground: 0 0% 85%;
 
     --muted: 220 10% 12%;
-    --muted-foreground: 0 0% 65%; /* Softer text */
+    --muted-foreground: 0 0% 55%; /* Softer muted text */
 
-    --accent: 275 70% 78%; /* Lavender - slightly brighter for accent */
-    --accent-foreground: 220 10% 10%; /* Dark text on lavender */
+    --accent: 220 10% 50%; /* Medium Gray for accents */
+    --accent-foreground: 0 0% 98%; /* Light text on medium gray accent */
 
-    --destructive: 0 72% 51%; /* Standard destructive red */
+    --destructive: 0 60% 50%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 20%; /* Borders, slightly lighter than card */
-    --input: 220 10% 16%; /* Input background */
-    --ring: 276 65% 65%; /* Purple for focus rings */
+    --border: 220 10% 18%; /* Slightly lighter border */
+    --input: 220 10% 10%; /* Input background */
+    --ring: 220 10% 60%; /* Ring color - a lighter gray */
 
     --radius: 0.5rem;
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: 210 40% 96.1%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
 
-    --sidebar-background: 220 10% 8%; /* Darker for sidebar */
+    --sidebar-background: 220 10% 7%;
     --sidebar-foreground: 0 0% 85%;
-    --sidebar-primary: 276 65% 65%; /* Purple */
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 275 70% 75%; /* Slightly darker Lavender for sidebar accent */
-    --sidebar-accent-foreground: 220 10% 8%;
-    --sidebar-border: 220 10% 20%;
-    --sidebar-ring: 276 65% 65%;
+    --sidebar-primary: 220 10% 65%; /* Lighter Gray for sidebar primary */
+    --sidebar-primary-foreground: 220 10% 10%;
+    --sidebar-accent: 220 10% 45%; /* Medium Gray for sidebar accent */
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 10% 15%;
+    --sidebar-ring: 220 10% 55%;
   }
 
   .light {
@@ -64,8 +65,8 @@ body {
     --popover: 0 0% 100%;
     --popover-foreground: 220 10% 10%;
 
-    --primary: 276 58% 60%; /* Purple - slightly adjusted for light theme */
-    --primary-foreground: 0 0% 98%;
+    --primary: 220 20% 30%; /* Darker Gray for primary in light mode */
+    --primary-foreground: 0 0% 98%; /* White text on dark gray primary */
 
     --secondary: 0 0% 94%; /* Light gray for secondary elements */
     --secondary-foreground: 220 10% 10%;
@@ -73,15 +74,15 @@ body {
     --muted: 0 0% 90%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 275 70% 80%; /* Lavender - slightly adjusted for light theme */
-    --accent-foreground: 220 10% 10%;
+    --accent: 220 15% 50%; /* Medium Gray for accents in light mode */
+    --accent-foreground: 0 0% 98%; /* Light text on accent */
 
-    --destructive: 0 84.2% 60.2%; /* Standard destructive red for light theme */
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 276 58% 60%;
+    --input: 0 0% 92%; /* Slightly lighter input for light mode */
+    --ring: 220 20% 40%; /* Ring color for light mode */
 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -91,12 +92,12 @@ body {
 
     --sidebar-background: 0 0% 96%;
     --sidebar-foreground: 220 10% 20%;
-    --sidebar-primary: 276 58% 60%;
+    --sidebar-primary: 220 20% 35%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 275 70% 82%;
-    --sidebar-accent-foreground: 220 10% 12%;
+    --sidebar-accent: 220 15% 55%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 276 58% 60%;
+    --sidebar-ring: 220 20% 45%;
   }
 }
 
@@ -109,7 +110,7 @@ body {
     @apply transition-colors duration-300;
   }
   section {
-    @apply py-16 md:py-24; /* Increased padding between sections */
+    @apply py-20 md:py-28; /* Increased padding between sections */
   }
 }
 
@@ -205,14 +206,14 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem; /* Reduced size */
   font-weight: 900;
-  color: hsl(var(--primary));
+  color: hsl(var(--primary)); /* Uses new primary color */
   animation: flicker 1.5s infinite alternate, glitch 3s infinite alternate-reverse;
   margin-bottom: 1rem;
 }
 
 .preloader-text {
   font-family: 'Courier New', Courier, monospace;
-  color: hsl(var(--accent));
+  color: hsl(var(--accent)); /* Uses new accent color */
   font-size: 0.875rem; /* Reduced size */
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -238,7 +239,6 @@ body {
   5% { transform: skewX(2deg); }
   10% { transform: skewX(-2deg); }
   15% { transform: skewX(0deg); }
-  /* more steps for complex glitch */
   100% { transform: skewX(0deg); }
 }
 
@@ -252,21 +252,21 @@ body {
 }
 
 /* Skill Card specific colors for text */
-.skill-card-html { color: #E44D26; } /* Orange-Red */
-.skill-card-css { color: #1572B6; } /* Blue */
-.skill-card-js { color: #F7DF1E; } /* Yellow */
-.skill-card-react { color: #61DAFB; } /* Light Blue */
-.skill-card-nextjs { color: hsl(var(--foreground)); } /* White/Black based on theme */
-.skill-card-ts { color: #3178C6; } /* Blue */
-.skill-card-node { color: #339933; } /* Green */
-.skill-card-tailwind { color: #06B6D4; } /* Cyan */
-.skill-card-mongo { color: #47A248; } /* Green */
-.skill-card-postgres { color: #336791; } /* Dark Blue */
-.skill-card-docker { color: #2496ED; } /* Blue */
-.skill-card-git { color: #F05032; } /* Orange-Red */
-.skill-card-github { color: hsl(var(--foreground)); } /* White/Black */
-.skill-card-n8n { color: #FF4F4F; } /* Reddish */
-.skill-card-chatbots { color: #8A2BE2; } /* BlueViolet */
+.skill-card-html { color: #E44D26; }
+.skill-card-css { color: #1572B6; }
+.skill-card-js { color: #F7DF1E; }
+.skill-card-react { color: #61DAFB; }
+.skill-card-nextjs { color: hsl(var(--foreground)); }
+.skill-card-ts { color: #3178C6; }
+.skill-card-node { color: #339933; }
+.skill-card-tailwind { color: #06B6D4; }
+.skill-card-mongo { color: #47A248; }
+.skill-card-postgres { color: #336791; }
+.skill-card-docker { color: #2496ED; }
+.skill-card-git { color: #F05032; }
+.skill-card-github { color: hsl(var(--foreground)); }
+.skill-card-n8n { color: #FF4F4F; }
+.skill-card-chatbots { color: #8A2BE2; }
 
 
 /* Skill Card syntax highlighting style */
@@ -280,6 +280,55 @@ body {
   display: none;
 }
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+/* Skill Progress Bar specific styles */
+.skill-progress-bar {
+  @apply h-2 w-full rounded-full mt-1.5 bg-opacity-10;
+  background-color: rgba(var(--muted-rgb), 0.1); /* Using muted color with opacity */
+}
+.skill-progress-per {
+  @apply relative block h-full rounded-full;
+  background-color: hsl(var(--primary)); /* Use primary color from theme */
+  animation: progress-anim 0.6s ease-in-out forwards;
+  opacity: 0;
+}
+@keyframes progress-anim {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.skill-progress-tooltip {
+  @apply absolute -top-7 text-xs font-medium text-primary-foreground py-0.5 px-1.5 rounded;
+  background-color: hsl(var(--primary)); /* Use primary color from theme */
+  right: -14px; /* Adjust if necessary for centering on bar end */
+  transform: translateX(50%); /* Center tooltip relative to its own width */
+}
+.skill-progress-tooltip::before {
+  content: '';
+  @apply absolute w-2.5 h-2.5 -bottom-1 left-1/2 transform -translate-x-1/2 rotate-45;
+  background-color: hsl(var(--primary)); /* Use primary color from theme */
+  z-index: -1;
+}
+
+/* Ensure --muted-rgb is defined (example if not directly in :root) */
+:root {
+  /* Assuming --muted: 220 10% 12%; */
+  --muted-rgb: 28, 30, 36; /* RGB for 220 10% 12% for fallback */
+}
+.light {
+  /* Assuming --muted: 0 0% 90%; */
+  --muted-rgb: 230, 230, 230; /* RGB for 0 0% 90% for fallback */
+}
+
+/* Ensure primary HSL is available for JS if needed, though CSS vars are preferred */
+html {
+  --primary-hsl: var(--primary); 
+}
+

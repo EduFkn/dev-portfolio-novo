@@ -1,35 +1,46 @@
+
 "use client";
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggleButton } from '@/components/ui/theme-toggle-button';
 import { cn } from '@/lib/utils';
-import { Aperture, Mail, Menu, Music2, X as CloseIcon } from 'lucide-react'; // Added Music2
+import { Aperture, Mail, Menu, Music2, X as CloseIcon, Globe } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { ContactDialog } from '@/components/contact-dialog';
-import { MusicDialog } from '@/components/music-dialog'; // Import MusicDialog
+import { MusicDialog } from '@/components/music-dialog';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/hooks/use-i18n';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-const navItems = [
-  { name: 'Início', href: '/' },
-  { name: 'Sobre', href: '/#about' },
-  { name: 'Habilidades', href: '/#skills' },
-  { name: 'Projetos', href: '/#projects' }, // Changed to anchor link
-  { name: 'Experiência', href: '/#experience' },
-  { name: 'Formação', href: '/#education' },
-];
 
 export function Navbar() {
   const pathname = usePathname();
+  const { t, changeLanguage, currentLanguage } = useI18n();
+
+  const navItems = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/#about' },
+    { name: t('nav.skills'), href: '/#skills' },
+    { name: t('nav.projects'), href: '/#projects' },
+    { name: t('nav.experience'), href: '/#experience' },
+    { name: t('nav.education'), href: '/#education' },
+  ];
+
   const [isContactDialogOpen, setIsContactDialogOpen] = React.useState(false);
-  const [isMusicDialogOpen, setIsMusicDialogOpen] = React.useState(false); // State for MusicDialog
+  const [isMusicDialogOpen, setIsMusicDialogOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState('');
 
   useEffect(() => {
     const updateHash = () => setCurrentHash(window.location.hash);
     window.addEventListener('hashchange', updateHash);
-    updateHash(); // Initial check
+    updateHash(); 
     return () => window.removeEventListener('hashchange', updateHash);
   }, []);
 
@@ -46,24 +57,29 @@ export function Navbar() {
 
   const handleNavLinkClick = (hash?: string) => {
     setIsMobileMenuOpen(false);
-    if (hash) {
-      // Smooth scroll for anchor links
-      const element = document.getElementById(hash.substring(1));
+    if (hash && hash.startsWith('/#')) {
+      const elementId = hash.substring(2); // Remove '/#'
+      const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
+        // Manually update hash for active state, as scrollIntoView might not trigger hashchange immediately
+        if (typeof window !== 'undefined') {
+          window.location.hash = elementId; 
+        }
       }
+    } else if (hash === '/') {
+        if (typeof window !== 'undefined') {
+         window.location.hash = ''; // Clear hash for home
+        }
     }
   };
-
+  
   const isNavItemActive = (itemHref: string) => {
-    if (itemHref === '/') {
-      return pathname === '/' && currentHash === '';
-    }
-    if (itemHref.startsWith('/#')) {
-      return pathname === '/' && currentHash === itemHref.substring(1);
-    }
-    return pathname === itemHref;
+    const cleanPathname = pathname === '/' && currentHash === '' ? '/' : `/${currentHash}`;
+    if (itemHref === '/') return cleanPathname === '/';
+    return itemHref === `/${currentHash}`;
   };
+  
 
   return (
     <>
@@ -82,7 +98,7 @@ export function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => handleNavLinkClick(item.href.startsWith('/#') ? item.href : undefined)}
+                  onClick={() => handleNavLinkClick(item.href)}
                   className={cn(
                     "px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-all duration-300 ease-in-out",
                     "hover:text-primary hover:bg-primary/10",
@@ -99,20 +115,35 @@ export function Navbar() {
                   variant="ghost" 
                   onClick={() => setIsContactDialogOpen(true)}
                   className="px-3 py-2 rounded-md text-xs lg:text-sm font-medium text-foreground/80 hover:text-primary hover:bg-primary/10 transition-all duration-300 ease-in-out"
-                  aria-label="Abrir formulário de contato"
+                  aria-label={t('nav.contactLabel')}
                 >
-                  Contato <Mail className="ml-1.5 h-3.5 w-3.5 lg:h-4 lg:w-4"/>
+                  {t('nav.contact')} <Mail className="ml-1.5 h-3.5 w-3.5 lg:h-4 lg:w-4"/>
                </Button>
                <Button 
                   variant="ghost" 
                   size="icon"
                   onClick={() => setIsMusicDialogOpen(true)}
                   className="text-foreground/80 hover:text-primary hover:bg-primary/10"
-                  aria-label="Sugestão de Música"
+                  aria-label={t('nav.musicSuggestionLabel')}
                 >
                   <Music2 className="h-5 w-5 lg:h-5 lg:w-5"/>
                </Button>
               <ThemeToggleButton />
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10" aria-label={t('nav.languageLabel')}>
+                    <Globe className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-card border-border shadow-lg text-sm">
+                  <DropdownMenuItem onClick={() => changeLanguage('pt')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'pt' && "bg-muted font-semibold")}>
+                    Português (BR)
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => changeLanguage('en')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'en' && "bg-muted font-semibold")}>
+                    English (US)
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
             <div className="md:hidden flex items-center">
@@ -121,7 +152,7 @@ export function Navbar() {
                   size="icon"
                   onClick={() => setIsContactDialogOpen(true)}
                   className="text-foreground/80 hover:text-primary hover:bg-primary/10 mr-1"
-                  aria-label="Abrir formulário de contato"
+                  aria-label={t('nav.contactLabel')}
                 >
                   <Mail className="h-5 w-5"/>
                </Button>
@@ -130,17 +161,32 @@ export function Navbar() {
                   size="icon"
                   onClick={() => setIsMusicDialogOpen(true)}
                   className="text-foreground/80 hover:text-primary hover:bg-primary/10 mr-1"
-                  aria-label="Sugestão de Música"
+                  aria-label={t('nav.musicSuggestionLabel')}
                 >
                   <Music2 className="h-5 w-5"/>
                </Button>
               <ThemeToggleButton />
+               <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-foreground/80 hover:text-primary hover:bg-primary/10 ml-1" aria-label={t('nav.languageLabel')}>
+                    <Globe className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="bg-card border-border shadow-lg text-sm">
+                   <DropdownMenuItem onClick={() => changeLanguage('pt')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'pt' && "bg-muted font-semibold")}>
+                    Português (BR)
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => changeLanguage('en')} className={cn("cursor-pointer hover:bg-muted", currentLanguage === 'en' && "bg-muted font-semibold")}>
+                    English (US)
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="ml-2 text-foreground/80 hover:text-primary hover:bg-primary/10"
-                aria-label="Alternar menu móvel"
+                aria-label={t('nav.toggleMobileMenuLabel')}
               >
                 {isMobileMenuOpen ? <CloseIcon className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -155,7 +201,7 @@ export function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => handleNavLinkClick(item.href.startsWith('/#') ? item.href : undefined)}
+                  onClick={() => handleNavLinkClick(item.href)}
                   className={cn(
                     "block px-3 py-2 rounded-md text-base font-medium",
                     "hover:text-primary hover:bg-primary/10",

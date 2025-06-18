@@ -1,0 +1,77 @@
+
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "education": "Formação",
+    "contact": "Contato",
+    "contactLabel": "Abrir formulário de contato",
+    "musicSuggestionLabel": "Sugestão de Música",
+    "languageLabel": "Mudar idioma",
+    "toggleMobileMenuLabel": "Alternar menu móvel"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "name": "Eduardo Almeida",
+    "role": "Desenvolvedor Full Stack | Transformando Ideias em Soluções Digitais.",
+    "bio": "Especialista em criar aplicações web modernas, responsivas e de alta performance. Com paixão por tecnologia e um olhar atento aos detalhes, desenvolvo desde interfaces intuitivas até sistemas backend robustos, sempre focado na melhor experiência do usuário e na entrega de valor.",
+    "projectsButton": "Meus Projetos",
+    "contactButton": "Entre em Contato",
+    "portraitAlt": "Retrato de Eduardo Almeida"
+  },
+  "musicDialog": {
+    "title": "Trilha Sonora Anos 90",
+    "description": "Que tal curtir um som nostálgico enquanto navega? Aqui algumas sugestões de playlists dos anos 90 no YouTube!",
+    "openInNewTab": "Clique em uma playlist para abrir no YouTube em uma nova aba.",
+    "closeButton": "Fechar"
+  },
+  "contactDialog": {
+    "title": "Entre em Contato",
+    "description": "Envie uma mensagem diretamente para {{recipientEmail}}. Responderei o mais rápido possível.",
+    "yourNameLabel": "Seu Nome",
+    "yourNamePlaceholder": "John Doe",
+    "yourEmailLabel": "Seu Email",
+    "yourEmailPlaceholder": "john.doe@example.com",
+    "yourMessageLabel": "Sua Mensagem",
+    "yourMessagePlaceholder": "Olá, gostaria de falar sobre...",
+    "cancelButton": "Cancelar",
+    "sendButton": "Enviar Mensagem",
+    "sendingButton": "Enviando...",
+    "successTitle": "Mensagem Enviada!",
+    "successDescription": "Obrigado por entrar em contato. Responderei em breve.",
+    "errorTitle": "Erro ao Enviar",
+    "errorDescription": "Houve um problema ao enviar sua mensagem. Tente novamente."
+  },
+  "education": {
+    "title": "Formação",
+    "titleHighlight": "Acadêmica",
+    "skillsLearnedTitle": "Principais Habilidades e Tecnologias Adquiridas",
+    "csDegree": {
+      "degree": "Bacharelado em Ciência da Computação",
+      "institution": "Universidade Estácio de Sá",
+      "description": "Foco em desenvolvimento de software, algoritmos, estruturas de dados e inteligência artificial. Participei de projetos de pesquisa e desenvolvi um sistema de gerenciamento acadêmico como projeto final.",
+      "highlight1": "Projeto de Conclusão de Curso: Sistema de Gerenciamento Acadêmico com nota A.",
+      "highlight2": "Participação em maratonas de programação.",
+      "highlight3": "Monitoria na disciplina de Programação Orientada a Objetos."
+    },
+    "webDevCourse": {
+      "degree": "Curso Técnico em Informática para Internet",
+      "institution": "Instituto Federal Fluminense (IFF)",
+      "description": "Formação técnica abrangente em desenvolvimento web front-end e back-end, design de interfaces, banco de dados e redes de computadores.",
+      "highlight1": "Desenvolvimento de um portal de notícias local como projeto prático.",
+      "highlight2": "Prêmio de melhor projeto da turma de 2017."
+    },
+    "nextjsCert": {
+      "degree": "Certificação Next.js Developer",
+      "institution": "Online Platform X",
+      "description": "Curso intensivo focado nas melhores práticas de desenvolvimento com Next.js, incluindo App Router, Server Components, e otimizações de performance."
+    }
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "madeWith": "Feito com ❤️ usando Next.js e Tailwind CSS."
+  }
+}

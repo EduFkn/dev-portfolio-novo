@@ -1,0 +1,77 @@
+
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact",
+    "contactLabel": "Open contact form",
+    "musicSuggestionLabel": "Music Suggestion",
+    "languageLabel": "Change language",
+    "toggleMobileMenuLabel": "Toggle mobile menu"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Eduardo Almeida",
+    "role": "Full Stack Developer | Turning Ideas into Digital Solutions.",
+    "bio": "Specializing in creating modern, responsive, and high-performance web applications. With a passion for technology and an eye for detail, I develop everything from intuitive interfaces to robust backend systems, always focused on the best user experience and delivering value.",
+    "projectsButton": "My Projects",
+    "contactButton": "Contact Me",
+    "portraitAlt": "Eduardo Almeida Portrait"
+  },
+  "musicDialog": {
+    "title": "90s Soundtrack",
+    "description": "How about enjoying some nostalgic tunes while you browse? Here are some 90s playlist suggestions on YouTube!",
+    "openInNewTab": "Click a playlist to open it on YouTube in a new tab.",
+    "closeButton": "Close"
+  },
+  "contactDialog": {
+    "title": "Get in Touch",
+    "description": "Send a message directly to {{recipientEmail}}. I'll respond as soon as possible.",
+    "yourNameLabel": "Your Name",
+    "yourNamePlaceholder": "John Doe",
+    "yourEmailLabel": "Your Email",
+    "yourEmailPlaceholder": "john.doe@example.com",
+    "yourMessageLabel": "Your Message",
+    "yourMessagePlaceholder": "Hello, I'd like to talk about...",
+    "cancelButton": "Cancel",
+    "sendButton": "Send Message",
+    "sendingButton": "Sending...",
+    "successTitle": "Message Sent!",
+    "successDescription": "Thanks for getting in touch. I'll reply soon.",
+    "errorTitle": "Error Sending",
+    "errorDescription": "There was a problem sending your message. Please try again."
+  },
+  "education": {
+    "title": "Academic",
+    "titleHighlight": "Background",
+    "skillsLearnedTitle": "Key Skills & Technologies Acquired",
+    "csDegree": {
+      "degree": "Bachelor of Computer Science",
+      "institution": "Estácio de Sá University",
+      "description": "Focus on software development, algorithms, data structures, and artificial intelligence. Participated in research projects and developed an academic management system as a final project.",
+      "highlight1": "Final Course Project: Academic Management System with Grade A.",
+      "highlight2": "Participation in programming marathons.",
+      "highlight3": "Teaching assistant for Object-Oriented Programming."
+    },
+    "webDevCourse": {
+      "degree": "Technical Course in Web Development",
+      "institution": "Federal Fluminense Institute (IFF)",
+      "description": "Comprehensive technical training in front-end and back-end web development, interface design, databases, and computer networks.",
+      "highlight1": "Development of a local news portal as a practical project.",
+      "highlight2": "Award for best project of the 2017 class."
+    },
+    "nextjsCert": {
+      "degree": "Next.js Developer Certification",
+      "institution": "Online Platform X",
+      "description": "Intensive course focused on best practices for Next.js development, including App Router, Server Components, and performance optimizations."
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Made with ❤️ using Next.js and Tailwind CSS."
+  }
+}
