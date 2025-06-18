@@ -27,9 +27,6 @@ const toBase64 = (file: File): Promise<string> => {
   });
 };
 
-const SystemPromptTextForHistory = `Você é o Edu, 21 anos, dev full stack, responde com sarcasmo, praticidade, foco em benefício para quem lê, sem formalidade. Se receber uma imagem, comente sobre ela de forma relevante à conversa antes de prosseguir com a resposta principal.`;
-
-
 export function EduChatbot() {
   const { t } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
@@ -77,12 +74,10 @@ export function EduChatbot() {
     if (!text && !currentFile) return;
 
     setIsLoading(true);
-    const newAbortController = new AbortController();
+    const newAbortController = new AbortController(); // Genkit itself doesn't directly use this for cancellation in this simple setup.
     setAbortController(newAbortController);
 
     const userMessageId = Date.now().toString();
-    const userMessageParts = [];
-    if (text) userMessageParts.push({ text });
     
     let imageDataUriForFlow: string | undefined = undefined;
     let localImagePreviewForMessage: string | undefined = undefined;
@@ -90,8 +85,7 @@ export function EduChatbot() {
     if (currentFile) {
       try {
         imageDataUriForFlow = await toBase64(currentFile);
-        localImagePreviewForMessage = imageDataUriForFlow; // Use the same for display
-         userMessageParts.push({ inlineData: { mimeType: currentFile.type, data: imageDataUriForFlow.split(',')[1] } });
+        localImagePreviewForMessage = imageDataUriForFlow; 
       } catch (error) {
         console.error("Error converting file to Base64:", error);
         setMessages(prev => [...prev, { id: Date.now().toString(), text: t('chatbot.fileConversionError'), role: 'system-info' }]);
@@ -107,12 +101,15 @@ export function EduChatbot() {
     if (fileInputRef.current) fileInputRef.current.value = "";
 
     // Prepare history for Genkit flow
-    // The system prompt is part of the flow itself, so we don't send it as a message.
-    // We map our client-side message format to the one expected by the flow.
-    const flowHistory = messages.filter(m => m.role === 'user' || m.role === 'bot').map(msg => ({
-      role: msg.role,
-      parts: [{ text: msg.text } ], // Simplified for this example; flow handles actual image parts from its own input
-    }));
+    const flowHistory = messages.filter(m => m.role === 'user' || m.role === 'bot').map(msg => {
+      const parts: any[] = [{ text: msg.text }];
+      // Note: The flow's input schema expects imageDataUri for the *current* user message, not for history.
+      // If historical images were needed by the flow, its input/history schema would need adjustment.
+      return {
+        role: msg.role as 'user' | 'model', // Ensure role is 'user' or 'model'
+        parts: parts,
+      };
+    });
 
 
     // Add a thinking message for the bot
@@ -122,7 +119,7 @@ export function EduChatbot() {
     try {
       const flowInput: EduBotFlowInput = {
         message: text,
-        history: flowHistory, // Pass the constructed history
+        history: flowHistory,
         imageDataUri: imageDataUriForFlow,
       };
       
@@ -132,14 +129,15 @@ export function EduChatbot() {
       const result = await Promise.race([
         flowPromise,
         new Promise<null>((_, reject) => {
+          // This AbortController is for client-side cancellation attempt.
+          // True server-side cancellation for Genkit flows requires more setup.
           newAbortController.signal.addEventListener('abort', () => {
             reject(new DOMException('Aborted', 'AbortError'));
           });
         })
       ]);
 
-      if (result === null) { // Aborted
-        // The message is already updated by handleStop
+      if (result === null) { // Aborted by client-side AbortController
         return;
       }
       
@@ -152,7 +150,8 @@ export function EduChatbot() {
       if (error.name === 'AbortError') {
         errorMessage = t('chatbot.stopped');
       } else if (error.message) {
-        errorMessage = `${t('chatbot.errorPrefix')}: ${error.message}`;
+        // Avoid showing verbose internal Genkit errors directly to user
+        errorMessage = t('chatbot.errorDefault'); 
       }
        setMessages(prev => prev.map(m => m.id === thinkingMessageId ? { ...m, text: errorMessage, role: 'system-info' } : m));
     } finally {
@@ -163,15 +162,8 @@ export function EduChatbot() {
   
   const handleStop = () => {
     if (abortController) {
-      abortController.abort();
-      // Update the last bot message (usually "Thinking...") to "Stopped."
-      setMessages(prevMessages => {
-        const lastMessage = prevMessages[prevMessages.length - 1];
-        if (lastMessage && lastMessage.role === 'bot' && lastMessage.text === t('chatbot.thinking')) {
-          return prevMessages.slice(0, -1).concat([{ ...lastMessage, text: t('chatbot.stopped'), role: 'system-info' }]);
-        }
-        return prevMessages;
-      });
+      abortController.abort(); // This triggers the AbortError in the Promise.race
+      // UI update for "Stopped" is handled in the catch block of handleSendMessage
       setIsLoading(false); 
     }
   };
@@ -186,30 +178,26 @@ export function EduChatbot() {
     <div className="fixed bottom-6 right-6 z-[1000]">
       <button 
         onClick={handleToggle}
-        className="p-0 bg-transparent border-none cursor-pointer hover:opacity-80 transition-opacity"
+        className="p-3 bg-primary text-primary-foreground rounded-full cursor-pointer hover:bg-primary/90 transition-all shadow-lg hover:scale-110"
         aria-label={isOpen ? t('chatbot.closeAriaLabel') : t('chatbot.openAriaLabel')}
       >
-        <Image 
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Batman_black_logo.svg/768px-Batman_black_logo.svg.png" 
-          alt={t('chatbot.iconAlt')}
-          width={60} 
-          height={60} 
-          className="bat-icon-filter rounded-full"
-          data-ai-hint="bat logo"
-        />
+        <span role="img" aria-label={t('chatbot.iconAlt')} className="text-3xl bat-icon-filter">🦇</span>
       </button>
 
       {isOpen && (
         <div 
           className={cn(
-            "absolute bottom-[75px] right-0",
+            "absolute bottom-[85px] right-0", // Adjusted bottom to accommodate larger toggle button
             "w-[320px] sm:w-[350px] max-h-[500px] flex flex-col overflow-hidden",
             "bg-card border border-border rounded-lg shadow-xl",
-            "animate-fade-in-up-subtle" // Using existing subtle animation
+            "animate-fade-in-up-subtle" 
           )}
         >
           <div className="flex items-center justify-between p-3 bg-primary text-primary-foreground">
-            <h3 className="font-headline text-base font-semibold"> {t('chatbot.headerTitle')}</h3>
+            <h3 className="font-headline text-base font-semibold flex items-center">
+              <span role="img" aria-label={t('chatbot.iconAlt')} className="mr-2 text-lg">🦇</span>
+              {t('chatbot.headerTitle')}
+            </h3>
             <Button variant="ghost" size="icon" onClick={handleToggle} className="h-7 w-7 text-primary-foreground hover:bg-primary/80">
               <X size={18} />
             </Button>
@@ -223,7 +211,7 @@ export function EduChatbot() {
                   "p-2 rounded-md max-w-[85%]",
                   msg.role === 'user' ? 'ml-auto bg-primary text-primary-foreground text-right' : 
                   msg.role === 'bot' ? 'mr-auto bg-muted text-foreground' : 
-                  'mr-auto bg-destructive/20 text-destructive text-center w-full',
+                  'mr-auto bg-destructive/20 text-destructive-foreground text-center w-full', // Adjusted destructive text color
                   "whitespace-pre-wrap break-words"
                 )}
               >
@@ -267,7 +255,7 @@ export function EduChatbot() {
                 ref={fileInputRef} 
                 onChange={handleFileChange} 
                 className="hidden" 
-                accept="image/*" 
+                accept="image/*" // Accepts all image types
                 disabled={isLoading}
               />
               <div className="flex-grow flex gap-2">
