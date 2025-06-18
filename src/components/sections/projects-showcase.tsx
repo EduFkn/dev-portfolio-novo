@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ProjectCard } from './project-card';
+import { ProjectCard } from './project-card'; // Adjusted path if ProjectCard is moved/renamed
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/hooks/use-i18n';
@@ -13,7 +13,7 @@ const getProjectsData = (t: Function) => [
     id: '1',
     title: t('projects.ecommerce.title'),
     description: t('projects.ecommerce.description'),
-    imageUrl: 'https://placehold.co/600x360/6A0DAD/FFFFFF.png?text=E-commerce', // Purple theme
+    imageUrl: 'https://placehold.co/600x360/6A0DAD/FFFFFF.png?text=E-commerce', 
     imageHint: 'online store shopping cart',
     liveLink: '#',
     repoLink: '#',
@@ -24,7 +24,7 @@ const getProjectsData = (t: Function) => [
     id: '2',
     title: t('projects.taskApp.title'),
     description: t('projects.taskApp.description'),
-    imageUrl: 'https://placehold.co/600x360/A020F0/FFFFFF.png?text=Task+App', // Bright Purple
+    imageUrl: 'https://placehold.co/600x360/A020F0/FFFFFF.png?text=Task+App', 
     imageHint: 'productivity tool checklist',
     liveLink: '#',
     repoLink: '#',
@@ -35,7 +35,7 @@ const getProjectsData = (t: Function) => [
     id: '3',
     title: t('projects.portfolio.title'),
     description: t('projects.portfolio.description'),
-    imageUrl: 'https://placehold.co/600x360/301934/E6E6FA.png?text=Portfolio', // Dark Purple, Lavender text
+    imageUrl: 'https://placehold.co/600x360/301934/E6E6FA.png?text=Portfolio', 
     imageHint: 'personal website cv',
     liveLink: '#', 
     repoLink: '#',
@@ -46,7 +46,7 @@ const getProjectsData = (t: Function) => [
     id: '4',
     title: t('projects.chatbot.title'),
     description: t('projects.chatbot.description'),
-    imageUrl: 'https://placehold.co/600x360/8A2BE2/FFFFFF.png?text=AI+Chatbot', // Blue Violet
+    imageUrl: 'https://placehold.co/600x360/8A2BE2/FFFFFF.png?text=AI+Chatbot', 
     imageHint: 'artificial intelligence customer service',
     liveLink: '#',
     repoLink: '#',
@@ -57,7 +57,7 @@ const getProjectsData = (t: Function) => [
     id: '5',
     title: t('projects.bookingSystem.title'),
     description: t('projects.bookingSystem.description'),
-    imageUrl: 'https://placehold.co/600x360/4B0082/E6E6FA.png?text=Booking+System', // Indigo, Lavender text
+    imageUrl: 'https://placehold.co/600x360/4B0082/E6E6FA.png?text=Booking+System', 
     imageHint: 'booking calendar reservation',
     liveLink: '#',
     repoLink: '#',
@@ -68,7 +68,7 @@ const getProjectsData = (t: Function) => [
     id: '6',
     title: t('projects.startupLp.title'),
     description: t('projects.startupLp.description'),
-    imageUrl: 'https://placehold.co/600x360/9932CC/FFFFFF.png?text=Startup+LP', // Dark Orchid
+    imageUrl: 'https://placehold.co/600x360/9932CC/FFFFFF.png?text=Startup+LP', 
     imageHint: 'startup website tech',
     liveLink: '#',
     repoLink: '#',
@@ -79,7 +79,7 @@ const getProjectsData = (t: Function) => [
     id: '7',
     title: t('projects.n8nReports.title'),
     description: t('projects.n8nReports.description'),
-    imageUrl: 'https://placehold.co/600x360/7F00FF/FFFFFF.png?text=N8N+Automation', // Violet
+    imageUrl: 'https://placehold.co/600x360/7F00FF/FFFFFF.png?text=N8N+Automation', 
     imageHint: 'automation workflow data',
     liveLink: '#',
     repoLink: '#',
@@ -107,12 +107,12 @@ export function ProjectsShowcase() {
     : allProjects.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="py-12 md:py-20"> 
+    <section id="projects" className="py-12 md:py-20 animate-fade-in-up-subtle"> 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
           {t('projects.title')} <span className="text-primary">{t('projects.titleHighlight')}</span>
         </h2>
-        <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-10 md:mb-12">
+        <div className="flex justify-center flex-wrap gap-2 sm:gap-3 mb-10 md:mb-12 animate-fade-in-up-subtle" style={{ animationDelay: '0.2s' }}>
           {categories.map(category => (
             <Button 
               key={category}
@@ -131,9 +131,11 @@ export function ProjectsShowcase() {
           ))}
         </div>
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {filteredProjects.map((project, index) => (
+              <div key={project.id} className="animate-fade-in-up-subtle" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                <ProjectCard project={project} />
+              </div>
             ))}
           </div>
         ) : (

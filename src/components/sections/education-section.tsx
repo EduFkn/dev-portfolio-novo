@@ -49,7 +49,7 @@ const getEducationData = (t: Function) => [
     description: t('education.nextjsCert.description'),
     highlights: [],
     skillsLearned: [
-      { name: "React", proficiency: 90, iconName: "React" }, // Next.js is React-based
+      { name: "React", proficiency: 90, iconName: "React" }, 
       { name: "TypeScript", proficiency: 75, iconName: "TypeScript" },
       { name: "TailwindCSS", proficiency: 70, iconName: "TailwindCSS" },
     ]
@@ -61,14 +61,18 @@ export function EducationSection() {
   const educationData = getEducationData(t);
 
   return (
-    <section id="education" className="py-12 md:py-20 bg-card/10">
+    <section id="education" className="py-12 md:py-20 bg-card/10 animate-fade-in-up-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-12">
           {t('education.title')} <span className="text-primary">{t('education.titleHighlight')}</span>
         </h2>
         <div className="space-y-8 md:space-y-10">
           {educationData.map((edu, index) => (
-            <Card key={index} className="bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 flex flex-col md:flex-row overflow-hidden">
+            <Card 
+              key={index} 
+              className="bg-card shadow-custom-dark hover:shadow-custom-hover-dark transition-shadow duration-300 flex flex-col md:flex-row overflow-hidden animate-fade-in-up-subtle"
+              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+            >
               <div className="md:w-2/5 p-5 md:p-6 border-b md:border-b-0 md:border-r border-border">
                 <CardHeader className="p-0 mb-3">
                   <div className="flex items-center text-primary mb-2">

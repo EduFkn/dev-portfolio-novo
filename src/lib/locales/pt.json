@@ -53,7 +53,8 @@
     "contactButton": "Fale Comigo",
     "downloadCvButton": "Download CV",
     "mapTitle": "Localização no Mapa",
-    "location": "Campos dos Goytacazes, RJ, Brasil"
+    "location": "Campos dos Goytacazes, RJ, Brasil",
+    "mapAvatarAlt": "Avatar do Desenvolvedor no Mapa"
   },
   "skills": {
     "title": "Minhas",
@@ -189,6 +190,29 @@
     "person6": {"name": "Fernando Lima", "role": "CTO, TechForward", "comment": "Eduardo é um desenvolvedor dedicado e com grande potencial. Sempre disposto a aprender e enfrentar novos desafios."}
   },
   "footer": {
+    "tagline": "Apaixonado por criar soluções digitais inovadoras e experiências de usuário memoráveis.",
+    "newsletter": {
+      "title": "Mantenha-se Atualizado!",
+      "description": "Inscreva-se para receber notícias sobre meus últimos projetos e artigos.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "seu.email@exemplo.com",
+      "signupButton": "Inscrever-se",
+      "signupSuccess": "Obrigado por se inscrever!"
+    },
+    "sections": {
+      "services": {
+        "title": "Meu Trabalho",
+        "skills": "Habilidades",
+        "projects": "Projetos",
+        "experience": "Experiência"
+      },
+      "helpfulLinks": {
+        "title": "Links Úteis",
+        "contact": "Contato",
+        "about": "Sobre Mim",
+        "faqs": "FAQs" 
+      }
+    },
     "name": "Eduardo Almeida",
     "rights": "Todos os direitos reservados.",
     "madeWith": "Feito com ❤️ usando Next.js e Tailwind CSS.",

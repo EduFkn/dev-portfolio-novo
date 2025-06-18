@@ -247,10 +247,43 @@ body {
   to { opacity: 1; }
 }
 
-@keyframes typing {
+/* Typing effect for Hero Section */
+@keyframes typing-hero-name {
   from { width: 0 }
   to { width: 100% }
 }
+@keyframes typing-hero-role {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: hsl(var(--accent)) }
+}
+
+.typing-effect-name {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid hsl(var(--accent)); /* Caret */
+  animation: 
+    typing-hero-name 2s steps(30, end) 0.5s 1 normal both,
+    blink-caret .75s step-end infinite 2.5s;
+  animation-fill-mode: forwards;
+}
+
+.typing-effect-role {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid hsl(var(--accent)); /* Caret */
+  width: 0; /* Start with 0 width */
+  animation: 
+    typing-hero-role 2.5s steps(40, end) 2.6s 1 normal both, /* Starts after name animation */
+    blink-caret .75s step-end infinite 5.1s;
+  animation-fill-mode: forwards;
+}
+
 
 /* Skill Card specific colors for text */
 .skill-card-html { color: #E44D26; }
@@ -318,18 +351,6 @@ body {
   z-index: -1;
 }
 
-/* Ensure --muted-rgb is defined (example if not directly in :root) */
-/* These are not strictly necessary if hsl(var(--muted) / 0.3) works directly */
-/*
-:root {
-  --muted-rgb: 24, 25, 28; 
-}
-.light {
-  --muted-rgb: 230, 230, 230; 
-}
-*/
-
-/* Ensure primary HSL is available for JS if needed, though CSS vars are preferred */
 html {
   --primary-hsl: var(--primary); 
 }
@@ -357,11 +378,27 @@ html {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3), 0 0 25px hsl(var(--primary) / 0.2);
 }
 
-/* Custom fade in for ClientLayoutWrapper main content */
+/* Custom fade in for ClientLayoutWrapper main content and section animations */
 @keyframes fade-in-content {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in-content {
   animation: fade-in-content 0.5s ease-out forwards;
+}
+
+@keyframes fade-in-up-subtle {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up-subtle {
+  animation: fade-in-up-subtle 0.6s ease-out forwards;
+  opacity: 0; /* Start hidden for animation */
 }
