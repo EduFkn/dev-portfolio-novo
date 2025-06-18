@@ -1,8 +1,9 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Database, LayoutPanelLeft, Smartphone, Brain, Wind, Server, Type, FileJson, SigmaSquare, Flame, CreditCard, Component, Sparkles, FileCode2, Paintbrush, Package, Router, Network, Cloud, Container, GitFork, Webhook } from "lucide-react";
+import { Code, Database, LayoutPanelLeft, Smartphone, Brain, Wind, Server, Type, FileJson, SigmaSquare, Flame, CreditCard, Component, Sparkles, FileCode2, Paintbrush, Package, Router, Network, Cloud, Container, GitFork, Webhook, DatabaseZap } from "lucide-react";
 import { InfiniteMarquee } from "@/components/ui/infinite-marquee";
 
 const skillsData = [
@@ -50,7 +51,7 @@ const techIcons = [
   { name: "Git", icon: <GitFork />, color: "text-orange-600" },
   { name: "AWS", icon: <Cloud />, color: "text-orange-400" },
   { name: "ShadCN UI", icon: <Component />, color: "text-neutral-500" },
-  { name: "Genkit", icon: <BrainCircuit />, color: "text-purple-500" },
+  { name: "Genkit", icon: <Sparkles />, color: "text-purple-500" },
 ];
 
 export function SkillsSection() {
