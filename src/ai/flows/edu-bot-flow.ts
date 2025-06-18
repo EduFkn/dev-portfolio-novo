@@ -9,7 +9,7 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {MessageData, MessagePart, Role} from 'genkit/model'; // Adjusted imports
+import {MessageData, MessagePart, Role} from 'genkit/model';
 import {z} from 'genkit';
 
 const SystemPrompt = `Você é o Edu, 21 anos, dev full stack, responde com sarcasmo, praticidade, foco em benefício para quem lê, sem formalidade. Se receber uma imagem, comente sobre ela de forma relevante à conversa antes de prosseguir com a resposta principal.`;
@@ -25,7 +25,7 @@ const ChatMessagePartSchema = z.object({
 
 // Schema for a single chat message (user, model, or system)
 const ChatMessageSchema = z.object({
-  role: z.enum(['user', 'model', 'system']),
+  role: z.enum(['user', 'model', 'system']), // System role added for completeness, though history usually 'user'/'model'
   parts: z.array(ChatMessagePartSchema),
 });
 
@@ -33,7 +33,7 @@ const ChatMessageSchema = z.object({
 const EduBotFlowInputSchema = z.object({
   message: z.string().describe('The current user message.'),
   history: z.array(ChatMessageSchema.extend({
-    role: z.enum(['user', 'model'])
+    role: z.enum(['user', 'model']) // History from client is only user/model
   })).optional().describe('The conversation history.'),
   imageDataUri: z.string().optional().describe("An optional image provided by the user, as a data URI. Expected format: 'data:<mimetype>;base64,<encoded_data>'."),
 });
@@ -55,7 +55,7 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
   },
   async (input: EduBotFlowInput): Promise<EduBotFlowOutput> => {
     const genkitHistory: MessageData[] = (input.history || []).map(hMsg => ({
-      role: hMsg.role as Role,
+      role: hMsg.role as Role, // 'user' | 'model'
       content: hMsg.parts.map(part => {
         // For history, we primarily expect text parts based on current client implementation
         return { text: part.text || "" }; // Ensure text property exists
@@ -76,13 +76,14 @@ const eduBotGenkitLogicFlow = ai.defineFlow(
     }
 
     const messagesToModel: MessageData[] = [
+      { role: 'system', content: [{text: SystemPrompt}] }, // System prompt as first message
       ...genkitHistory,
       { role: 'user', content: currentUserContent },
     ];
 
     const result = await ai.generate({
       model: 'googleai/gemini-1.5-flash-latest',
-      prompt: { messages: messagesToModel, system: SystemPrompt }, // Pass as structured prompt
+      prompt: messagesToModel, // Pass MessageData[] directly
       config: {
          safetySettings: [
           { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
