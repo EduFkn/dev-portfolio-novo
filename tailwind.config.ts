@@ -99,7 +99,11 @@ export default {
          'subtle-parallax': {
           '0%': { transform: 'translateY(0px)' },
           '100%': { transform: 'translateY(-20px)' },
-        }
+        },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-100% - 1rem))' }, // 1rem should match gap in .marquee-content
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -107,6 +111,7 @@ export default {
         'fade-in': 'fade-in 0.5s ease-in-out',
         'fade-out': 'fade-out 0.5s ease-in-out',
         'subtle-parallax': 'subtle-parallax linear alternate infinite',
+        'scroll': 'scroll var(--animation-duration, 20s) linear infinite',
       },
       boxShadow: {
         'custom-light': '0 4px 6px -1px rgba(120, 120, 120, 0.1), 0 2px 4px -1px rgba(120, 120, 120, 0.06)',

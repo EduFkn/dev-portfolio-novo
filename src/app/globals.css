@@ -8,22 +8,22 @@ body {
 
 @layer base {
   :root {
-    --background: 220 10% 16%; /* Dark Gray */
+    --background: 220 10% 10%; /* Darker Gray */
     --foreground: 0 0% 98%; /* Light text */
 
-    --card: 220 10% 20%; /* Slightly lighter than background */
+    --card: 220 10% 15%; /* Slightly lighter than new background */
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 10% 18%; /* Similar to card or slightly darker */
+    --popover: 220 10% 12%; /* Similar to card or slightly darker */
     --popover-foreground: 0 0% 98%;
 
     --primary: 276 58% 63%; /* Purple */
     --primary-foreground: 0 0% 98%; /* White text on purple */
 
-    --secondary: 220 10% 25%; /* A bit lighter gray for secondary elements */
+    --secondary: 220 10% 22%; /* A bit lighter gray for secondary elements */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 10% 22%;
+    --muted: 220 10% 18%;
     --muted-foreground: 0 0% 65%; /* Softer text */
 
     --accent: 275 70% 82%; /* Lavender */
@@ -32,8 +32,8 @@ body {
     --destructive: 0 72% 51%; /* Standard destructive red */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 10% 30%; /* Borders, slightly lighter than card */
-    --input: 220 10% 25%; /* Input background */
+    --border: 220 10% 25%; /* Borders, slightly lighter than card */
+    --input: 220 10% 20%; /* Input background */
     --ring: 276 58% 63%; /* Purple for focus rings */
 
     --radius: 0.5rem;
@@ -44,25 +44,25 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    --sidebar-background: 220 10% 14%; /* Darker for sidebar */
+    --sidebar-background: 220 10% 8%; /* Darker for sidebar */
     --sidebar-foreground: 0 0% 85%;
     --sidebar-primary: 276 58% 63%; /* Purple */
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 275 70% 78%; /* Slightly darker Lavender for sidebar accent */
     --sidebar-accent-foreground: 220 10% 8%;
-    --sidebar-border: 220 10% 28%;
+    --sidebar-border: 220 10% 22%;
     --sidebar-ring: 276 58% 63%;
   }
 
   .light {
     --background: 0 0% 98%; /* Very light gray / white */
-    --foreground: 220 10% 16%; /* Dark text */
+    --foreground: 220 10% 10%; /* Dark text */
 
     --card: 0 0% 100%; /* White */
-    --card-foreground: 220 10% 16%;
+    --card-foreground: 220 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 16%;
+    --popover-foreground: 220 10% 10%;
 
     --primary: 276 58% 63%; /* Purple */
     --primary-foreground: 0 0% 98%;
@@ -131,4 +131,46 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+/* Infinite Marquee Animation */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 1rem; /* Adjust gap as needed */
+  mask-image: linear-gradient(
+    to right,
+    hsl(0 0% 0% / 0),
+    hsl(0 0% 0% / 1) 10%,
+    hsl(0 0% 0% / 1) 90%,
+    hsl(0 0% 0% / 0)
+  );
+}
+
+.marquee-content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: 1rem; /* Should match .marquee gap */
+  animation: scroll var(--animation-duration, 20s) linear infinite;
+}
+
+.marquee-content-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem)); /* 1rem is the gap */
+  }
+}
+
+/* Ensure enough content for smooth looping */
+.marquee-content > * {
+  flex-shrink: 0;
 }
