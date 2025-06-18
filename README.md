@@ -1,4 +1,4 @@
-# Firebase Studio
+# portfolio edu
 
 This is a NextJS starter in Firebase Studio.
 
