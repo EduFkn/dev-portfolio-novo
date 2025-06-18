@@ -83,15 +83,10 @@ export function Navbar() {
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        // Setting hash directly can be jarring, let scrollIntoView handle it.
-        // If direct hash update is needed, ensure it doesn't conflict.
-        // setTimeout(() => { window.location.hash = elementId; }, 0);
       }
     } else if (hash === '/') {
-        // For home, scroll to top and clear hash
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.location.hash) {
-          // Use history.pushState to clear hash without page reload or jump
           history.pushState("", document.title, window.location.pathname + window.location.search);
         }
     }
@@ -100,6 +95,11 @@ export function Navbar() {
   const isNavItemActive = (itemHref: string) => {
     const currentPathWithHash = pathname + currentHash;
     if (itemHref === '/') return currentPathWithHash === '/' || (pathname === '/' && currentHash === '');
+    // For section links, check if the hash matches or if it's the base path and the hash matches the item's hash part
+    if (itemHref.startsWith('/#')) {
+      const itemHash = itemHref.substring(1); // #about
+      return currentHash === itemHash || (pathname === '/' && currentHash === itemHash);
+    }
     return currentPathWithHash === itemHref || currentPathWithHash === `/${itemHref.replace(/^#/, '')}`;
   };
   
@@ -116,7 +116,7 @@ export function Navbar() {
               </Link>
             </div>
             
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-1 ml-8"> {/* Added ml-8 for more space */}
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -126,8 +126,9 @@ export function Navbar() {
                     "px-3 py-2 rounded-md text-xs lg:text-sm font-medium transition-all duration-300 ease-in-out",
                     "hover:text-primary hover:bg-primary/10",
                     isNavItemActive(item.href)
-                      ? "text-primary bg-primary/10 font-semibold" // Ensure background for active is subtle
-                      : "text-foreground/80 hover:text-foreground"
+                      ? "text-primary font-semibold" // Base active style
+                      : "text-foreground/80 hover:text-foreground",
+                    isNavItemActive(item.href) && item.href !== '/' && "bg-primary/10" // Conditional background for non-home active links
                   )}
                   aria-current={isNavItemActive(item.href) ? 'page' : undefined}
                 >
@@ -213,9 +214,10 @@ export function Navbar() {
                   className={cn(
                     "block px-3 py-2 rounded-md text-base font-medium",
                     "hover:text-primary hover:bg-primary/10",
-                    isNavItemActive(item.href)
-                      ? "text-primary bg-primary/10"
-                      : "text-foreground/80 hover:text-foreground"
+                     isNavItemActive(item.href)
+                      ? "text-primary font-semibold"
+                      : "text-foreground/80 hover:text-foreground",
+                    isNavItemActive(item.href) && item.href !== '/' && "bg-primary/10"
                   )}
                   aria-current={isNavItemActive(item.href) ? 'page' : undefined}
                 >

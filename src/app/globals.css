@@ -9,33 +9,33 @@ body {
 @layer base {
   :root {
     /* Original Purple/Dark Theme */
-    --background: 240 10% 3.9%; /* Dark Blue/Almost Black */
-    --foreground: 0 0% 98%; /* White text */
+    --background: 224 71% 4%; /* #060914 - Even darker */
+    --foreground: 210 40% 98%; /* White text */
 
-    --card: 240 10% 6%; /* Slightly lighter dark blue */
-    --card-foreground: 0 0% 95%;
+    --card: 225 25% 9%; /* #111319 - Slightly lighter dark blue */
+    --card-foreground: 210 40% 95%;
 
-    --popover: 240 10% 4%; /* Darker popover */
-    --popover-foreground: 0 0% 95%;
+    --popover: 226 30% 7%; /* #0B0D13 - Darker popover */
+    --popover-foreground: 210 40% 95%;
 
-    --primary: 260 70% 65%; /* Vibrant Purple */
-    --primary-foreground: 0 0% 98%; /* White text on purple */
+    --primary: 260 85% 66%; /* Vibrant Purple #A06CD5 */
+    --primary-foreground: 210 40% 98%; /* White text on purple */
 
-    --secondary: 240 5% 12%; /* Darker Gray-Blue */
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 220 15% 15%; /* #20232A - Darker Gray-Blue */
+    --secondary-foreground: 210 40% 90%;
 
-    --muted: 240 5% 10%;
-    --muted-foreground: 0 0% 60%; /* Softer muted text */
+    --muted: 220 10% 12%; /* #1A1C22 */
+    --muted-foreground: 210 20% 60%; /* Softer muted text */
 
-    --accent: 270 60% 70%; /* Lighter, slightly desaturated Purple/Pink */
-    --accent-foreground: 0 0% 98%;
+    --accent: 270 70% 75%; /* Lighter, slightly desaturated Purple/Pink #D8B4F1 */
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 70% 50%; /* Standard destructive red */
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%; /* Standard destructive red */
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 240 5% 15%; /* Slightly lighter border */
-    --input: 240 5% 8%; /* Input background */
-    --ring: 260 70% 75%; /* Ring color - a lighter purple */
+    --border: 220 15% 20%; /* #2A2E39 - Slightly lighter border */
+    --input: 220 15% 10%; /* #14161B - Input background */
+    --ring: 260 85% 70%; /* Ring color - a lighter purple */
 
     --radius: 0.5rem;
 
@@ -45,37 +45,37 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    --sidebar-background: 240 10% 5%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 260 70% 60%; /* Sidebar primary purple */
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 270 60% 65%; /* Sidebar accent purple/pink */
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 240 5% 12%;
-    --sidebar-ring: 260 70% 70%;
+    --sidebar-background: 225 25% 8%; /* #0F1117 */
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 260 85% 60%; /* Sidebar primary purple */
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 270 70% 70%; /* Sidebar accent purple/pink */
+    --sidebar-accent-foreground: 210 40% 95%;
+    --sidebar-border: 220 15% 18%; /* #252830 */
+    --sidebar-ring: 260 85% 65%;
   }
 
   .light {
     /* Light Theme - keeping it simple and mostly inverted from dark */
     --background: 0 0% 98%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 224 71% 4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 224 71% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 224 71% 4%;
 
-    --primary: 260 65% 55%; /* Darker purple for light mode */
+    --primary: 260 80% 55%; /* Darker purple for light mode */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 94%;
-    --secondary-foreground: 240 10% 3.9%;
+    --secondary-foreground: 224 71% 4%;
 
     --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 270 55% 60%; /* Slightly adjusted accent for light mode */
+    --accent: 270 65% 60%; /* Slightly adjusted accent for light mode */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -83,7 +83,7 @@ body {
 
     --border: 0 0% 89.8%;
     --input: 0 0% 92%;
-    --ring: 260 65% 65%;
+    --ring: 260 80% 65%;
 
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -92,13 +92,13 @@ body {
     --chart-5: 340 75% 55%;
 
     --sidebar-background: 0 0% 96%;
-    --sidebar-foreground: 240 10% 10%;
-    --sidebar-primary: 260 65% 50%;
+    --sidebar-foreground: 224 71% 10%;
+    --sidebar-primary: 260 80% 50%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 270 55% 55%;
+    --sidebar-accent: 270 65% 55%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 260 65% 60%;
+    --sidebar-ring: 260 80% 60%;
   }
 }
 
@@ -262,7 +262,7 @@ body {
 }
 
 .typing-effect-name {
-  display: inline-block;
+  display: block; /* Changed to block */
   overflow: hidden;
   white-space: nowrap;
   border-right: .15em solid hsl(var(--accent)); /* Caret */
@@ -270,10 +270,12 @@ body {
     typing-hero-name 2s steps(30, end) 0.5s 1 normal both,
     blink-caret .75s step-end infinite 2.5s;
   animation-fill-mode: forwards;
+  width: fit-content; /* Ensure it only takes the width of its content */
+  margin: 0 auto; /* Center if block */
 }
 
 .typing-effect-role {
-  display: inline-block;
+  display: block; /* Changed to block */
   overflow: hidden;
   white-space: nowrap;
   border-right: .15em solid hsl(var(--accent)); /* Caret */
@@ -282,6 +284,7 @@ body {
     typing-hero-role 2.5s steps(40, end) 2.6s 1 normal both, /* Starts after name animation */
     blink-caret .75s step-end infinite 5.1s;
   animation-fill-mode: forwards;
+  margin: 0 auto; /* Center if block */
 }
 
 
@@ -332,7 +335,7 @@ body {
 @keyframes progress-anim {
   0% {
     width: 0;
-    opacity: 1;
+    opacity: 1; /* Start with opacity 1 so it's visible during animation */
   }
   100% {
     opacity: 1;

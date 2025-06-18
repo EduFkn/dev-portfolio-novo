@@ -28,21 +28,21 @@ export function HeroSection() {
   }, []);
   
   return (
-    <section id="home" className="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center text-center overflow-hidden py-10 md:py-0 animate-fade-in-up-subtle">
+    <section id="home" className="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] flex items-center justify-center text-center overflow-hidden py-10 md:py-0">
       <div 
         ref={bgRef}
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('https://placehold.co/1920x1080/100f1c/6a0dad.png?text=')", 
+          backgroundImage: "url('https://placehold.co/1920x1080/060914/A06CD5.png?text=')", // Updated background color to match theme
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
-          opacity: 0.1,
-          transform: 'scale(1.1)',
+          opacity: 0.07, // Slightly increased opacity for subtle effect
+          transform: 'scale(1.15)', // Slightly more scale
         }}
         data-ai-hint="abstract dark coding particles purple blue"
       ></div>
       
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in-up-subtle">
         <div className="max-w-2xl md:max-w-3xl mx-auto">
           <div className="relative w-28 h-28 md:w-32 md:h-32 mx-auto mb-5 rounded-full overflow-hidden shadow-custom-dark border-4 border-primary transform transition-all duration-500 hover:scale-110">
             <Image
@@ -56,9 +56,9 @@ export function HeroSection() {
           </div>
           <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold mb-2.5">
             <span className="block">{t('hero.greeting')}</span>
-            <span className="text-primary typing-effect-name">{t('hero.name')}</span>
+            <span className="text-primary typing-effect-name mx-auto">{t('hero.name')}</span>
           </h1>
-          <p className="font-headline text-lg sm:text-xl md:text-2xl text-accent mb-4 typing-effect-role">
+          <p className="font-headline text-lg sm:text-xl md:text-2xl text-accent mb-4 typing-effect-role mx-auto">
             {t('hero.role')}
           </p>
           <p className="text-sm sm:text-base text-foreground/80 mb-7 max-w-xl mx-auto leading-relaxed opacity-0 animate-fade-in-up-subtle" style={{ animationDelay: '4.8s' }}>
