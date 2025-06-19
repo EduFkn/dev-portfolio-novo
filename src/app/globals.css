@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden; /* Impede a rolagem horizontal */
@@ -409,5 +413,3 @@ html {
 html {
   scroll-behavior: smooth;
 }
-
-    
