@@ -47,7 +47,7 @@ export function SkillCodeCard({ skillName, details, icon }: SkillCodeCardProps) 
       </div>
       <div className="space-y-1 px-2 pb-3 font-mono text-[0.7rem] leading-relaxed flex-grow">
         <p><span className="skill-card-bracket">&lt;</span><span className={`skill-card-tag ${languageColorClass(skillName)}`}>{skillName.replace(/\s+/g, '').replace('.','')}</span><span className="skill-card-bracket">&gt;</span></p>
-        {details.map((detail, index) => (
+        {details.slice(0, 2).map((detail, index) => ( // Show only first 2 details
           <p key={index} className="ml-3">
             <span className="skill-card-prop">feature</span><span className="skill-card-bracket">=</span><span className="skill-card-value">&quot;{detail}&quot;</span>
           </p>

@@ -63,9 +63,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
            <Badge variant="secondary" className="absolute top-2 right-2 text-[0.6rem] px-1.5 py-0.5 md:top-2.5 md:right-2.5 border-primary/50 text-primary bg-card/80 backdrop-blur-sm md:text-[0.65rem] md:px-2">{project.category}</Badge>
         </div>
       </CardHeader>
-      <CardContent className="p-3 md:p-3.5 flex-grow flex flex-col"> 
-        <CardTitle className="font-headline text-base md:text-md mb-1 text-accent group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle> 
-        <CardDescription className="text-foreground/80 mb-2 text-xs md:text-xs line-clamp-2 flex-grow leading-normal">{project.description}</CardDescription> 
+      <CardContent className="p-2.5 sm:p-3 md:p-3.5 flex-grow flex flex-col"> 
+        <CardTitle className="font-headline text-sm sm:text-base mb-1 text-accent group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle> 
+        <CardDescription className="text-foreground/80 mb-2 text-xs leading-normal line-clamp-3 flex-grow">{project.description}</CardDescription> 
         
         <div className="mt-auto">
           <p className="text-[0.6rem] md:text-[0.65rem] text-muted-foreground mb-1">{t('projects.techLabel')}</p> 
@@ -82,7 +82,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="p-3 md:p-3.5 border-t border-border/50 bg-card/30"> 
+      <CardFooter className="p-2.5 sm:p-3 md:p-3.5 border-t border-border/50 bg-card/30"> 
         <div className="flex justify-start space-x-1.5 w-full"> 
           {project.liveLink && (
             <Button asChild variant="outline" size="sm" className="text-primary border-primary hover:bg-primary hover:text-primary-foreground transition-colors duration-300 transform hover:scale-105 text-[0.65rem] px-2 py-1 h-auto md:px-2.5"> 
