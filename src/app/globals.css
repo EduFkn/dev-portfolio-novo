@@ -5,11 +5,15 @@
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth; /* Ensure smooth scroll behavior for the whole page */
 }
 
 body {
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden; /* Impede a rolagem horizontal */
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @layer base {
@@ -360,8 +364,15 @@ body {
 }
 
 html {
-  --primary-hsl: var(--primary);
+  --primary-hsl: 260 85% 66%; /* Ensure this matches your --primary HSL values */
+  --accent-hsl: 270 70% 75%; /* Ensure this matches your --accent HSL values */
 }
+
+.light {
+  --primary-hsl: 260 80% 55%;
+  --accent-hsl: 270 65% 60%;
+}
+
 
 /* Custom shadow for navbar */
 .shadow-custom-dark {
@@ -407,9 +418,4 @@ html {
 .scroll-snap-child {
   scroll-snap-align: start;
   scroll-margin-top: 1rem; /* Optional: space above snapped item */
-}
-
-/* Ensure smooth scroll behavior for the whole page */
-html {
-  scroll-behavior: smooth;
 }

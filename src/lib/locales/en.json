@@ -55,7 +55,20 @@
     "contactButton": "Talk to Me",
     "mapTitle": "Location on Map",
     "location": "Campos dos Goytacazes, RJ, Brazil",
-    "mapPinLabel": "Map Pin indicating location in Campos dos Goytacazes"
+    "mapPinLabel": "Map Pin indicating location in Campos dos Goytacazes",
+    "checklist": {
+      "title": "My Current Focus Areas",
+      "description": "Some of the areas and technologies I'm currently exploring and enhancing.",
+      "item1": "Deepen knowledge in Serverless Architectures",
+      "item2": "Explore WebAssembly with Rust",
+      "item3": "Contribute to Open Source AI Projects",
+      "item4": "Master E2E Testing with Playwright"
+    },
+    "placeholderCard": {
+        "title": "Exploring the Future",
+        "description": "A placeholder for future innovations and experiments.",
+        "content": "Something amazing coming here soon! (Maybe an interactive 3D visualization?)"
+    }
   },
   "skills": {
     "title": "My",
@@ -103,8 +116,8 @@
       "description": "This very portfolio site, built with Next.js, TypeScript, and TailwindCSS for a modern visual experience."
     },
     "chatbotProject": {
-      "title": "Customer Service Chatbot",
-      "description": "Intelligent chatbot for customer support automation, integrated with messaging platforms using Node.js."
+      "title": "AI Chatbot Project",
+      "description": "Intelligent chatbot for automation, integrated with messaging platforms."
     },
     "bookingSystem": {
       "title": "Simplified Booking System",

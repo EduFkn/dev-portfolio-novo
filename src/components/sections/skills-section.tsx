@@ -52,10 +52,10 @@ export function SkillsSection() {
           </div>
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto pb-4 space-x-4 md:space-x-6 hide-scrollbar px-2"
+            className="flex overflow-x-auto pb-4 space-x-4 md:space-x-6 hide-scrollbar px-2 items-stretch"
           >
             {skillsList.map((skill, index) => (
-              <div key={skill.name} className="flex-shrink-0 w-[270px] sm:w-[290px] md:w-[310px] animate-fade-in-up-subtle h-full" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
+              <div key={skill.name} className="flex-shrink-0 w-[270px] sm:w-[290px] md:w-[310px] animate-fade-in-up-subtle flex" style={{ animationDelay: `${0.3 + index * 0.05}s` }}>
                 <SkillCodeCard 
                   skillName={skill.name}
                   details={skill.details}

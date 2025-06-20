@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { Terminal } from 'lucide-react'; // Using Terminal as a generic code icon
+import { cn } from '@/lib/utils';
 
 interface SkillCodeCardProps {
   skillName: string;
@@ -33,7 +34,10 @@ export function SkillCodeCard({ skillName, details, icon }: SkillCodeCardProps) 
   };
   
   return (
-    <div className="relative rounded-lg bg-slate-900/70 dark:bg-slate-900 p-3 shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:scale-[1.02] h-full flex flex-col">
+    <div className={cn(
+        "relative rounded-lg bg-slate-900/70 dark:bg-slate-900 p-3 shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:scale-[1.02]",
+        "h-full flex flex-col w-full" // Ensures full height within its flex container
+      )}>
       <div className="relative flex items-center mb-3">
         <div className="flex pl-2 pt-1">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500/80 mr-1.5"></span>

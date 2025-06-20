@@ -55,7 +55,20 @@
     "contactButton": "Fale Comigo",
     "mapTitle": "Localização no Mapa",
     "location": "Campos dos Goytacazes, RJ, Brasil",
-    "mapPinLabel": "Pino do Mapa indicando localização em Campos dos Goytacazes"
+    "mapPinLabel": "Pino do Mapa indicando localização em Campos dos Goytacazes",
+    "checklist": {
+      "title": "Meus Focos Atuais",
+      "description": "Algumas das áreas e tecnologias que estou explorando e aprimorando no momento.",
+      "item1": "Aprofundar em Arquiteturas Serverless",
+      "item2": "Explorar WebAssembly com Rust",
+      "item3": "Contribuir para Projetos Open Source de IA",
+      "item4": "Dominar Testes E2E com Playwright"
+    },
+    "placeholderCard": {
+      "title": "Explorando o Futuro",
+      "description": "Espaço reservado para futuras inovações e experimentações.",
+      "content": "Em breve, algo incrível aqui! (Talvez uma visualização 3D interativa?)"
+    }
   },
   "skills": {
     "title": "Minhas",
@@ -103,8 +116,8 @@
       "description": "Este próprio site de portfólio, construído com Next.js, TypeScript e TailwindCSS para uma experiência visual moderna."
     },
     "chatbotProject": {
-      "title": "Chatbot de Atendimento com IA",
-      "description": "Chatbot inteligente para automação de suporte ao cliente, integrado com plataformas de mensageria usando Node.js e Genkit."
+      "title": "Projeto Chatbot IA",
+      "description": "Chatbot inteligente para automação, integrado com plataformas de mensageria."
     },
     "bookingSystem": {
       "title": "Sistema de Reservas Simplificado",
