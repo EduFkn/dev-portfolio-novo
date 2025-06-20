@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ProjectCard } from './project-card'; // Adjusted path if ProjectCard is moved/renamed
+import { ProjectCard } from './project-card';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useI18n } from '@/hooks/use-i18n';
@@ -44,13 +44,13 @@ const getProjectsData = (t: Function) => [
   },
   {
     id: '4',
-    title: t('projects.chatbot.title'),
-    description: t('projects.chatbot.description'),
-    imageUrl: 'https://placehold.co/600x360/8A2BE2/FFFFFF.png?text=AI+Chatbot', 
+    title: t('projects.chatbotProject.title'),
+    description: t('projects.chatbotProject.description'),
+    imageUrl: 'https://placehold.co/600x360/8A2BE2/FFFFFF.png?text=AI+Chatbot',
     imageHint: 'artificial intelligence customer service',
     liveLink: '#',
     repoLink: '#',
-    tags: ['Chatbots', 'Node.js', 'JavaScript'], 
+    tags: ['Chatbots', 'Node.js', 'JavaScript'],
     category: t('projects.categories.automations')
   },
   {
@@ -131,13 +131,20 @@ export function ProjectsShowcase() {
           ))}
         </div>
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {filteredProjects.map((project, index) => (
-              <div key={project.id} className="animate-fade-in-up-subtle" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                <ProjectCard project={project} />
-              </div>
-            ))}
-          </div>
+          <>
+            <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 md:gap-y-8 md:space-x-0 md:pb-0 md:overflow-x-visible flex overflow-x-auto space-x-4 hide-scrollbar pb-4 px-1">
+              {filteredProjects.map((project, index) => (
+                <div 
+                  key={project.id} 
+                  className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-auto animate-fade-in-up-subtle"
+                  style={{ animationDelay: `${0.3 + index * 0.05}s` }}
+                >
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
+            <p className="md:hidden text-center text-xs text-muted-foreground mt-4 px-4">{t('projects.scrollHintMobile')}</p>
+          </>
         ) : (
           <p className="text-center text-foreground/70 text-sm md:text-base">{t('projects.noProjectsFound')}</p>
         )}

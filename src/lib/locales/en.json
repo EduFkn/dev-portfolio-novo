@@ -80,6 +80,7 @@
     "title": "My",
     "titleHighlight": "Projects",
     "noProjectsFound": "No projects found for this category.",
+    "scrollHintMobile": "Swipe to see more projects →",
     "categories": {
       "all": "All",
       "systems": "Systems",
@@ -219,5 +220,3 @@
     "emailLabel": "Email Me"
   }
 }
-
-    
